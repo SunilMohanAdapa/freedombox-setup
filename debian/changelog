@@ -2,6 +2,7 @@ freedombox-setup (0.0.3) UNRELEASED; urgency=low
 
   * Replace transitional package liblua5.1-sec1 with lua-sec, fixing
     installation problem in jessie.
+  * Make sure to install jwchat non-interactively.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 09 Sep 2013 23:45:16 +0200
 
