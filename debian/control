@@ -16,7 +16,7 @@ Depends: ${misc:Depends}
  , dosfstools
  , haveged
  , git
- , liblua5.1-sec1
+ , lua-sec
  , locales
  , locales-all
  , mercurial
