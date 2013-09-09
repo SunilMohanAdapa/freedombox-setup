@@ -1,4 +1,10 @@
 #!/bin/sh
+#
+# Set up jwchat to work out of the box.
+
+set -e
+
+apt-get install jwchat
 
 # Disabling the default site make jwchat the default site.
 a2dissite 000-default

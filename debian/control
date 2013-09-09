@@ -16,7 +16,6 @@ Depends: ${misc:Depends}
  , dosfstools
  , haveged
  , git
- , jwchat
  , liblua5.1-sec1
  , locales
  , locales-all
