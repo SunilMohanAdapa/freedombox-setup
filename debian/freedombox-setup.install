@@ -1,0 +1,5 @@
+setup usr/lib/freedombox
+setup.d usr/lib/freedombox
+sysctl.d/freedombox-setup.conf etc/sysctl.d
+sbin/copy2dream sbin
+doc/README home/fbx

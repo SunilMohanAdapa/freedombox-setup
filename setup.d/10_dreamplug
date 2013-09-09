@@ -1,0 +1,92 @@
+#!/bin/sh
+#
+# Only replace fstab if it is empty.  This will avoid wiping the fstab
+# file when running setup inside a real installation, as opposed to
+# when building a chroot.
+if [ ! -s /etc/fstab ] ; then
+    echo "Setting up disk configuration for $DESTINATION"
+
+    cat > /etc/fstab <<EOF
+proc	  /proc		proc	none		0	0
+sys	  /sys		sysfs	none		0	0
+none	  /dev/pts	devpts	defaults	0	0
+tmpfs     /tmp          tmpfs   rw,nosuid,nodev 0       0
+EOF
+
+    case $DESTINATION in
+	card)
+	    cat > /etc/fstab <<EOF
+/dev/sda2 /		auto	relatime,rw	0	0
+/dev/sda1 /boot  	vfat	defaults	0	0
+EOF
+	    ;;
+	usb)
+	    cat > /etc/fstab <<EOF
+/dev/sdc2 /		auto	relatime,rw	0	0
+/dev/sdc1 /boot  	vfat	defaults	0	0
+EOF
+	    ;;
+    esac
+
+    printf "" > /etc/mtab
+fi
+
+# Already configured, do not overwrite existing setup
+if [ "$MACHINE" ] &&
+    ( [ ! -e /etc/network/interface ] || ! grep eth0 /etc/network/interface )
+then
+    echo "Setting up network configuration for $MACHINE"
+
+    rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
+
+    cat > /etc/network/interfaces <<EOF
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+EOF
+    case "$MACHINE" in
+	dreamplug|guruplug)
+	    cat >> /etc/network/interfaces <<EOF
+
+# The primary network interface
+auto eth0
+iface eth0 inet static
+    address 192.168.1.1
+    netmask 255.255.255.0
+
+allow-hotplug eth1
+iface eth1 inet dhcp
+
+# auto uap0
+# iface uap0 inet static
+#     address 192.168.2.1
+#     netmask 255.255.255.0
+#     post-up uaputl sys_cfg_ssid "freedombox"
+#     post-up uaputl sys_cfg_protocol 32  # WPA2
+#     post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
+#     post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
+#     post-up uaputl bss_start
+EOF
+	    ;;
+	virtualbox)
+	    cat >> /etc/network/interfaces <<EOF
+
+allow-hotplug eth0
+iface eth0 inet dhcp
+EOF
+	    ;;
+    esac
+
+    cat > /etc/hosts <<EOF
+127.0.0.1	localhost freedombox fbx
+::1		localhost ip6-localhost ip6-loopback
+fe00::0		ip6-localnet
+ff00::0		ip6-mcastprefix
+ff02::1		ip6-allnodes
+ff02::2		ip6-allrouters
+EOF
+
+fi

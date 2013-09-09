@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Make sure generated images complies with licenses requiring the
+# source to be available, by providing the source of every package
+# used.
+
+targetdir=/usr/src/packages
+
+echo "Adding source packages to filesystem in $targetdir"
+apt-get update || true
+dpkg --get-selections > /tmp/selections
+mkdir -p $targetdir
+cd $targetdir
+
+cut -f 1 < /tmp/selections | \
+    cut -d ':' -f 1 > /tmp/packages
+apt-get source -m --download-only `cat /tmp/packages`
+
+rm /tmp/selections /tmp/packages

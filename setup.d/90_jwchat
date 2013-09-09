@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Disabling the default site make jwchat the default site.
+a2dissite 000-default

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mkdir -p /etc/openvpn
+touch /etc/openvpn/static.key
+touch /etc/openvpn/client.conf
