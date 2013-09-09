@@ -3,6 +3,8 @@ freedombox-setup (0.0.2) UNRELEASED; urgency=low
   * Do not depend on jwchat, but instead pull it in using a setup.d
     script, to avoid failing to install when jwchat fail to install like
     it currently do in testing.
+  * Add new helper script dreamplug-detect, and move all sbin tools to
+    /usr/sbin/.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 09 Sep 2013 19:54:42 +0200
 

@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Return true if running on a dreamplug, and false otherwise.
+#
+# Currently look in /sys/devices for indicators.
+
+case $(dpkg --print-architecture) in
+     armel)
+	# Matches these:
+	# /sys/devices/gpio-leds.1/leds/dreamplug:blue:bluetooth
+	# /sys/devices/gpio-leds.1/leds/dreamplug:green:wifi_ap
+	# /sys/devices/gpio-leds.1/leds/dreamplug:green:wifi
+	if find /sys/devices -name 'dreamplug:*' | grep -q dreamplug: ; then
+	    return 0
+	else
+	    return 1
+	fi
+	;;
+    *)
+	return 1
+	;;
+esac
