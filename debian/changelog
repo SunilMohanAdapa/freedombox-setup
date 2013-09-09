@@ -1,5 +1,5 @@
-freedombox-setup (0.0.1) UNRELEASED; urgency=low
+freedombox-setup (0.0.1) wheezy; urgency=low
 
-  * Initial version.
+  * Initial version based on setup from freedom-maker.
 
- -- Petter Reinholdtsen <pere@debian.org>  Thu, 15 Aug 2013 20:56:48 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 09 Sep 2013 19:50:35 +0200
