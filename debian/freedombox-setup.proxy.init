@@ -11,6 +11,8 @@
 
 set -e
 
+. /lib/lsb/init-functions
+
 INTIF1="eth0"
 INTIF2="uap0"
 EXTIF="eth1"
@@ -48,11 +50,20 @@ configIpTables() {
     iptables -t nat -A POSTROUTING -o $EXTIF -j MASQUERADE
 }
 
+start() {
+    log_action_begin_msg "Loading proxy and iptable rules"
+    if loadModules &&
+	setProc &&
+	configIpTables ; then
+	log_action_end_msg 0
+    else
+	log_action_end_msg 1
+    fi
+}
+
 case "$1" in
     start)
-        loadModules
-        setProc
-        configIpTables
+        start
         ;;
     stop|restart|force-reload)
 	# Do nothing

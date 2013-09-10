@@ -4,7 +4,7 @@ freedombox-setup (0.0.4) UNRELEASED; urgency=low
   * Remove plinth related call for 'a2enmod rewrite' in first-run, as it
     is already done in setup.d/80_plinth and do not have to happen
     during first boot.
-  * Rewrite first-run script to use log_* functions for output.
+  * Rewrite first-run and proxy script to use log_* functions for output.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 10 Sep 2013 11:00:05 +0200
 
