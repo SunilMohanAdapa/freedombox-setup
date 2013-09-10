@@ -1,3 +1,9 @@
+freedombox-setup (0.0.4) UNRELEASED; urgency=low
+
+  * Add new setup.d/91_privoxy to set up freedombox-privoxy.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 10 Sep 2013 11:00:05 +0200
+
 freedombox-setup (0.0.3) wheezy; urgency=low
 
   * Replace transitional package liblua5.1-sec1 with lua-sec, fixing
