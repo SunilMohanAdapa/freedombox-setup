@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Script to complete the post-install process on first FBX boot.
 
@@ -20,7 +20,7 @@ fi
 
 . /lib/lsb/init-functions
 
-function tweak-kernel {
+tweak_kernel() {
     # Update the kernel if package flash-kernel is install unless
     # requested otherwise.
     if ! type flash-kernel > /dev/null 2>&1 ; then
@@ -46,7 +46,7 @@ function tweak-kernel {
     fi
 }
 
-function wifi-ap-setup {
+wifi_ap_setup() {
     # configure wireless access point with spinifex's prebuilt firmware
 
     echo "Configuring WIFI..."
@@ -63,7 +63,7 @@ function wifi-ap-setup {
     echo "Done Configuring WIFI."
 }
 
-function create-keys {
+create_keys() {
     log_action_begin_msg "Creating SSH keys"
     rm /etc/ssh/ssh_host_*
     if dpkg-reconfigure openssh-server ; then
@@ -82,7 +82,7 @@ function create-keys {
     # fi
 }
 
-function mark-complete {
+mark_complete() {
     # Prevent this initial configuration script from running again.
 
     log_action_begin_msg "Marking Complete"
@@ -91,7 +91,7 @@ function mark-complete {
     log_action_end_msg 0
 }
 
-function remove-self {
+remove_self() {
     # remove this file.
 
     echo "Removing Self..."
@@ -106,12 +106,12 @@ function remove-self {
 
 case "$1" in
     start)
-        create-keys
-        # wifi-ap-setup
+        create_keys
+        # wifi_ap_setup
 
         # the last things we do before quitting.
-        tweak-kernel
-        mark-complete
+        tweak_kernel
+        mark_complete
 
         # we're done, reboot.
         reboot

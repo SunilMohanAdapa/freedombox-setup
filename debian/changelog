@@ -5,6 +5,8 @@ freedombox-setup (0.0.4) UNRELEASED; urgency=low
     is already done in setup.d/80_plinth and do not have to happen
     during first boot.
   * Rewrite first-run and proxy script to use log_* functions for output.
+  * Rewrite first-run script from bash to Bourne sh, to avoid the need
+    to load bash during boot.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 10 Sep 2013 11:00:05 +0200
 
