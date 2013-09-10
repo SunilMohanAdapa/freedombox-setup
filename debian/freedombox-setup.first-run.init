@@ -85,7 +85,7 @@ create_keys() {
 mark_complete() {
     # Prevent this initial configuration script from running again.
 
-    log_action_begin_msg "Marking Complete"
+    log_action_begin_msg "Marking first-run complete"
     mkdir -p "${RUNONCE%/*}"
     touch $RUNONCE
     log_action_end_msg 0
