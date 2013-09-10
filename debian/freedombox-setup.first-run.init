@@ -59,14 +59,6 @@ function wifi-ap-setup {
     echo "Done Configuring WIFI."
 }
 
-function apache-config {
-    echo "Configuring Apache..."
-
-    a2enmod rewrite
-
-    echo "Done Configuring Apache."
-}
-
 function create-keys {
     echo "Creating Keys..."
 
@@ -107,8 +99,6 @@ case "$1" in
     start)
         create-keys
         # wifi-ap-setup
-
-        apache-config
 
         # the last things we do before quitting.
         tweak-kernel
