@@ -18,27 +18,31 @@ then
     exit
 fi
 
+. /lib/lsb/init-functions
+
 function tweak-kernel {
     # Update the kernel if package flash-kernel is install unless
     # requested otherwise.
-    if ! type flash-kernel ; then
+    if ! type flash-kernel > /dev/null 2>&1 ; then
 	return
     fi
 
-    echo -n "Flashing Kernel..."
-
     if [ -e /var/freedombox/dont-tweak-kernel ]
     then
-        echo "Skipped Flashing Kernel."
+	log_warning_msg "Skipped Flashing Kernel."
         return
     else
         kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-kirkwood | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
 
-        mount -t proc proc /proc
-        flash-kernel $kernel_version
-        umount /proc
+	log_action_begin_msg "Flashing Kernel version $kernel_version "
 
-        echo "Done Flashing Kernel."
+        if mount -t proc proc /proc &&
+            flash-kernel $kernel_version &&
+            umount /proc ; then
+	    log_action_end_msg 0
+	else
+	    log_action_end_msg 1
+	fi
     fi
 }
 
@@ -60,26 +64,31 @@ function wifi-ap-setup {
 }
 
 function create-keys {
-    echo "Creating Keys..."
-
-    echo "  Creating SSH keys."
+    log_action_begin_msg "Creating SSH keys"
     rm /etc/ssh/ssh_host_*
-    dpkg-reconfigure openssh-server
+    if dpkg-reconfigure openssh-server ; then
+	log_action_end_msg 0
+    else
+	log_action_end_msg 1
+    fi
 
-    echo "  Need to create other keys."
-    # gpg --batch --gen-key
     # see http://lists.gnupg.org/pipermail/gnupg-users/2003-March/017376.html
-
-    echo "Done Creating Keys."
+    #log_action_begin_msg "Creating GPG key"
+    #echo "  Need to create other keys."
+    #if gpg --batch --gen-key ; then
+    #    log_action_end_msg 0
+    # else
+    #    log_action_end_msg 1
+    # fi
 }
 
 function mark-complete {
     # Prevent this initial configuration script from running again.
 
-    echo "Marking Complete..."
+    log_action_begin_msg "Marking Complete"
     mkdir -p "${RUNONCE%/*}"
     touch $RUNONCE
-    echo "Done Marking Complete."
+    log_action_end_msg 0
 }
 
 function remove-self {
