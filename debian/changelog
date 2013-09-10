@@ -1,4 +1,4 @@
-freedombox-setup (0.0.4) UNRELEASED; urgency=low
+freedombox-setup (0.0.4) wheezy; urgency=low
 
   * Add new setup.d/91_privoxy to set up freedombox-privoxy.
   * Remove plinth related call for 'a2enmod rewrite' in first-run, as it
@@ -8,7 +8,7 @@ freedombox-setup (0.0.4) UNRELEASED; urgency=low
   * Rewrite first-run script from bash to Bourne sh, to avoid the need
     to load bash during boot.
 
- -- Petter Reinholdtsen <pere@debian.org>  Tue, 10 Sep 2013 11:00:05 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 10 Sep 2013 12:13:51 +0200
 
 freedombox-setup (0.0.3) wheezy; urgency=low
 
