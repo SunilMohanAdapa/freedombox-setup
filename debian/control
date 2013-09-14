@@ -28,7 +28,6 @@ Depends: ${misc:Depends}
  , pandoc
  , python-docutils
  , parted
- , prosody
  , augeas-tools
  , python-augeas
  , python-beautifulsoup

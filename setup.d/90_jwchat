@@ -4,7 +4,8 @@
 
 set -e
 
-apt-get install -y jwchat
+# An alternative XMPP server is prosody
+apt-get install -y jwchat ejabberd
 
 # Disabling the default site make jwchat the default site.
 a2dissite 000-default
