@@ -4,8 +4,9 @@
 
 set -e
 
-# Set hostname for ejabberd
+# Set hostname for ejabberd and jwchat
 echo "ejabberd ejabberd/hostname string `hostname`" | debconf-set-selections
+echo "jwchat jwchat/ApacheServerName string `hostname`" | debconf-set-selections
 
 # An alternative XMPP server is prosody
 apt-get install -y jwchat ejabberd
