@@ -2,6 +2,10 @@
 #
 # Replacement DHCP server configuration used on the dreamplug
 
+# Disabled while dnsmasq is used as DHCP server
+echo warning: Not setting up isc-dhcp-server, as dnsmasq is used instead.
+exit 0
+
 cat > /etc/dhcp/dhcpd.conf<<EOF
 #
 # FreedomBox ISC dhcpd configuration

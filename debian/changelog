@@ -3,6 +3,11 @@ freedombox-setup (0.0.5) UNRELEASED; urgency=low
   * Drop prosody from dependencies, as jwchat pull in ejabberd and two
     XMPP servers should not be running at the same time on the
     Freedombox.
+  * Drop isc-dhcp-server from dependencies and disable
+    setup.d/40_dhcp-server for now, as dnsmasq is also providing a
+    DHCP server and we only need one DHCP server.  As dnsmasq also is
+    the DNS server, it can not be removed without a larger rewrite of
+    the setup.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Sep 2013 21:10:23 +0200
 

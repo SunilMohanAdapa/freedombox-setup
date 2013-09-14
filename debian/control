@@ -42,7 +42,6 @@ Depends: ${misc:Depends}
  , wajig
  , zile
  , isc-dhcp-client
- , isc-dhcp-server
  , iproute
  , iptables
  , iputils-ping
