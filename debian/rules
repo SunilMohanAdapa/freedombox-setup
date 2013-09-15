@@ -3,5 +3,5 @@
 	dh $@
 
 override_dh_installinit:
-	dh_installinit --no-start --name=first-run -u"start 2 3 4 5 ."
-	dh_installinit --no-start --name=proxy -u"start 2 3 4 5 ."
+	dh_installinit --no-start --name=first-run -u"start 20 2 3 4 5 ."
+	dh_installinit --no-start --name=proxy -u"start 20 2 3 4 5 ."

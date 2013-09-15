@@ -1,3 +1,9 @@
+freedombox-setup (0.0.7) UNRELEASED; urgency=low
+
+  * Fix typo in update-rc.d arguments in rules file.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 15:14:29 +0200
+
 freedombox-setup (0.0.6) wheezy; urgency=low
 
   * Pull in libnss-myhostname and remove host name from /etc/hosts, to
