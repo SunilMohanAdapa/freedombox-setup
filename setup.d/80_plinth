@@ -5,7 +5,7 @@
 
 echo "Configuring Apache..."
 
-cat > /etc/apache2/sites-available/plinth <<END
+cat > /etc/apache2/sites-available/plinth.conf <<END
 <VirtualHost *:8001>
         ServerAdmin webmaster@localhost
 
@@ -35,5 +35,5 @@ Include freedombox-ports.conf
 END
 fi
 a2enmod rewrite
-a2ensite plinth
+a2ensite plinth.conf
 echo "Done Configuring Apache."
