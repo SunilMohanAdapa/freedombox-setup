@@ -8,6 +8,10 @@ freedombox-setup (0.0.5) UNRELEASED; urgency=low
     DHCP server and we only need one DHCP server.  As dnsmasq also is
     the DNS server, it can not be removed without a larger rewrite of
     the setup.
+  * Make sure the jwchat and ejabberd configuration contain the
+    correct hostname and ejabberd have mod_http_bind enabled to get
+    XMPP and jwchat working out of the box.  Patch from James
+    Valleroy.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Sep 2013 21:10:23 +0200
 
