@@ -1,28 +1,23 @@
-Restructure how freedombox is set up?
+Set up FreedomBox using deb packages
+====================================
 
-At the moment, the dreambox and virtualbox images for freedombox are
-set up quite differently, using different package lists to install and
-different scripts to configure the images.  I belive this is
-unfortunate, and suggest a way to change this.
+To make sure a FreedomBox can be set up on any architecture
+supported by Debian, the code and settings used to configure
+packages are gathered in this deb.
 
-I suggest the code to set up the freedombox is moved to a new debian
-package (lets name it freedombox-setup), and the packages to install
-are listed as dependencies for this package.
+The scripts in setup.d/ are executed during installation to install
+and configure different parts of the FreedomBox.  Note that most setup
+should be done as plinth modules on request of its user, and not
+during installation.  These scripts should not make any assumtions
+about hostname or encryption keys, as these will be set or generated
+on the first boot.
 
-The content of the package should be something like this:
+The scripts in first-boot.d/ are executed during first boot, and the
+end of the boot sequence.
 
-  /usr/lib/freedombox/setup
-  /usr/lib/freedombox/setup.d/
-    01_privoxy
-    80_package-sources
-    99_prepare-first-boot
+After freedombox-setup is installed, the /usr/lib/freedombox/setup
+should be called to finish the setup.  
 
-  /etc/init.d/
-    first-boot
-    proxy
-
-The image creation for both should call the /usr/lib/freedombox/setup
-script, which in turn call the scripts in setup.d to configure various
-parts of the image.  At the end of the setup phase, Any think needed
-to prepare before the first boot is done, and the image should be
-ready to boot.
+On the first boot, /etc/init.d/first-boot is called and a reboot done
+when it finishes to make sure all services are started with the
+correct configuration.
