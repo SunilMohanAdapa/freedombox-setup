@@ -12,7 +12,7 @@ echo "jwchat jwchat/ApacheServerName string `hostname`" | debconf-set-selections
 apt-get install -y jwchat ejabberd
 
 # Enable BOSH module for ejabberd
-if ! grep -q mod_http_bind ; then
+if ! grep -q mod_http_bind /etc/ejabberd/ejabberd.cfg ; then
     sed -i '/mod_last/i \
   {mod_http_bind, []},' /etc/ejabberd/ejabberd.cfg
 fi

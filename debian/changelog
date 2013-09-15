@@ -1,3 +1,9 @@
+freedombox-setup (0.0.8) UNRELEASED; urgency=low
+
+  * Fix typo in 90_jwchat hanging the setup.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 23:16:57 +0200
+
 freedombox-setup (0.0.7) wheezy; urgency=low
 
   * Fix typo in update-rc.d arguments in rules file.
