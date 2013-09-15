@@ -79,14 +79,19 @@ iface eth0 inet dhcp
 EOF
 	    ;;
     esac
-
-    cat > /etc/hosts <<EOF
-127.0.0.1	localhost freedombox fbx
-::1		localhost ip6-localhost ip6-loopback
-fe00::0		ip6-localnet
-ff00::0		ip6-mcastprefix
-ff02::1		ip6-allnodes
-ff02::2		ip6-allrouters
-EOF
-
 fi
+
+
+echo "info: rewriting /etc/hosts, leave host specific info to libnss-myhostname."
+cat > /etc/hosts <<EOF
+# Only generic entries in /etc/hosts, host specific information is
+# provided by libnss-myhostname.
+127.0.0.1       localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+EOF

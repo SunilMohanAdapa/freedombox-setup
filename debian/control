@@ -39,6 +39,7 @@ Depends: ${misc:Depends}
  , libpython2.7
  , psmisc
  , resolvconf
+ , libnss-myhostname
  , wajig
  , zile
  , isc-dhcp-client
