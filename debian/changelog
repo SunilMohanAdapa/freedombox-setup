@@ -1,4 +1,4 @@
-freedombox-setup (0.0.5) UNRELEASED; urgency=low
+freedombox-setup (0.0.5) wheezy; urgency=low
 
   * Drop prosody from dependencies, as jwchat pull in ejabberd and two
     XMPP servers should not be running at the same time on the
@@ -13,7 +13,7 @@ freedombox-setup (0.0.5) UNRELEASED; urgency=low
     XMPP and jwchat working out of the box.  Patch from James
     Valleroy.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Sep 2013 21:10:23 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 06:51:29 +0200
 
 freedombox-setup (0.0.4) wheezy; urgency=low
 
