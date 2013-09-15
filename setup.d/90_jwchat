@@ -12,8 +12,10 @@ echo "jwchat jwchat/ApacheServerName string `hostname`" | debconf-set-selections
 apt-get install -y jwchat ejabberd
 
 # Enable BOSH module for ejabberd
-sed -i '/mod_last/i \
+if ! grep -q mod_http_bind ; then
+    sed -i '/mod_last/i \
   {mod_http_bind, []},' /etc/ejabberd/ejabberd.cfg
+fi
 
 # Disabling the default site make jwchat the default site.
 a2dissite 000-default

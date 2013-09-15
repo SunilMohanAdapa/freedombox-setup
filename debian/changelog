@@ -5,6 +5,8 @@ freedombox-setup (0.0.6) UNRELEASED; urgency=low
   * Drop unused wajig as dependency.
   * Make sure to commit the current status of /etc/ at the end of the
     setup.d run.
+  * Adjust 90_jwchat to only update ejabberd.cfg once if it is executed
+    several times.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 08:42:02 +0200
 
