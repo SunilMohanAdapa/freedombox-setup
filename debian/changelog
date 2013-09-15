@@ -1,4 +1,4 @@
-freedombox-setup (0.0.7) UNRELEASED; urgency=low
+freedombox-setup (0.0.7) wheezy; urgency=low
 
   * Fix typo in update-rc.d arguments in rules file.
   * Adjust setup.d/80_plinth to create apache site file with .conf
@@ -7,7 +7,7 @@ freedombox-setup (0.0.7) UNRELEASED; urgency=low
     most code from init.d/first-run to this directory, to make the
     first-run code extendable using extra packages.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 15:14:29 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 22:32:56 +0200
 
 freedombox-setup (0.0.6) wheezy; urgency=low
 
