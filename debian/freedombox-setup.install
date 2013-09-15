@@ -1,5 +1,6 @@
 setup usr/lib/freedombox
 setup.d usr/lib/freedombox
+first-run.d usr/lib/freedombox
 sysctl.d/freedombox-setup.conf etc/sysctl.d
 sbin/copy2dream usr/sbin
 sbin/dreamplug-detect usr/sbin

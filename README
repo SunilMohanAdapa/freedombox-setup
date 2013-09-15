@@ -12,12 +12,12 @@ during installation.  These scripts should not make any assumtions
 about hostname or encryption keys, as these will be set or generated
 on the first boot.
 
-The scripts in first-boot.d/ are executed during first boot, and the
+The scripts in first-run.d/ are executed during first boot, and the
 end of the boot sequence.
 
 After freedombox-setup is installed, the /usr/lib/freedombox/setup
 should be called to finish the setup.  
 
-On the first boot, /etc/init.d/first-boot is called and a reboot done
+On the first boot, /etc/init.d/first-run is called and a reboot done
 when it finishes to make sure all services are started with the
 correct configuration.

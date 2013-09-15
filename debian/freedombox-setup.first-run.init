@@ -20,68 +20,6 @@ fi
 
 . /lib/lsb/init-functions
 
-tweak_kernel() {
-    # Update the kernel if package flash-kernel is install unless
-    # requested otherwise.
-    if ! type flash-kernel > /dev/null 2>&1 ; then
-	return
-    fi
-
-    if [ -e /var/freedombox/dont-tweak-kernel ]
-    then
-	log_warning_msg "Skipped Flashing Kernel."
-        return
-    else
-        kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-kirkwood | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
-
-	log_action_begin_msg "Flashing Kernel version $kernel_version "
-
-        if mount -t proc proc /proc &&
-            flash-kernel $kernel_version &&
-            umount /proc ; then
-	    log_action_end_msg 0
-	else
-	    log_action_end_msg 1
-	fi
-    fi
-}
-
-wifi_ap_setup() {
-    # configure wireless access point with spinifex's prebuilt firmware
-
-    echo "Configuring WIFI..."
-
-    echo "  Sleeping 30s for DHCP"
-    sleep 30    # wait for dhcp
-
-    echo "  Installing UAP Firmware."
-    wget -O /tmp/marvell_wifi_firmware.tar.gz http://www.spinifex.com.au/plugs/downloads/dreamplug/marvell_wifi_firmware.tar.gz
-    tar -C /tmp -zxf /tmp/marvell_wifi_firmware.tar.gz
-    mkdir -p /lib/firmware/mrvl
-    cp /tmp/lib/firmware/mrvl/* /lib/firmware/mrvl
-
-    echo "Done Configuring WIFI."
-}
-
-create_keys() {
-    log_action_begin_msg "Creating SSH keys"
-    rm /etc/ssh/ssh_host_*
-    if dpkg-reconfigure openssh-server ; then
-	log_action_end_msg 0
-    else
-	log_action_end_msg 1
-    fi
-
-    # see http://lists.gnupg.org/pipermail/gnupg-users/2003-March/017376.html
-    #log_action_begin_msg "Creating GPG key"
-    #echo "  Need to create other keys."
-    #if gpg --batch --gen-key ; then
-    #    log_action_end_msg 0
-    # else
-    #    log_action_end_msg 1
-    # fi
-}
-
 mark_complete() {
     # Prevent this initial configuration script from running again.
 
@@ -91,26 +29,13 @@ mark_complete() {
     log_action_end_msg 0
 }
 
-remove_self() {
-    # remove this file.
-
-    echo "Removing Self..."
-    rm -f /etc/init.d/first-run
-    rm -f /etc/rc1.d/S01first-run
-    rm -f /etc/rc2.d/S01first-run
-    rm /etc/init.d/first-run
-    rm /etc/rc1.d/S01first-run
-    rm /etc/rc2.d/S01first-run
-    echo "Done Removing Self."
-}
-
 case "$1" in
     start)
-        create_keys
-        # wifi_ap_setup
+	for f in /usr/lib/freedombox/first-run.d/* ; do
+	    $f
+	done
 
         # the last things we do before quitting.
-        tweak_kernel
         mark_complete
 
         # we're done, reboot.

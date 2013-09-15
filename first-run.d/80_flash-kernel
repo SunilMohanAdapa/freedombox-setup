@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Update the kernel if package flash-kernel is install unless
+# requested otherwise.
+
+. /lib/lsb/init-functions
+
+if ! type flash-kernel > /dev/null 2>&1 ; then
+    return
+fi
+
+if [ -e /var/freedombox/dont-tweak-kernel ]
+then
+    log_warning_msg "Skipped Flashing Kernel."
+    return
+else
+    kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-kirkwood | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
+
+    log_action_begin_msg "Flashing Kernel version $kernel_version "
+
+    if mount -t proc proc /proc &&
+        flash-kernel $kernel_version &&
+        umount /proc ; then
+	log_action_end_msg 0
+    else
+	log_action_end_msg 1
+    fi
+fi

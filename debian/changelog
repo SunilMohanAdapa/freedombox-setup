@@ -3,6 +3,9 @@ freedombox-setup (0.0.7) UNRELEASED; urgency=low
   * Fix typo in update-rc.d arguments in rules file.
   * Adjust setup.d/80_plinth to create apache site file with .conf
     ending to work with apache2 in Jessie.
+  * Created new /usr/lib/freedombox/first-run.d/ directory and moved
+    most code from init.d/first-run to this directory, to make the
+    first-run code extendable using extra packages.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 15 Sep 2013 15:14:29 +0200
 
