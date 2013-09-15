@@ -50,7 +50,6 @@ Depends: ${misc:Depends}
  , openssh-server
  , uaputl
  , wget
- , wajig
  , plinth
 Description: Set up freedombox environment
  Nice package.
