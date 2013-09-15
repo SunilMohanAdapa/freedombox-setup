@@ -40,7 +40,6 @@ Depends: ${misc:Depends}
  , psmisc
  , resolvconf
  , libnss-myhostname
- , wajig
  , zile
  , isc-dhcp-client
  , iproute
