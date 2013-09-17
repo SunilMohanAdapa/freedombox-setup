@@ -1,3 +1,11 @@
+freedombox-setup (0.0.9) UNRELEASED; urgency=low
+
+  * Add key-report and freedombox-todos to list of repositories feched
+    by setup.d/70_fetch-projects.  Drop exmachina, now integrated with
+    plinth.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 17 Sep 2013 09:42:45 +0200
+
 freedombox-setup (0.0.8) wheezy; urgency=low
 
   * Fix typo in 90_jwchat hanging the setup.
