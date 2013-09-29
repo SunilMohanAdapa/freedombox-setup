@@ -47,6 +47,7 @@ Depends: ${misc:Depends}
  , python-lxml
  , python-simplejson
  , resolvconf
+ , ssl-cert
  , sudo
  , uaputl
  , wget
