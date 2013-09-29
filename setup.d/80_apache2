@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Configure Apache for FBX.
+
+echo "Configuring Apache..."
+
+# enable miscellaneous modules.
+a2enmod rewrite
+
+# enable SSL
+a2enmod ssl
+make-ssl-cert generate-default-snakeoil --force-overwrite
+
+# restart apache.
+service apache2 restart
+
+echo "Done configuring Apache."

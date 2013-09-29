@@ -3,7 +3,7 @@
 # Add port forwarding from public port 8001 to plinth port 8000
 # on localhost.
 
-echo "Configuring Apache..."
+echo "Configuring Plinth..."
 
 cat > /etc/apache2/sites-available/plinth.conf <<END
 <VirtualHost *:8001>
@@ -24,6 +24,13 @@ cat > /etc/apache2/sites-available/plinth.conf <<END
         LogLevel warn
 
         CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        <IfModule mod_ssl.c>
+	        SSLEngine on
+            SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
+            SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+        </IfModule>
+
 </VirtualHost>
 END
 cat > /etc/apache2/freedombox-ports.conf <<END
@@ -34,6 +41,5 @@ if [ -z "`grep 'freedombox-ports.conf' /etc/apache2/ports.conf`" ];then
 Include freedombox-ports.conf
 END
 fi
-a2enmod rewrite
 a2ensite plinth.conf
-echo "Done Configuring Apache."
+echo "Done configuring Plinth.."
