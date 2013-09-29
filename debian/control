@@ -8,48 +8,48 @@ Standards-Version: 3.9.4
 Package: freedombox-setup
 Architecture: all
 Depends: ${misc:Depends}
- , etckeeper
  , apache2 | apache2-mpm-worker
+ , augeas-tools
+ , build-essential
+ , checkinstall
  , devio
  , dialog
  , dnsmasq
  , dosfstools
- , haveged
+ , etckeeper
  , git
- , lua-sec
- , locales
- , locales-all
- , mercurial
- , build-essential
- , checkinstall
- , sudo
- , python-simplejson
- , monkeysphere
- , pandoc
- , python-docutils
- , parted
- , augeas-tools
- , python-augeas
- , python-beautifulsoup
- , python-cheetah
- , python-argparse
- , python-lxml
- , python-bjsonrpc
- , python-cherrypy3
- , libpython2.7
- , psmisc
- , resolvconf
- , libnss-myhostname
- , zile
- , isc-dhcp-client
+ , haveged
  , iproute
  , iptables
  , iputils-ping
+ , isc-dhcp-client
+ , libnss-myhostname
+ , libpython2.7
+ , locales
+ , locales-all
+ , lua-sec
  , make
+ , mercurial
+ , monkeysphere
  , net-tools
  , openssh-server
+ , pandoc
+ , parted
+ , plinth
+ , psmisc
+ , python-argparse
+ , python-augeas
+ , python-beautifulsoup
+ , python-bjsonrpc
+ , python-cheetah
+ , python-cherrypy3
+ , python-docutils
+ , python-lxml
+ , python-simplejson
+ , resolvconf
+ , sudo
  , uaputl
  , wget
- , plinth
+ , zile
 Description: Set up freedombox environment
  Nice package.
