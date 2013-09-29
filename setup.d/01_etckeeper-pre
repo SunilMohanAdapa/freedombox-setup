@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if type etckeeper > /dev/null 2>&1 ; then
+    etckeeper commit -m "Status before freedombox-setup run."
+fi
