@@ -1,4 +1,4 @@
-freedombox-setup (0.0.9) UNRELEASED; urgency=low
+freedombox-setup (0.0.9) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]
   * Added key-report and freedombox-todos to list of repositories feched
@@ -16,7 +16,7 @@ freedombox-setup (0.0.9) UNRELEASED; urgency=low
   * Added code to use snakeoil SSL certificate with Apache, and put
     plinth behind this https connection.
 
- -- Petter Reinholdtsen <pere@debian.org>  Tue, 17 Sep 2013 09:42:45 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 30 Sep 2013 20:38:23 +0200
 
 freedombox-setup (0.0.8) wheezy; urgency=low
 
