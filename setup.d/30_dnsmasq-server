@@ -8,14 +8,18 @@ log-facility=DAEMON
 local=/fbx/
 local=/freedombox/
 
-# Upstream DNS server
-# FIXME this should be updated on boot.
-server=192.168.0.1@eth1
-
 # We will serve this DNS domain
 # (DHCP hosts will receive a .lan suffix in DNS)
 domain=lan
+EOF
 
+cat > /etc/dnsmasq.d/freedombox-upstream-dns <<EOF
+# Upstream DNS server
+# FIXME this should be updated on boot.
+server=192.168.0.1@eth1
+EOF
+
+cat > /etc/dnsmasq.d/freedombox-dhcp-server <<EOF
 # We're the authoritative dhcpd
 # Read the manpage for a good explanation of what this does
 dhcp-authoritative

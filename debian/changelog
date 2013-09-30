@@ -7,6 +7,8 @@ freedombox-setup (0.0.9) UNRELEASED; urgency=low
   * Added setup.d/05_apt-sources to disable cdrom APT sources after
     installation, to make sure plinth can install packages without
     asking for a CD to be installed.
+  * Rewrote setup.d/30_dnsmasq-server to split config in three
+    parts, one static and two that could change.
 
   [ Nick Daly ]
   * Added setup.d/01_etckeeper-pre to store /etc/ status before
