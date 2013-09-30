@@ -1,8 +1,8 @@
 freedombox-setup (0.0.9) UNRELEASED; urgency=low
 
   [ Petter Reinholdtsen ]
-  * Add key-report and freedombox-todos to list of repositories feched
-    by setup.d/70_fetch-projects.  Drop exmachina, now integrated with
+  * Added key-report and freedombox-todos to list of repositories feched
+    by setup.d/70_fetch-projects.  Dropped exmachina, now integrated with
     plinth.
   * Added setup.d/05_apt-sources to disable cdrom APT sources after
     installation, to make sure plinth can install packages without
