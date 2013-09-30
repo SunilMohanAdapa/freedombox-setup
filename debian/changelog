@@ -4,6 +4,9 @@ freedombox-setup (0.0.9) UNRELEASED; urgency=low
   * Add key-report and freedombox-todos to list of repositories feched
     by setup.d/70_fetch-projects.  Drop exmachina, now integrated with
     plinth.
+  * Added setup.d/05_apt-sources to disable cdrom APT sources after
+    installation, to make sure plinth can install packages without
+    asking for a CD to be installed.
 
   [ Nick Daly ]
   * Added setup.d/01_etckeeper-pre to store /etc/ status before
