@@ -20,6 +20,13 @@ fi
 
 . /lib/lsb/init-functions
 
+
+etckeeper_commit() {
+    if type etckeeper > /dev/null 2>&1 ; then
+	etckeeper commit -m "Status after first-run on first boot."
+    fi
+}
+
 mark_complete() {
     # Prevent this initial configuration script from running again.
 
@@ -34,6 +41,8 @@ case "$1" in
 	for f in /usr/lib/freedombox/first-run.d/* ; do
 	    $f
 	done
+
+        etckeeper_commit
 
         # the last things we do before quitting.
         mark_complete
