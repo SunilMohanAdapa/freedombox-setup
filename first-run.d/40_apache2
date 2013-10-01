@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Make sure every machine have their own unique SSL certificate, even
+# if it is a snake oil one.
+
+make-ssl-cert generate-default-snakeoil

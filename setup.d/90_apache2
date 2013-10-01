@@ -9,9 +9,5 @@ a2enmod rewrite
 
 # enable SSL
 a2enmod ssl
-make-ssl-cert generate-default-snakeoil
-
-# restart apache.
-service apache2 restart
 
 echo "Done configuring Apache."
