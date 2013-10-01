@@ -18,10 +18,15 @@
 # projects
 #
 # Installs external projects to the system.
+#
+# FIXME Each of these packages should eventually be packaged in Debian
+# and we should pull them in as dependencies during the install
+# process.  This is a hack till then.
 
 # We don't tolerate errors.
 set -e
 
+# TODO This should read user 1000's home directory.
 homedir=/home/fbx
 
 if [ -n "$1" ]
@@ -33,16 +38,21 @@ then
     user=$2
 fi
 
+if [ ! -e "$homedir" ]
+then
+    mkdir -p "$homedir"
+fi
+
 echo "Adding a few FreedomBox projects to $homedir."
 
 git clone git://github.com/NickDaly/freedom-maker.git $homedir/freedom-maker
-git clone git://github.com/jvasile/Plinth.git $homedir/plinth
+git clone git://github.com/NickDaly/Plinth.git $homedir/plinth
 git clone git://github.com/jvasile/freedombox-privoxy $homedir/freedombox-privoxy
 git clone git://github.com/NickDaly/freedombox-todos.git $home/freedombox-todos
 git clone git://github.com/NickDaly/key-report.git $home/key-report
-git clone git://github.com/jvasile/withsqlite.git $homedir/withsqlite
+git clone git://github.com/NickDaly/withsqlite.git $homedir/withsqlite
 # hg clone https://hg@bitbucket.org/nickdaly/plugserver $homedir/plugserver
-git clone git://gitorious.org/freedombuddy/freedombuddy.git $homedir/freedombuddy
+git clone git://github.com/NickDaly/freedombuddy.git $homedir/freedombuddy
 git clone git://gitorious.org/project-publish/project-publish.git $homedir/freedombuddy/publish
 ln -s $homedir/freedombuddy/issues $homedir/freedombuddy/publish/.
 ln -s $homedir/freedombuddy/wiki $homedir/freedombuddy/publish/.
