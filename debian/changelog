@@ -1,3 +1,14 @@
+freedombox-setup (0.0.10) UNRELEASED; urgency=low
+
+  [ Nick Daly ]
+  * Update handling of SSL setup in apache.
+
+  [ Petter Reinholdtsen ]
+  * Move generation of snakeoil SSL certificate from setup to
+    first-run, to make it unique for each machine.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 07:16:01 +0200
+
 freedombox-setup (0.0.9) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]
