@@ -1,4 +1,4 @@
-freedombox-setup (0.0.10) UNRELEASED; urgency=low
+freedombox-setup (0.0.10) wheezy; urgency=low
 
   [ Nick Daly ]
   * Update handling of SSL setup in apache.
@@ -9,7 +9,7 @@ freedombox-setup (0.0.10) UNRELEASED; urgency=low
   * New script setup.d/20_lxc to set up LXC for use by the different
     services.
 
- -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 07:16:01 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 07:22:58 +0200
 
 freedombox-setup (0.0.9) wheezy; urgency=low
 
