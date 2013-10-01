@@ -31,9 +31,9 @@ mark_complete() {
 
 case "$1" in
     start)
-	for f in /usr/lib/freedombox/first-run.d/* ; do
-	    $f
-	done
+	    for f in /usr/lib/freedombox/first-run.d/* ; do
+	        $f
+	    done
 
         # the last things we do before quitting.
         mark_complete
@@ -42,8 +42,8 @@ case "$1" in
         reboot
         ;;
     stop|restart|force-reload)
-	# Do nothing
-	;;
+    	# Do nothing
+	    ;;
     *)
         log_success_msg "Usage: /etc/init.d/first-run {start}"
         exit 1
