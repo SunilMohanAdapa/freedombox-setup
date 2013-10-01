@@ -3,7 +3,7 @@
 # Prepare support for LXC, to allow us to put each service in its own
 # container.
 
-apt-get install lxc
+DEBIAN_FRONTEND=noninteractive apt-get install -y lxc
 
 mkdir /cgroup
 echo 'cgroup /cgroup cgroup defaults 0 0' >> /etc/fstab
