@@ -26,8 +26,17 @@
 # We don't tolerate errors.
 set -e
 
-# TODO This should read user 1000's home directory.
-homedir=/home/fbx
+fbxuid=1000
+
+fbxgit="$(getent passwd 1000|cut -d: -f4)"
+if [ -z "$fbxgid" ] ; then
+    fbxgid=1000
+fi
+
+homedir="$(getent passwd $fbxuid|cut -d: -f6)"
+if [ -z "$homedir" ] ; then
+    homedir=/home/fbx
+fi
 
 if [ -n "$1" ]
 then
@@ -52,10 +61,10 @@ git clone git://github.com/NickDaly/freedombox-todos.git $home/freedombox-todos
 git clone git://github.com/NickDaly/key-report.git $home/key-report
 git clone git://github.com/NickDaly/withsqlite.git $homedir/withsqlite
 # hg clone https://hg@bitbucket.org/nickdaly/plugserver $homedir/plugserver
-git clone git://github.com/NickDaly/freedombuddy.git $homedir/freedombuddy
+git clone git://github.com/NickDaly/FreedomBuddy.git $homedir/freedombuddy
 git clone git://gitorious.org/project-publish/project-publish.git $homedir/freedombuddy/publish
 ln -s $homedir/freedombuddy/issues $homedir/freedombuddy/publish/.
 ln -s $homedir/freedombuddy/wiki $homedir/freedombuddy/publish/.
 rst2html $homedir/README $homedir/README.html
 
-chown -R 1000:1000 $homedir
+chown -R $fbxuid:$fbxgid $homedir

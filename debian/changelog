@@ -4,6 +4,8 @@ freedombox-setup (0.0.11) UNRELEASED; urgency=low
   * Adjust setup.d/60_provide-source to skip this step if
     NOSOURCE=true is set, to speed up test installations.
   * Add the d-i preseed files to preseed/ in the source package.
+  * Adjusted setup.d/70_fetch-projects to look up home directory and
+    gid dynamically.  Corrected GIT url for FreedomBuddy.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 09:21:48 +0200
 
