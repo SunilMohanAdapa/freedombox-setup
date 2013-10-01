@@ -6,6 +6,8 @@ freedombox-setup (0.0.10) UNRELEASED; urgency=low
   [ Petter Reinholdtsen ]
   * Move generation of snakeoil SSL certificate from setup to
     first-run, to make it unique for each machine.
+  * New script setup.d/20_lxc to set up LXC for use by the different
+    services.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 07:16:01 +0200
 

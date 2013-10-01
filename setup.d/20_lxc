@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Prepare support for LXC, to allow us to put each service in its own
+# container.
+
+apt-get install lxc
+
+mkdir /cgroup
+echo 'cgroup /cgroup cgroup defaults 0 0' >> /etc/fstab
+#mount -a
+
+#MIRROR=http://http.debian.net/debian SUITE=wheezy \
+#    lxc-create -n wheezy01 -t debian
+#lxc-attach -n wheezy01 -- apt-get install tor
