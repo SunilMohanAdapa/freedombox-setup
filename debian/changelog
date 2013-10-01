@@ -1,4 +1,4 @@
-freedombox-setup (0.0.11) UNRELEASED; urgency=low
+freedombox-setup (0.0.11) wheezy; urgency=low
 
   * Fix setup.d/20_lxc, make sure to install lxc non-interactively.
   * Adjust setup.d/60_provide-source to skip this step if
@@ -11,7 +11,7 @@ freedombox-setup (0.0.11) UNRELEASED; urgency=low
   * Adjusted first-run init.d script to commit changes in /etc/ using
     etckeeper.
 
- -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 09:21:48 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 10:03:53 +0200
 
 freedombox-setup (0.0.10) wheezy; urgency=low
 
