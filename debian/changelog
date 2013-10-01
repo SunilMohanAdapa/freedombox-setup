@@ -3,6 +3,7 @@ freedombox-setup (0.0.11) UNRELEASED; urgency=low
   * Fix setup.d/20_lxc, make sure to install lxc non-interactively.
   * Adjust setup.d/60_provide-source to skip this step if
     NOSOURCE=true is set, to speed up test installations.
+  * Add the d-i preseed files to preseed/ in the source package.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 09:21:48 +0200
 
