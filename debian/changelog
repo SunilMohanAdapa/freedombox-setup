@@ -6,6 +6,8 @@ freedombox-setup (0.0.11) UNRELEASED; urgency=low
   * Add the d-i preseed files to preseed/ in the source package.
   * Adjusted setup.d/70_fetch-projects to look up home directory and
     gid dynamically.  Corrected GIT url for FreedomBuddy.
+  * Adjusted setup.d/01_etckeeper-pre to set the global git user.email
+    for root to make sure etckeeper always is able to commit changes.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 01 Oct 2013 09:21:48 +0200
 
