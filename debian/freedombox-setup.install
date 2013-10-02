@@ -5,3 +5,4 @@ sysctl.d/freedombox-setup.conf etc/sysctl.d
 sbin/copy2dream usr/sbin
 sbin/dreamplug-detect usr/sbin
 doc/README home/fbx
+lxc-templates/lxc-debian-freedombox /usr/share/lxc/templates

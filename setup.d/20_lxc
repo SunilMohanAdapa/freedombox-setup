@@ -2,13 +2,29 @@
 #
 # Prepare support for LXC, to allow us to put each service in its own
 # container.
+# Based on <URL: https://wiki.debian.org/LXC > and
+# <URL: http://freedomboxblog.nl/articles-tagged-software-architecture >.
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y lxc
+create_lxc_box() {
+    virtname="$1"
+    pkgs="$2"
+    MIRROR=http://http.debian.net/debian \
+	SUITE=wheezy \
+	lxc-create -n "$virtname" -t debian-freedombox
+    if [ "$pkgs" ] ; then
+	lxc-start -d -n "$virtname"
+	lxc-attach -n "$virtname" -- \
+	    DEBIAN_FRONTEND=noninteractive apt-get install -y $pkgs
+	lxc-stop -n "$virtname"
+    fi
+}
 
-mkdir /cgroup
-echo 'cgroup /cgroup cgroup defaults 0 0' >> /etc/fstab
-#mount -a
+DEBIAN_FRONTEND=noninteractive apt-get install -y lxc bridge-utils
 
-#MIRROR=http://http.debian.net/debian SUITE=wheezy \
-#    lxc-create -n wheezy01 -t debian
-#lxc-attach -n wheezy01 -- apt-get install tor
+if ! grep cgroup /etc/fstab ; then
+    echo 'cgroup /sys/fs/cgroup cgroup defaults 0 0' >> /etc/fstab
+    mount /sys/fs/cgroup
+fi
+
+# The Internet router / firewall container
+#create_lxc_box internet
