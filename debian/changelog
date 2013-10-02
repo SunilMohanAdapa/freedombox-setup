@@ -3,6 +3,9 @@ freedombox-setup (0.0.12) UNRELEASED; urgency=low
   * Added LXC template debian-freedombox by Rob van der Hoeven from
     http://freedomboxblog.nl/data/lxc-debian-box.gz.
   * Adjusted setup.d/20_lxc to document how it could be used.
+  * Updated LXC template debian-freedombox with changes done in lxc
+    version 0.9.0~alpha3-2+deb8u1, to only keep the relevant changes
+    relative to the official Debian version in Jessie.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 02 Oct 2013 07:43:27 +0200
 
