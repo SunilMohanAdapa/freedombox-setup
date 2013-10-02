@@ -81,7 +81,7 @@ EOF
 $hostname
 EOF
 
-    # let dhcp client report the hostname to dnsmasq
+    # let dhcp client report the hostname to DHCP server
     cat <<EOF >> $rootfs/etc/dhcp/dhclient.conf
 send host-name "$hostname";
 send vendor-class-identifier "lxc.module";
@@ -173,7 +173,7 @@ copy_debian()
 
 install_debian()
 {
-    cache="/var/cache/lxc/debian-freedombox"
+    cache="/var/cache/lxc/debian-$SUITE"
     rootfs=$1
     mkdir -p /var/lock/subsys/
     (
@@ -202,11 +202,17 @@ install_debian()
 
         return 0
 
-        ) 200>/var/lock/subsys/lxc-debian-freedombox
+        ) 200>/var/lock/subsys/lxc-debian
 
     return $?
 }
 
+# nice trick from: http://mindref.blogspot.com/2011/01/debian-lxc-create.html
+hex() 
+{
+    echo "`tr -dc A-F0-9 < /dev/urandom | head -c 2 | xargs`"
+}
+    
 copy_configuration()
 {
     path=$1
@@ -245,7 +251,6 @@ lxc.mount.entry = devpts dev/pts devpts defaults 0 0
 lxc.mount.entry = sysfs sys sysfs defaults  0 0
 
 # networking
-
 lxc.network.type = veth
 lxc.network.flags = up
 lxc.network.link = br0
@@ -261,15 +266,9 @@ EOF
     return 0
 }
 
-# nice trick from: http://mindref.blogspot.com/2011/01/debian-lxc-create.html
-hex() 
-{
-    echo "`tr -dc A-F0-9 < /dev/urandom | head -c 2 | xargs`"
-}
-    
 clean()
 {
-    cache="/var/cache/lxc/debian-freedombox"
+    cache="/var/cache/lxc/debian-$SUITE"
 
     if [ ! -e $cache ]; then
         exit 0
@@ -287,7 +286,7 @@ clean()
         rm --preserve-root --one-file-system -rf $cache && echo "Done." || exit 1
         exit 0
 
-    ) 200>/var/lock/subsys/lxc-debian-freedombox
+    ) 200>/var/lock/subsys/lxc-debian
 }
 
 usage()
