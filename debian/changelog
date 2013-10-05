@@ -1,3 +1,10 @@
+freedombox-setup (0.0.13) UNRELEASED; urgency=low
+
+  * Correct etckeeper/git workaround to really detect when user.email
+    must be set.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 05 Oct 2013 14:17:17 +0200
+
 freedombox-setup (0.0.12) wheezy; urgency=low
 
   * Added LXC template debian-freedombox by Rob van der Hoeven from

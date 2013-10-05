@@ -1,9 +1,10 @@
 #!/bin/sh
 
 # Avoid etckeeper problem (refuses to commit) because git picked a
-# email address with an empty domain.
+# email address with an empty mail domain.
 if which etckeeper > /dev/null 2>&1 && \
-    git config --global --get user.email | grep -q '(none)' ; then
+    [ ! -e /etc/mailname ] &&
+    [ -z "$(git config --global --get user.email)" ] ; then
     git config --global user.email "root@localhost"
 fi
 
