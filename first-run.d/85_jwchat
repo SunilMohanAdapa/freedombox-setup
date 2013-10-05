@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Generate new SSL certificates.
+rm -f /etc/ejabberd/ejabberd.pem
+DEBIAN_FRONTEND=noninteractive dpkg-reconfigure ejabberd

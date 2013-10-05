@@ -11,6 +11,9 @@ freedombox-setup (0.0.12) UNRELEASED; urgency=low
   * Added new setup.d/15_ssh-keys to remove the SSH keys before any
     images are created, to make sure only unique keys are used on
     clients.
+  * Added new first-run.d/85_jwchat and adjusted setup.d/85_jwchat to
+    remove ejabberd SSL certificate from images and generate it on
+    first boot.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 02 Oct 2013 07:43:27 +0200
 

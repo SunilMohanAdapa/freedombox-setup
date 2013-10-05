@@ -19,3 +19,6 @@ fi
 
 # Disabling the default site make jwchat the default site.
 a2dissite 000-default
+
+# Remove SSL keys from images, will be generated on first boot.
+rm -f /etc/ejabberd/ejabberd.pem
