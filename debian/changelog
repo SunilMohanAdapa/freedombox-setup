@@ -1,3 +1,9 @@
+freedombox-setup (0.0.14) UNRELEASED; urgency=low
+
+  * Make sure to exit on first error in postinst (thank you lintian).
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 05 Oct 2013 14:19:07 +0200
+
 freedombox-setup (0.0.13) wheezy; urgency=low
 
   * Correct etckeeper/git workaround to really detect when user.email

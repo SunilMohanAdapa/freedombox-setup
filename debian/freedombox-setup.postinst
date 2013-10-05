@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # Avoid etckeeper problem (refuses to commit) because git picked a
 # email address with an empty mail domain.
 if which etckeeper > /dev/null 2>&1 && \
