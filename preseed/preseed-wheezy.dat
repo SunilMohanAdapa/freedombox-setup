@@ -51,3 +51,7 @@ partman partman/choose_partition Finish partitioning and write changes to disk
 # write changes
 partman partman/confirm boolean true
 partman partman/confirm_nooverwrite boolean true
+
+# Fix timezone to UTC to avoid one question during installation
+tzsetup-udeb    time/zone       select  Etc/UTC
+
