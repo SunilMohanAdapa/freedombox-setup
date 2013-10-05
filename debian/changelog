@@ -6,6 +6,8 @@ freedombox-setup (0.0.12) UNRELEASED; urgency=low
   * Updated LXC template debian-freedombox with changes done in lxc
     version 0.9.0~alpha3-2+deb8u1, to only keep the relevant changes
     relative to the official Debian version in Jessie.
+  * Added postinst script to fix etckeeper user.email if the automatic
+    value is invalid.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 02 Oct 2013 07:43:27 +0200
 

@@ -5,5 +5,6 @@
 if which etckeeper > /dev/null 2>&1 && \
     git config --global --get user.email | grep -q '(none)' ; then
     git config --global user.email "root@localhost"
-    etckeeper commit -m "Status before freedombox-setup run."
 fi
+
+#DEBHELPER#
