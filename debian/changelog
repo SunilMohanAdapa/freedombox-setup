@@ -1,4 +1,4 @@
-freedombox-setup (0.0.12) UNRELEASED; urgency=low
+freedombox-setup (0.0.12) wheezy; urgency=low
 
   * Added LXC template debian-freedombox by Rob van der Hoeven from
     http://freedomboxblog.nl/data/lxc-debian-box.gz.
@@ -16,7 +16,7 @@ freedombox-setup (0.0.12) UNRELEASED; urgency=low
     first boot.
   * Added new setup.d/30_ldap-server to start on LDAP server setup.
 
- -- Petter Reinholdtsen <pere@debian.org>  Wed, 02 Oct 2013 07:43:27 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 05 Oct 2013 13:21:25 +0200
 
 freedombox-setup (0.0.11) wheezy; urgency=low
 
