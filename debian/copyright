@@ -1,7 +1,17 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0
 
 Files: *
-Copyright: © 2013, Petter Reinholdtsen <pere@debian.org>
+Copyright:
+  © 2011-2012 Bdale Garbee <bdale@gag.com>
+  © 2011 Thiago Jung Bauermann <thiago.bauermann@gmail.com>
+  © 2011-2012 Jonas Smedegaard <dr@jones.dk>
+  © 2012 Craig Barnes <cjbarnes18@gmail.com>
+  © 2012 James Valleroy <james.valleroy@gmail.com>
+  © 2012 Tom Galloway <github@tomgalloway.co.uk>
+  © 2012-2013 Nick Daly <Nick.M.Daly@gmail.com>
+  © 2013 Ivan Savov <ivan.savov@gmail.com>
+  © 2013 Keith Fernie <keith@fernie.eu>
+  © 2013 Petter Reinholdtsen <pere@debian.org>
 License: GPL-3.0+
 
 License: GPL-3.0+
