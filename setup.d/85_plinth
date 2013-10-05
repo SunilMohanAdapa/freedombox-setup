@@ -5,7 +5,7 @@
 
 echo "Configuring Plinth..."
 
-cat > /etc/apache2/sites-available/plinth.conf <<END
+cat > /etc/apache2/sites-available/plinth.conf <<'END'
 <VirtualHost *:8001>
         ServerAdmin webmaster@localhost
 
@@ -25,11 +25,11 @@ cat > /etc/apache2/sites-available/plinth.conf <<END
 
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-        <IfModule mod_ssl.c>
-	        SSLEngine on
-            SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
-            SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-        </IfModule>
+#        <IfModule mod_ssl.c>
+#	        SSLEngine on
+#            SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
+#            SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
+#        </IfModule>
 
 </VirtualHost>
 END

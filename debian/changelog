@@ -4,6 +4,9 @@ freedombox-setup (0.0.14) UNRELEASED; urgency=low
   * Make sure to exit on first error in postinst (thank you lintian).
   * Adjust first-run init.d script to commit to etckeeper before
     starting too, to document changes done at this stage.
+  * Disable SSL in plinht, as it isn't working yet.
+  * Fix typo causing apache to log  to /error.log and /access.log
+    for plinth.
 
   [ James Valleroy ]
   * Fix bug in fetch-projects that caused a few projects to end up in
