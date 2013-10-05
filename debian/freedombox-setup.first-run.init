@@ -23,7 +23,7 @@ fi
 
 etckeeper_commit() {
     if type etckeeper > /dev/null 2>&1 ; then
-	etckeeper commit -m "Status after first-run on first boot."
+	etckeeper commit -m "$1"
     fi
 }
 
@@ -38,11 +38,13 @@ mark_complete() {
 
 case "$1" in
     start)
+        etckeeper_commit "Status before first-run on first boot."
+
 	for f in /usr/lib/freedombox/first-run.d/* ; do
 	    $f
 	done
 
-        etckeeper_commit
+        etckeeper_commit "Status after first-run on first boot."
 
         # the last things we do before quitting.
         mark_complete
