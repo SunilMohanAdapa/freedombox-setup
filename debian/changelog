@@ -8,6 +8,9 @@ freedombox-setup (0.0.12) UNRELEASED; urgency=low
     relative to the official Debian version in Jessie.
   * Added postinst script to fix etckeeper user.email if the automatic
     value is invalid.
+  * Added new setup.d/15_ssh-keys to remove the SSH keys before any
+    images are created, to make sure only unique keys are used on
+    clients.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 02 Oct 2013 07:43:27 +0200
 
