@@ -14,6 +14,7 @@ freedombox-setup (0.0.12) UNRELEASED; urgency=low
   * Added new first-run.d/85_jwchat and adjusted setup.d/85_jwchat to
     remove ejabberd SSL certificate from images and generate it on
     first boot.
+  * Added new setup.d/30_ldap-server to start on LDAP server setup.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 02 Oct 2013 07:43:27 +0200
 
