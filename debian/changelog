@@ -1,4 +1,4 @@
-freedombox-setup (0.0.14) UNRELEASED; urgency=low
+freedombox-setup (0.0.14) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]
   * Make sure to exit on first error in postinst (thank you lintian).
@@ -12,7 +12,7 @@ freedombox-setup (0.0.14) UNRELEASED; urgency=low
   * Fix bug in fetch-projects that caused a few projects to end up in
     root directory.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 05 Oct 2013 14:19:07 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 06 Oct 2013 11:42:04 +0200
 
 freedombox-setup (0.0.13) wheezy; urgency=low
 
