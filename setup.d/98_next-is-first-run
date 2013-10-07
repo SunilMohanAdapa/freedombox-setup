@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Tell init.d/first-run to do its stuff on the next boot.
+rm /var/freedombox/first-run

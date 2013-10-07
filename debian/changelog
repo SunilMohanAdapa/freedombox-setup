@@ -3,6 +3,9 @@ freedombox-setup (0.0.17) UNRELEASED; urgency=low
   [ Petter Reinholdtsen ]
   * Added new dependencies htop, iftop and tcpdump to make it easier
     to debug the freedombox.  Might be removed in a release build.
+  * Added setup.d/98_next-is-first-run to make sure
+    /var/freedombox/first-run is removed and init.d/first-run is
+    triggered on the next reboot.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 07 Oct 2013 20:40:30 +0200
 
