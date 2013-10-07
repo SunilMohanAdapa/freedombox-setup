@@ -19,6 +19,8 @@ Depends: ${misc:Depends}
  , etckeeper
  , git
  , haveged
+ , htop
+ , iftop
  , iproute
  , iptables
  , iputils-ping
@@ -49,6 +51,7 @@ Depends: ${misc:Depends}
  , resolvconf
  , ssl-cert
  , sudo
+ , tcpdump
  , uaputl
  , wget
  , zile

@@ -1,3 +1,11 @@
+freedombox-setup (0.0.17) UNRELEASED; urgency=low
+
+  [ Petter Reinholdtsen ]
+  * Added new dependencies htop, iftop and tcpdump to make it easier
+    to debug the freedombox.  Might be removed in a release build.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 07 Oct 2013 20:40:30 +0200
+
 freedombox-setup (0.0.15) wheezy; urgency=low
 
   [ Nick Daly ]
