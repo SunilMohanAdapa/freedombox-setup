@@ -35,7 +35,7 @@ Depends: ${misc:Depends}
  , openssh-server
  , pandoc
  , parted
- , plinth
+ , plinth (>= 0.3.0.0.git.20131007.pere.2)
  , psmisc
  , python-argparse
  , python-augeas

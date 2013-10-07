@@ -4,6 +4,10 @@ freedombox-setup (0.0.15) UNRELEASED; urgency=low
   * Adjust setup.d/95_plinth to use Apache config from the new
     plinth package, which should fix SSL setup.
 
+  [ Petter Reinholdtsen ]
+  * Depend on plinth (>= 0.3.0.0.git.20131007.pere.2) to get a version
+    that should work with the new setup.d/85_plinth file.
+
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 07 Oct 2013 09:27:52 +0200
 
 freedombox-setup (0.0.14) wheezy; urgency=low
