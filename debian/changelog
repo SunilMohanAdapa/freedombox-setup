@@ -1,4 +1,4 @@
-freedombox-setup (0.0.17) UNRELEASED; urgency=low
+freedombox-setup (0.0.17) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]
   * Added new dependencies htop, iftop and tcpdump to make it easier
@@ -9,7 +9,7 @@ freedombox-setup (0.0.17) UNRELEASED; urgency=low
   * Update setup.d/85_plinth with the apache modules needed to get
     plinth+ssl working.
 
- -- Petter Reinholdtsen <pere@debian.org>  Mon, 07 Oct 2013 20:40:30 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 19 Oct 2013 09:20:13 +0200
 
 freedombox-setup (0.0.15) wheezy; urgency=low
 
