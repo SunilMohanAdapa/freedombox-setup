@@ -6,6 +6,8 @@ freedombox-setup (0.0.17) UNRELEASED; urgency=low
   * Added setup.d/98_next-is-first-run to make sure
     /var/freedombox/first-run is removed and init.d/first-run is
     triggered on the next reboot.
+  * Update setup.d/85_plinth with the apache modules needed to get
+    plinth+ssl working.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 07 Oct 2013 20:40:30 +0200
 
