@@ -1,3 +1,10 @@
+freedombox-setup (0.0.19) UNRELEASED; urgency=low
+
+  * Start on test suite framework.  Add simple LDAP and XMPP test as a
+    start.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 19 Oct 2013 22:51:10 +0200
+
 freedombox-setup (0.0.18) wheezy; urgency=low
 
   * Update dnsmasq server configuration for new version in Debian

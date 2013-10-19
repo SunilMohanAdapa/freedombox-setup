@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for test in $(dirname $0)/*.test ; do
+    $test
+done
