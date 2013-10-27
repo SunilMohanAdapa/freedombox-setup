@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Enable Plinth.
-
-echo "Configuring Plinth..."
-
-a2ensite plinth.conf
-
-echo "Done configuring Plinth.."
