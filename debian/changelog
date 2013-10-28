@@ -1,10 +1,10 @@
-freedombox-setup (0.0.20) UNRELEASED; urgency=low
+freedombox-setup (0.0.20) wheezy; urgency=low
 
   * Remove setup.d/85_plinth, now part of the plinth package.
   * Add two new testsuite checks, looking for a running Plinth and DNS
     server.
 
- -- Petter Reinholdtsen <pere@debian.org>  Mon, 28 Oct 2013 09:47:41 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 28 Oct 2013 10:02:56 +0100
 
 freedombox-setup (0.0.19) wheezy; urgency=low
 
