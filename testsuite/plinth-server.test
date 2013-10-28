@@ -1,0 +1,5 @@
+#!/bin/sh
+
+. $(dirname $0)/testsuite-functions
+
+netstat_check 8000 tcp Plinth
