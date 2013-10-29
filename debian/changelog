@@ -1,6 +1,7 @@
 freedombox-setup (0.0.21) UNRELEASED; urgency=low
 
   * Disable setup.d/50_openvpn, which seem to be old cruft.
+  * Add new dns-server check to detect if DNSSEC is enabled or not.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 29 Oct 2013 19:40:01 +0100
 
