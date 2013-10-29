@@ -1,3 +1,9 @@
+freedombox-setup (0.0.21) UNRELEASED; urgency=low
+
+  * Disable setup.d/50_openvpn, which seem to be old cruft.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 29 Oct 2013 19:40:01 +0100
+
 freedombox-setup (0.0.20) wheezy; urgency=low
 
   * Remove setup.d/85_plinth, now part of the plinth package.
