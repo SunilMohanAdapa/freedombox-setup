@@ -12,6 +12,7 @@
 ### END INIT INFO
 
 RUNONCE=/var/freedombox/first-run
+LOGFILE=/var/log/freedombox-first-run.log
 
 if [ -e $RUNONCE ]
 then
@@ -20,6 +21,7 @@ fi
 
 . /lib/lsb/init-functions
 
+exec > $LOGFILE 2>&1
 
 etckeeper_commit() {
     if type etckeeper > /dev/null 2>&1 ; then
