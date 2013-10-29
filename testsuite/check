@@ -1,5 +1,7 @@
 #!/bin/sh
 
-for test in $(dirname $0)/*.test ; do
+cd $(dirname $0)
+
+for test in ./*.test ; do
     $test
 done
