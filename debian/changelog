@@ -1,4 +1,4 @@
-freedombox-setup (0.0.22) UNRELEASED; urgency=low
+freedombox-setup (0.0.22) wheezy; urgency=low
 
   * Add binary dependency on dnsutils for dig to get testsuite working
     out of the box.
@@ -6,7 +6,7 @@ freedombox-setup (0.0.22) UNRELEASED; urgency=low
   * Avoid force removal of file to avoid warning om setup.d/98_next-is-
     first-run when /var/freedombox/first-run is missing.
 
- -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Oct 2013 09:06:15 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Oct 2013 09:12:06 +0100
 
 freedombox-setup (0.0.21) wheezy; urgency=low
 
