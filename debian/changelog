@@ -1,3 +1,10 @@
+freedombox-setup (0.0.22) UNRELEASED; urgency=low
+
+  * Add binary dependency on dnsutils for dig to get testsuite working
+    out of the box.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Oct 2013 09:06:15 +0100
+
 freedombox-setup (0.0.21) wheezy; urgency=low
 
   * Disable setup.d/50_openvpn, which seem to be old cruft.
