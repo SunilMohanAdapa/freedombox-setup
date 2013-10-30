@@ -2,6 +2,7 @@ freedombox-setup (0.0.22) UNRELEASED; urgency=low
 
   * Add binary dependency on dnsutils for dig to get testsuite working
     out of the box.
+  * Add binary dependency on hostname needed by setup.d scripts.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Oct 2013 09:06:15 +0100
 

@@ -20,6 +20,7 @@ Depends: ${misc:Depends}
  , etckeeper
  , git
  , haveged
+ , hostname
  , htop
  , iftop
  , iproute
