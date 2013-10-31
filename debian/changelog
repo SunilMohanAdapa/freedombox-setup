@@ -1,3 +1,11 @@
+freedombox-setup (0.0.24) UNRELEASED; urgency=low
+
+  * Move code to set up /etc/network/interfaces from setup.d/ to
+    first-run.d/05_network to allow it to be configured based on the
+    detected hardware on first boot.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 22:57:26 +0100
+
 freedombox-setup (0.0.23) wheezy; urgency=low
 
   [ James Valleroy ]
