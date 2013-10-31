@@ -1,6 +1,6 @@
-freedombox-setup (0.0.23) UNRELEASED; urgency=low
+freedombox-setup (0.0.23) wheezy; urgency=low
 
-  [James Valleroy]
+  [ James Valleroy ]
   * Add a new apache server conf file to replace jwchat.conf and
     forward plinth requests to plinth.conf.
 
@@ -9,7 +9,7 @@ freedombox-setup (0.0.23) UNRELEASED; urgency=low
     as the code setting device names for / and /boot/ is not needed
     when we use vmdebootstrap.
 
- -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 18:28:13 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 18:43:35 +0100
 
 freedombox-setup (0.0.22) wheezy; urgency=low
 
