@@ -1,8 +1,4 @@
 #!/bin/sh
-#
-# Only replace fstab if it is empty.  This will avoid wiping the fstab
-# file when running setup inside a real installation, as opposed to
-# when building a chroot.
 
 enable_serial_console() {
     # By default, spawn a console on the serial port
@@ -77,33 +73,19 @@ raspberry_setup_boot() {
     rpi-update > /root/rpi-update.log
 
 }
-if [ ! -s /etc/fstab ] ; then
-    echo "Setting up disk configuration for $DESTINATION"
 
-    cat > /etc/fstab <<EOF
-proc	  /proc		proc	none		0	0
-sys	  /sys		sysfs	none		0	0
-none	  /dev/pts	devpts	defaults	0	0
+tmp_on_tmpfs() {
+    if grep -q /tmp /etc/fstab ; then
+	:
+    else
+	echo "info: adding /tmp/ as tmpfs to /etc/fstab"
+	cat >> /etc/fstab <<EOF
 tmpfs     /tmp          tmpfs   rw,nosuid,nodev 0       0
 EOF
+    fi
+}
 
-    case $DESTINATION in
-	card)
-	    cat > /etc/fstab <<EOF
-/dev/sda2 /		auto	relatime,rw	0	0
-/dev/sda1 /boot  	vfat	defaults	0	0
-EOF
-	    ;;
-	usb)
-	    cat > /etc/fstab <<EOF
-/dev/sdc2 /		auto	relatime,rw	0	0
-/dev/sdc1 /boot  	vfat	defaults	0	0
-EOF
-	    ;;
-    esac
-
-    printf "" > /etc/mtab
-fi
+tmp_on_tmpfs
 
 case "$MACHINE" in
     dreamplug|guruplug)

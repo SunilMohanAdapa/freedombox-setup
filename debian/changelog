@@ -4,6 +4,11 @@ freedombox-setup (0.0.23) UNRELEASED; urgency=low
   * Add a new apache server conf file to replace jwchat.conf and
     forward plinth requests to plinth.conf.
 
+  [ Petter Reinholdtsen ]
+  * Change setup.d/10_dreamplug to only add /tmp/ as tmpfs in fstab,
+    as the code setting device names for / and /boot/ is not needed
+    when we use vmdebootstrap.
+
  -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 18:28:13 +0100
 
 freedombox-setup (0.0.22) wheezy; urgency=low
