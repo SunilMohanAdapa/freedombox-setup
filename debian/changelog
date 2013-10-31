@@ -1,3 +1,11 @@
+freedombox-setup (0.0.23) UNRELEASED; urgency=low
+
+  [James Valleroy]
+  * Add a new apache server conf file to replace jwchat.conf and
+    forward plinth requests to plinth.conf.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 18:28:13 +0100
+
 freedombox-setup (0.0.22) wheezy; urgency=low
 
   * Add binary dependency on dnsutils for dig to get testsuite working
