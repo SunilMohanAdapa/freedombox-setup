@@ -1,4 +1,4 @@
-freedombox-setup (0.0.24) UNRELEASED; urgency=low
+freedombox-setup (0.0.24) wheezy; urgency=low
 
   * Move code to set up /etc/network/interfaces from setup.d/ to
     first-run.d/05_network to allow it to be configured based on the
@@ -10,7 +10,7 @@ freedombox-setup (0.0.24) UNRELEASED; urgency=low
     just installing freedombox-setup, to avoid surprising those
     testing the Debian package.
 
- -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 22:57:26 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 01 Nov 2013 20:41:05 +0100
 
 freedombox-setup (0.0.23) wheezy; urgency=low
 
