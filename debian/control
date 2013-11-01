@@ -55,6 +55,7 @@ Depends: ${misc:Depends}
  , sudo
  , tcpdump
  , uaputl
+ , vim-tiny
  , wget
  , zile
 Description: Set up freedombox environment
