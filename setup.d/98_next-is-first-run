@@ -1,4 +1,5 @@
 #!/bin/sh
 
 # Tell init.d/first-run to do its stuff on the next boot.
-rm -f /var/freedombox/first-run
+mkdir -p /var/lib/freedombox
+touch /var/lib/freedombox/first-run-enable

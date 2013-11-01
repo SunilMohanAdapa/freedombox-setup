@@ -3,6 +3,12 @@ freedombox-setup (0.0.24) UNRELEASED; urgency=low
   * Move code to set up /etc/network/interfaces from setup.d/ to
     first-run.d/05_network to allow it to be configured based on the
     detected hardware on first boot.
+  * Move first-run flag file to /var/lib/freedombox/ for FHS
+    compliance.
+  * Invert logic deciding when to run the first-run init.d script, to
+    make sure it is only run after setup.d is executed, and not by
+    just installing freedombox-setup, to avoid surprising those
+    testing the Debian package.
 
  -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 22:57:26 +0100
 

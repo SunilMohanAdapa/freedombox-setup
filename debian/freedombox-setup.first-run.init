@@ -11,10 +11,10 @@
 # Short-Description: Finish FBX install on DreamPlug
 ### END INIT INFO
 
-RUNONCE=/var/freedombox/first-run
+RUNONCE=/var/lib/freedombox/first-run-enable
 LOGFILE=/var/log/freedombox-first-run.log
 
-if [ -e $RUNONCE ]
+if [ ! -e $RUNONCE ]
 then
     exit
 fi
@@ -34,7 +34,7 @@ mark_complete() {
 
     log_action_begin_msg "Marking first-run complete"
     mkdir -p "${RUNONCE%/*}"
-    touch $RUNONCE
+    rm -f $RUNONCE
     log_action_end_msg 0
 }
 
