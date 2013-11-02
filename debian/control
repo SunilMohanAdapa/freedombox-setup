@@ -31,6 +31,7 @@ Depends: ${misc:Depends}
  , libpython2.7
  , locales
  , locales-all
+ , lsof
  , lua-sec
  , make
  , mercurial
