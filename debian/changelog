@@ -1,3 +1,9 @@
+freedombox-setup (0.0.26) UNRELEASED; urgency=low
+
+  * Extend plinth-server test to check HTTP reply from plinth.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 02 Nov 2013 19:39:23 +0100
+
 freedombox-setup (0.0.25) wheezy; urgency=low
 
   * Depend on vim-tiny to get some editor installed by default.
