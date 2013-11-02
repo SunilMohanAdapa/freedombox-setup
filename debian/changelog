@@ -1,6 +1,7 @@
 freedombox-setup (0.0.26) UNRELEASED; urgency=low
 
   * Extend plinth-server test to check HTTP reply from plinth.
+  * New web-proxy test to check if privoxy is listening.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 02 Nov 2013 19:39:23 +0100
 
