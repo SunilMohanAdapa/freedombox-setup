@@ -14,7 +14,7 @@ a2enmod ssl
 a2dissite 000-default
 
 # setup freedombox site
-cat > /etc/apache2/sites-available/fbx.conf <<EOF
+cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
 <VirtualHost *:80>
   ServerName fbx
   AddDefaultCharset UTF-8
@@ -36,7 +36,7 @@ cat > /etc/apache2/sites-available/fbx.conf <<EOF
   RewriteEngine on
   ReWriteCond %{REQUEST_URI} ^/plinth
   ReWriteCond %{SERVER_PORT} !^443$
-  RewriteRule ^/(.*) https://%{HTTP_HOST}/\$1 [NC,R,L]
+  RewriteRule ^/(.*) https://%{HTTP_HOST}/$1 [NC,R,L]
 </VirtualHost>
 EOF
 
