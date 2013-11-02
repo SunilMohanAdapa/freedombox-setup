@@ -5,6 +5,9 @@
 if which etckeeper > /dev/null 2>&1 && \
     [ ! -e /etc/mailname ] &&
     [ -z "$(git config --global --get user.email)" ] ; then
+    echo "info: Setting git user.email."
     git config --global user.email "root@localhost"
     etckeeper commit -m "Status before freedombox-setup run."
+else
+    echo "info: Not setting git user.email."
 fi

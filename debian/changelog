@@ -1,6 +1,7 @@
 freedombox-setup (0.0.25) UNRELEASED; urgency=low
 
   * Depend on vim-tiny to get some editor installed by default.
+  * Add debug information when configuring git for etckeeper.
 
  -- Petter Reinholdtsen <pere@debian.org>  Fri, 01 Nov 2013 22:00:24 +0100
 
