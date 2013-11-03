@@ -3,6 +3,10 @@ freedombox-setup (0.0.26) UNRELEASED; urgency=low
   * Extend plinth-server test to check HTTP reply from plinth.
   * New web-proxy test to check if privoxy is listening.
   * Depend on lsof to make debugging easier.
+  * Depends and recommends on batctl, bridge-utils, rfkill and
+    wireless-tools to have the tools needed to configure wireless,
+    bridging and batman-adv mesh networking available.  Recommends for
+    the packages that might not be available on all architectures.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 02 Nov 2013 19:39:23 +0100
 

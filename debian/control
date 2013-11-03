@@ -10,6 +10,7 @@ Architecture: all
 Depends: ${misc:Depends}
  , apache2 | apache2-mpm-worker
  , augeas-tools
+ , bridge-utils
  , build-essential
  , checkinstall
  , devio
@@ -59,5 +60,9 @@ Depends: ${misc:Depends}
  , vim-tiny
  , wget
  , zile
+Recommends: 
+ batctl
+ , rfkill
+ , wireless-tools
 Description: Set up freedombox environment
  Nice package.
