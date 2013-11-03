@@ -7,6 +7,9 @@ freedombox-setup (0.0.26) UNRELEASED; urgency=low
     wireless-tools to have the tools needed to configure wireless,
     bridging and batman-adv mesh networking available.  Recommends for
     the packages that might not be available on all architectures.
+  * Change setup.d/91_privoxy to install privoxy instead of
+    freedombox-privoxy, as the latter seem to have no maintainer at
+    the moment.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 02 Nov 2013 19:39:23 +0100
 
