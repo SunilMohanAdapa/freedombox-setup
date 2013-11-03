@@ -1,4 +1,4 @@
-freedombox-setup (0.0.26) UNRELEASED; urgency=low
+freedombox-setup (0.0.26) wheezy; urgency=low
 
   * Extend plinth-server test to check HTTP reply from plinth.
   * New web-proxy test to check if privoxy is listening.
@@ -11,7 +11,7 @@ freedombox-setup (0.0.26) UNRELEASED; urgency=low
     freedombox-privoxy, as the latter seem to have no maintainer at
     the moment.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 02 Nov 2013 19:39:23 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 03 Nov 2013 10:48:46 +0100
 
 freedombox-setup (0.0.25) wheezy; urgency=low
 
