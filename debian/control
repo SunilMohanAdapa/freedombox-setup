@@ -32,6 +32,7 @@ Depends: ${misc:Depends}
  , mercurial
  , monkeysphere
  , net-tools
+ , ntp
  , openssh-server
  , pandoc
  , parted
