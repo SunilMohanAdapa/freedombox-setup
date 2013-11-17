@@ -37,5 +37,17 @@ iface eth1 inet dhcp
 #     post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
 #     post-up uaputl bss_start
 EOF
+
+    # always name interfaces in same order as MAC addresses
+    service networking restart
+    MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
+    COUNT=0
+    for MAC in $MACS; do
+        export MATCHADDR=$MAC
+        export INTERFACE=eth
+        export INTERFACE_NAME=eth$COUNT
+        /lib/udev/write_net_rules
+        COUNT=$((COUNT+1))
+    done
 	;;
 esac
