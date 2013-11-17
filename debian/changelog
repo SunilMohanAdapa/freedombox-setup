@@ -1,10 +1,10 @@
-freedombox-setup (0.0.27) UNRELEASED; urgency=low
+freedombox-setup (0.0.27) wheezy; urgency=low
 
   [ James Valleroy ]
   * Dreamplug: after configuring network in first-run, setup persistent
     rules using udev script write_net_rules.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 17 Nov 2013 22:13:35 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 17 Nov 2013 22:14:17 +0100
 
 freedombox-setup (0.0.26) wheezy; urgency=low
 
