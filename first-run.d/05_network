@@ -40,13 +40,14 @@ EOF
 
     # always name interfaces in same order as MAC addresses
     service networking restart
-    MACS=$(ifconfig | grep HWaddr | cut -c39-55 | sort)
+    MACS=$(ifconfig | grep eth | cut -c39-55 | sort)
     COUNT=0
     for MAC in $MACS; do
-        cat >> /etc/udev/rules.d/70-persistent-net.rules <<EOF
-SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="$MAC", ATTR{dev_id}=="0x0", ATTR{type}=="1", KERNEL=="eth*", NAME="eth$COUNT"
-EOF
-    COUNT=$((COUNT+1))
+        export MATCHADDR=$MAC
+        export INTERFACE=eth
+        export INTERFACE_NAME=eth$COUNT
+        /lib/udev/write_net_rules
+        COUNT=$((COUNT+1))
     done
 	;;
 esac
