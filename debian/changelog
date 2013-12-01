@@ -1,10 +1,10 @@
-freedombox-setup (0.0.28) UNRELEASED; urgency=low
+freedombox-setup (0.0.28) wheezy; urgency=low
 
   [ James Valleroy ]
   * Add setup script to install tor as bridge relay.
   * Fix lxc template install location.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 01 Dec 2013 18:38:05 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 01 Dec 2013 18:42:49 +0100
 
 freedombox-setup (0.0.27) wheezy; urgency=low
 
