@@ -1,3 +1,10 @@
+freedombox-setup (0.0.29) UNRELEASED; urgency=low
+
+  [ James Valleroy ]
+  * Force overwrite of snakeoil certificates during first run script.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 02 Dec 2013 01:31:44 +0100
+
 freedombox-setup (0.0.28) wheezy; urgency=low
 
   [ James Valleroy ]
