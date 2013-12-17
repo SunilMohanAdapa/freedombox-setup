@@ -10,4 +10,13 @@ if which etckeeper > /dev/null 2>&1 && \
     git config --global user.email "root@localhost"
 fi
 
+
+# Migrate flag file to new inverted logic when upgrading
+if dpkg --compare-versions "$2" le "0.0.23" &&
+    [ -e /var/freedombox/first-run ] ; then
+    rm /var/lib/freedombox/first-run-enable
+    rm /var/freedombox/first-run
+    rmdir /var/freedombox
+fi
+
 #DEBHELPER#

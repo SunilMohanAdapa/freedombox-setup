@@ -3,4 +3,4 @@
 # Make sure every machine have their own unique SSL certificate, even
 # if it is a snake oil one.
 
-make-ssl-cert generate-default-snakeoil
+make-ssl-cert generate-default-snakeoil --force-overwrite

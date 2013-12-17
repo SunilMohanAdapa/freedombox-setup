@@ -17,8 +17,8 @@ if ! grep -q mod_http_bind /etc/ejabberd/ejabberd.cfg ; then
   {mod_http_bind, []},' /etc/ejabberd/ejabberd.cfg
 fi
 
-# Disabling the default site make jwchat the default site.
-a2dissite 000-default
+# We'll use another site to serve jwchat.
+a2dissite jwchat
 
 # Remove SSL keys from images, will be generated on first boot.
 rm -f /etc/ejabberd/ejabberd.pem

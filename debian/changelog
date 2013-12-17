@@ -1,3 +1,146 @@
+freedombox-setup (0.0.29) wheezy; urgency=low
+
+  [ James Valleroy ]
+  * Force overwrite of snakeoil certificates during first run script.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 02 Dec 2013 01:32:04 +0100
+
+freedombox-setup (0.0.28) wheezy; urgency=low
+
+  [ James Valleroy ]
+  * Add setup script to install tor as bridge relay.
+  * Fix lxc template install location.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 01 Dec 2013 18:42:49 +0100
+
+freedombox-setup (0.0.27) wheezy; urgency=low
+
+  [ James Valleroy ]
+  * Dreamplug: after configuring network in first-run, setup persistent
+    rules using udev script write_net_rules.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 17 Nov 2013 22:14:17 +0100
+
+freedombox-setup (0.0.26) wheezy; urgency=low
+
+  * Extend plinth-server test to check HTTP reply from plinth.
+  * New web-proxy test to check if privoxy is listening.
+  * Depend on lsof to make debugging easier.
+  * Depends and recommends on batctl, bridge-utils, rfkill and
+    wireless-tools to have the tools needed to configure wireless,
+    bridging and batman-adv mesh networking available.  Recommends for
+    the packages that might not be available on all architectures.
+  * Change setup.d/91_privoxy to install privoxy instead of
+    freedombox-privoxy, as the latter seem to have no maintainer at
+    the moment.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 03 Nov 2013 10:48:46 +0100
+
+freedombox-setup (0.0.25) wheezy; urgency=low
+
+  * Depend on vim-tiny to get some editor installed by default.
+  * Add debug information when configuring git for etckeeper.
+  * Change setup.d/90_apache2 to not expand variables when creating
+    /etc/apache2/sites-available/fbx.conf. Based on patch from James
+    Valleroy.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 02 Nov 2013 07:15:11 +0100
+
+freedombox-setup (0.0.24) wheezy; urgency=low
+
+  * Move code to set up /etc/network/interfaces from setup.d/ to
+    first-run.d/05_network to allow it to be configured based on the
+    detected hardware on first boot.
+  * Move first-run flag file to /var/lib/freedombox/ for FHS
+    compliance.
+  * Invert logic deciding when to run the first-run init.d script, to
+    make sure it is only run after setup.d is executed, and not by
+    just installing freedombox-setup, to avoid surprising those
+    testing the Debian package.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 01 Nov 2013 20:41:05 +0100
+
+freedombox-setup (0.0.23) wheezy; urgency=low
+
+  [ James Valleroy ]
+  * Add a new apache server conf file to replace jwchat.conf and
+    forward plinth requests to plinth.conf.
+
+  [ Petter Reinholdtsen ]
+  * Change setup.d/10_dreamplug to only add /tmp/ as tmpfs in fstab,
+    as the code setting device names for / and /boot/ is not needed
+    when we use vmdebootstrap.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 31 Oct 2013 18:43:35 +0100
+
+freedombox-setup (0.0.22) wheezy; urgency=low
+
+  * Add binary dependency on dnsutils for dig to get testsuite working
+    out of the box.
+  * Add binary dependency on hostname needed by setup.d scripts.
+  * Avoid force removal of file to avoid warning om setup.d/98_next-is-
+    first-run when /var/freedombox/first-run is missing.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Oct 2013 09:12:06 +0100
+
+freedombox-setup (0.0.21) wheezy; urgency=low
+
+  * Disable setup.d/50_openvpn, which seem to be old cruft.
+  * Add new dns-server check to detect if DNSSEC is enabled or not.
+  * Make sure first-run logs output to /var/log/freedombox-first-run.log.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 29 Oct 2013 23:34:03 +0100
+
+freedombox-setup (0.0.20) wheezy; urgency=low
+
+  * Remove setup.d/85_plinth, now part of the plinth package.
+  * Add two new testsuite checks, looking for a running Plinth and DNS
+    server.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 28 Oct 2013 10:02:56 +0100
+
+freedombox-setup (0.0.19) wheezy; urgency=low
+
+  * Start on test suite framework.  Add simple LDAP and XMPP test as a
+    start.
+  * Insert code in setup.d/10_dreamplug to set up Dreamplug and
+    Raspberry Pi kernel and initrd, as well as enabling serial console
+    on the Dreamplug, copied from the freedom-maker system.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 28 Oct 2013 08:06:10 +0100
+
+freedombox-setup (0.0.18) wheezy; urgency=low
+
+  * Update dnsmasq server configuration for new version in Debian
+    Jessie.  Patch from James Valleroy.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 19 Oct 2013 20:47:41 +0200
+
+freedombox-setup (0.0.17) wheezy; urgency=low
+
+  [ Petter Reinholdtsen ]
+  * Added new dependencies htop, iftop and tcpdump to make it easier
+    to debug the freedombox.  Might be removed in a release build.
+  * Added setup.d/98_next-is-first-run to make sure
+    /var/freedombox/first-run is removed and init.d/first-run is
+    triggered on the next reboot.
+  * Update setup.d/85_plinth with the apache modules needed to get
+    plinth+ssl working.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 19 Oct 2013 09:20:13 +0200
+
+freedombox-setup (0.0.15) wheezy; urgency=low
+
+  [ Nick Daly ]
+  * Adjust setup.d/95_plinth to use Apache config from the new
+    plinth package, which should fix SSL setup.
+
+  [ Petter Reinholdtsen ]
+  * Depend on plinth (>= 0.3.0.0.git.20131007.pere.2) to get a version
+    that should work with the new setup.d/85_plinth file.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 07 Oct 2013 12:18:18 +0200
+
 freedombox-setup (0.0.14) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]

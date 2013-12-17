@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. $(dirname $0)/testsuite-functions
+
+netstat_check domain udp DNS
+
+if dig test.dnssec-or-not.net TXT  | grep -q 'Yes, you are using DNSSEC' ; then
+    success "$0: DNSSEC is enabled"
+else
+    error "$0: DNSSEC is not enabled"
+fi

@@ -10,4 +10,36 @@ a2enmod rewrite
 # enable SSL
 a2enmod ssl
 
+# disable default site
+a2dissite 000-default
+
+# setup freedombox site
+cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
+<VirtualHost *:80>
+  ServerName fbx
+  AddDefaultCharset UTF-8
+
+  ## jwchat
+  DocumentRoot /usr/share/jwchat/www
+  <Directory /usr/share/jwchat/www>
+    Options  +Indexes +Multiviews +FollowSymLinks
+  </Directory>
+
+  ## Proxy for BOSH server (for jwchat).
+  ProxyPass /http-bind/ http://localhost:5280/http-bind/
+  ProxyPassReverse /http-bind/ http://localhost:5280/http-bind/
+  <Proxy *>
+    Allow from all
+  </Proxy>
+
+  ## Send plinth to HTTPS port handled by plinth.conf.
+  RewriteEngine on
+  ReWriteCond %{REQUEST_URI} ^/plinth
+  ReWriteCond %{SERVER_PORT} !^443$
+  RewriteRule ^/(.*) https://%{HTTP_HOST}/$1 [NC,R,L]
+</VirtualHost>
+EOF
+
+a2ensite fbx
+
 echo "Done configuring Apache."

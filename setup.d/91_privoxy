@@ -1,3 +1,3 @@
 #!/bin/sh
 
-apt-get install -y freedombox-privoxy
+apt-get install -y privoxy

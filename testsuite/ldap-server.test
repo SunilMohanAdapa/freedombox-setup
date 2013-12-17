@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. $(dirname $0)/testsuite-functions
+
+ldapuri=ldapi://
+
+if ldapsearch -x -H ldapi:// -b '' -s base 2>/dev/null | \
+    grep -a OpenLDAProotDSE ; then
+    success "$0: ldap server on $ldapuri responded"
+else
+    error "$0: unable to find LDAP root DSE on $ldapuri"
+fi

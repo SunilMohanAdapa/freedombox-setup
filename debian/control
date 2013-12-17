@@ -10,15 +10,20 @@ Architecture: all
 Depends: ${misc:Depends}
  , apache2 | apache2-mpm-worker
  , augeas-tools
+ , bridge-utils
  , build-essential
  , checkinstall
  , devio
  , dialog
  , dnsmasq
+ , dnsutils
  , dosfstools
  , etckeeper
  , git
  , haveged
+ , hostname
+ , htop
+ , iftop
  , iproute
  , iptables
  , iputils-ping
@@ -27,6 +32,7 @@ Depends: ${misc:Depends}
  , libpython2.7
  , locales
  , locales-all
+ , lsof
  , lua-sec
  , make
  , mercurial
@@ -36,7 +42,7 @@ Depends: ${misc:Depends}
  , openssh-server
  , pandoc
  , parted
- , plinth
+ , plinth (>= 0.3.0.0.git.20131007.pere.2)
  , psmisc
  , python-argparse
  , python-augeas
@@ -50,8 +56,14 @@ Depends: ${misc:Depends}
  , resolvconf
  , ssl-cert
  , sudo
+ , tcpdump
  , uaputl
+ , vim-tiny
  , wget
  , zile
+Recommends: 
+ batctl
+ , rfkill
+ , wireless-tools
 Description: Set up freedombox environment
  Nice package.

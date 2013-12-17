@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. $(dirname $0)/testsuite-functions
+
+netstat_check 8000 tcp Plinth
+
+url="http://$(uname -n)/plinth/"
+if wget -q -O /dev/null "$url" ; then
+    success "$0: HTTP access to $url worked"
+else
+    error "$0: HTTP access to $url did not work"
+fi
