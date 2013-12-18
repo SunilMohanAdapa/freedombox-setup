@@ -1,11 +1,6 @@
 #!/bin/sh
 
-if dreamplug-detect ; then
-    MACHINE=dreamplug
-fi
-
-case "$MACHINE" in
-    dreamplug)
+function dreamplug-setup {
 	echo "Setting up network configuration"
 
 	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
@@ -49,5 +44,46 @@ EOF
         /lib/udev/write_net_rules
         COUNT=$((COUNT+1))
     done
+}
+
+function raspberrypi-setup {
+	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
+
+	cat > /etc/network/interfaces <<EOF
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet static
+    address 192.168.1.1
+    netmask 255.255.255.0
+EOF
+
+    # always name interfaces in same order as MAC addresses
+    service networking restart
+    MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
+    COUNT=0
+    for MAC in $MACS; do
+        export MATCHADDR=$MAC
+        export INTERFACE=eth
+        export INTERFACE_NAME=eth$COUNT
+        /lib/udev/write_net_rules
+        COUNT=$((COUNT+1))
+    done
+}
+
+machine-detect # save the machine to MACHINE
+
+case "$MACHINE" in
+    dreamplug)
+        dreamplug-setup
 	;;
+    raspberrypi)
+        raspberrypi-setup
+    ;;
 esac
