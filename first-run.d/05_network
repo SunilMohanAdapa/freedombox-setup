@@ -1,39 +1,30 @@
 #!/bin/sh
 
-function dreamplug-setup {
-	echo "Setting up network configuration"
+# Configure networking for device.
+#
+# Adds entries to the network interface file.
+#
+# Assumes UNKNOWN_SETUP environment variable.  If set, run setup when
+# the machine can't be detected.
+#
+# First parameter is the path to the network interface file to
+# configure.
 
+if [ -n "$1" ]
+then
+    IFACES=$1
+else
+    IFACES=/etc/network/interfaces
+fi
+
+function remove-udev {
+    # removes udev rules.
 	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
+}
 
-	cat > /etc/network/interfaces <<EOF
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-auto eth0
-iface eth0 inet static
-    address 192.168.1.1
-    netmask 255.255.255.0
-
-auto eth1
-iface eth1 inet dhcp
-
-# auto uap0
-# iface uap0 inet static
-#     address 192.168.2.1
-#     netmask 255.255.255.0
-#     post-up uaputl sys_cfg_ssid "freedombox"
-#     post-up uaputl sys_cfg_protocol 32  # WPA2
-#     post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
-#     post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
-#     post-up uaputl bss_start
-EOF
-
+function sort-interfaces {
     # always name interfaces in same order as MAC addresses
+
     service networking restart
     MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
     COUNT=0
@@ -46,44 +37,113 @@ EOF
     done
 }
 
-function raspberrypi-setup {
-	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
-
-	cat > /etc/network/interfaces <<EOF
+function interfaces-start {
+    # creates empty network-interfaces file.
+    cat > $IFACES <<EOF
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
+EOF
+}
 
+function interfaces-lo {
+    # add loopback to interfaces file.
+	cat >> $IFACES <<EOF
 # The loopback network interface
 auto lo
 iface lo inet loopback
 
+EOF
+}
+
+function interfaces-eth0 {
+    # add eth0 to interfaces file
+	cat >> $IFACES <<EOF
 # The primary network interface
+# creates a new network.
 auto eth0
 iface eth0 inet static
     address 192.168.1.1
     netmask 255.255.255.0
-EOF
 
-    # always name interfaces in same order as MAC addresses
-    service networking restart
-    MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
-    COUNT=0
-    for MAC in $MACS; do
-        export MATCHADDR=$MAC
-        export INTERFACE=eth
-        export INTERFACE_NAME=eth$COUNT
-        /lib/udev/write_net_rules
-        COUNT=$((COUNT+1))
-    done
+EOF
+}
+
+function interfaces-eth1 {
+    # add eth1 to interfaces file
+	cat >> $IFACES <<EOF
+# The secondary network interface
+# joins the existing network.
+auto eth1
+iface eth1 inet dhcp
+
+EOF
+}
+
+function interfaces-uap0 {
+    # add uap0 to interfaces file
+	cat >> $IFACES <<EOF
+# The wireless network interface
+# creates a new wireless network.
+auto uap0
+iface uap0 inet static
+    address 192.168.2.1
+    netmask 255.255.255.0
+    post-up uaputl sys_cfg_ssid "freedombox"
+    post-up uaputl sys_cfg_protocol 32  # WPA2
+    post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
+    post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
+    post-up uaputl bss_start
+
+EOF
+}
+
+function default-setup {
+    # normal, shared setup for all devices.
+    remove-udev
+    interfaces-start
+    interfaces-lo
+    interfaces-eth0
+    sort-interfaces
+}
+
+function dreamplug-setup {
+    default-setup
+    interfaces-eth1
+    echo "DreamPlug networking setup complete."
+}
+
+function raspberrypi-setup {
+    default-setup
+    echo "RaspberryPi networking setup complete."
+}
+
+function unknown-setup {
+    # sets up default networking, or not.
+    echo "Unknown machine detected."
+
+    if [ -n "$UNKNOWN_SETUP" ]
+    then
+        default-setup
+        echo "Default networking setup complete."
+    else
+        echo "Not configuring networking."
+    fi
 }
 
 machine-detect # save the machine to MACHINE
 
+echo "Setting up network configuration..."
+
 case "$MACHINE" in
     dreamplug)
         dreamplug-setup
-	;;
+	    ;;
     raspberrypi)
         raspberrypi-setup
-    ;;
+        ;;
+    *)
+        unknown-setup
+        ;;
 esac
+
+echo "Done setting up network configuration.
