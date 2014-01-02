@@ -17,6 +17,12 @@ else
     IFACES=/etc/network/interfaces
 fi
 
+function count-wired-interfaces {
+    # set WIRED_IFACES to number of wired interfaces, less lo.
+    WIRED_IFACES=`python interface-detect.py | grep "wired" \
+        | grep "^[^l][^o]" | wc -l`
+}
+
 function remove-udev {
     # removes udev rules.
 	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
@@ -106,44 +112,33 @@ function default-setup {
     sort-interfaces
 }
 
-function dreamplug-setup {
+function two-wired-setup {
     default-setup
     interfaces-eth1
-    echo "DreamPlug networking setup complete."
+    echo "Two wired-interfaces setup complete."
 }
 
-function raspberrypi-setup {
+function one-wired-setup {
     default-setup
-    echo "RaspberryPi networking setup complete."
+    echo "One wired-interfaces setup complete."
 }
 
-function unknown-setup {
-    # sets up default networking, or not.
-    echo "Unknown machine detected."
-
-    if [ -n "$UNKNOWN_SETUP" ]
-    then
-        default-setup
-        echo "Default networking setup complete."
-    else
-        echo "Not configuring networking."
-    fi
+function zero-wired-setup {
+    echo "No wired interfaces detected.  Not configuring networking."
 }
-
-machine-detect # save the machine to MACHINE
 
 echo "Setting up network configuration..."
+count-interfaces
 
-case "$MACHINE" in
-    dreamplug)
-        dreamplug-setup
+case "$WIRED_IFACES" in
+    "2")
+        two-wired-setup
 	    ;;
-    raspberrypi)
-        raspberrypi-setup
+    "1")
+        one-wired-setup
         ;;
-    *)
-        unknown-setup
-        ;;
+    "0")
+        zero-wired-setup
 esac
 
 echo "Done setting up network configuration.
