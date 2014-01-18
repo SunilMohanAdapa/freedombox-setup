@@ -16,11 +16,6 @@ for f in /usr/lib/freedombox/setup.d/* ; do
     $f
 done
 
-# default configuration
-UNKNOWN_SETUP=1 # 05_network: always configure default networking.
-
-export UNKNOWN_SETUP
-
 # Allow services to start after upgrading
 if $policyd ; then
     rm /usr/sbin/policy-rc.d
