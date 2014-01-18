@@ -24,8 +24,8 @@ correct configuration.
 
 To create the deb file:
 
-    sudo apt-get install git build-essential debhelper
+    sudo apt-get install git build-essential debhelper devscripts
     cd ~/
     git clone https://github.com/fuzzgun/freedombox-setup.git
     cd freedombox-setup
-    dpkg-buildpackage -F
+    debuild
