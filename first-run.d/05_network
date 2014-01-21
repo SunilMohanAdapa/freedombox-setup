@@ -17,7 +17,7 @@ else
     IFACES_FILE=/etc/network/interfaces
 fi
 
-INTERFACE_DETECT="python /home/nick/my/creations/source/freedombox/freedombox-setup/master/sbin/interface_detect.py"
+INTERFACE_DETECT="python interface_detect.py"
 
 function count-wired-interfaces {
     # set WIRED_IFACES to number of wired interfaces, less lo.
