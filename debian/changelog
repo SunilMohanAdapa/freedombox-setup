@@ -1,5 +1,7 @@
 freedombox-setup (0.0.30) UNRELEASED; urgency=low
 
+  * Add ntp as dependency, to make sure the clock is correct (and not
+    1970, as it end up as on the Raspberry PI).
   * Drop unused pandoc from dependency list.  Thanks to Nick Daly for
     noticing, as it is currently missing in Jessie.
 
