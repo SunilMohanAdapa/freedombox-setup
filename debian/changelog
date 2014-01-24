@@ -1,3 +1,10 @@
+freedombox-setup (0.0.30) UNRELEASED; urgency=low
+
+  * Drop unused pandoc from dependency list.  Thanks to Nick Daly for
+    noticing, as it is currently missing in Jessie.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 02 Dec 2013 01:32:04 +0100
+
 freedombox-setup (0.0.29) wheezy; urgency=low
 
   [ James Valleroy ]

@@ -40,7 +40,6 @@ Depends: ${misc:Depends}
  , net-tools
  , ntp
  , openssh-server
- , pandoc
  , parted
  , plinth (>= 0.3.0.0.git.20131007.pere.2)
  , psmisc
