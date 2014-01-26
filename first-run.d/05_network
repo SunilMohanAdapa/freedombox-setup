@@ -17,7 +17,7 @@ else
     IFACES_FILE=/etc/network/interfaces
 fi
 
-INTERFACE_DETECT="python interface_detect.py"
+INTERFACE_DETECT="interface_detect"
 
 function count-wired-interfaces {
     # set WIRED_IFACES to number of wired interfaces, less lo.
@@ -62,7 +62,7 @@ function interfaces-lo {
 	cat >> $IFACES_FILE <<EOF
 # The loopback network interface
 auto lo
-iface lo inet loopback
+    iface lo inet loopback
 
 EOF
 }
@@ -73,10 +73,10 @@ function interfaces-eth0 {
 # The primary network interface
 # creates a new network.
 auto eth0
-iface eth0 inet static
-address 192.168.1.1
-netmask 255.255.255.0
-# eth0: hwaddress ether 00:00:00:00:00:01
+    iface eth0 inet static
+    address 192.168.1.1
+    netmask 255.255.255.0
+    # eth0: hwaddress ether 00:00:00:00:00:01
 
 EOF
 }
@@ -87,8 +87,8 @@ function interfaces-eth1 {
 # The secondary network interface
 # joins the existing network.
 auto eth1
-iface eth1 inet dhcp
-# eth1: hwaddress ether 00:00:00:00:00:02
+    iface eth1 inet dhcp
+    # eth1: hwaddress ether 00:00:00:00:00:02
 
 EOF
 }
@@ -99,15 +99,15 @@ function interfaces-uap0 {
 # The wireless network interface
 # creates a new wireless network.
 auto uap0
-iface uap0 inet static
-address 192.168.2.1
-netmask 255.255.255.0
-post-up uaputl sys_cfg_ssid "freedombox"
-post-up uaputl sys_cfg_protocol 32  # WPA2
-post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
-post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
-post-up uaputl bss_start
-# uap0: hwaddress ether 00:00:00:00:00:02
+    iface uap0 inet static
+    address 192.168.2.1
+    netmask 255.255.255.0
+    post-up uaputl sys_cfg_ssid "freedombox"
+    post-up uaputl sys_cfg_protocol 32  # WPA2
+    post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
+    post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
+    post-up uaputl bss_start
+    # uap0: hwaddress ether 00:00:00:00:00:02
 
 EOF
 }
@@ -173,7 +173,7 @@ function generate_dummy_mac {
     low=`echo $allSix | cut -b5,6`
 
     # generate three sets of 2 digits
-    newMac="00:00:00:$high:$med:$low"
+    newMac="02:00:00:$high:$med:$low"
 }
 
 echo "Setting up network configuration..."
