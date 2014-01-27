@@ -1,44 +1,42 @@
 #!/bin/sh
 
-if dreamplug-detect ; then
-    MACHINE=dreamplug
+# Configure networking for device.
+#
+# Adds entries to the network interface file.
+#
+# Assumes UNKNOWN_SETUP environment variable.  If set, run setup when
+# the machine can't be detected.
+#
+# First parameter is the path to the network interface file to
+# configure.
+
+if [ -n "$1" ]
+then
+    IFACES_FILE=$1
+else
+    IFACES_FILE=/etc/network/interfaces
 fi
 
-case "$MACHINE" in
-    dreamplug)
-	echo "Setting up network configuration"
+INTERFACE_DETECT="interface_detect"
 
+function count-wired-interfaces {
+    # set WIRED_IFACES to number of wired interfaces, less lo.
+    WIRED_IFACES=`$INTERFACE_DETECT | grep "wired" \
+        | grep "^[^l][^o]" | wc -l`
+}
+
+function get-interfaces {
+    ALL_IFACES=`$INTERFACE_DETECT | grep "^[^l][^o]" | cut -d"," -f1"`
+}
+
+function remove-udev {
+    # removes udev rules.
 	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
+}
 
-	cat > /etc/network/interfaces <<EOF
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-
-# The loopback network interface
-auto lo
-iface lo inet loopback
-
-# The primary network interface
-auto eth0
-iface eth0 inet static
-    address 192.168.1.1
-    netmask 255.255.255.0
-
-auto eth1
-iface eth1 inet dhcp
-
-# auto uap0
-# iface uap0 inet static
-#     address 192.168.2.1
-#     netmask 255.255.255.0
-#     post-up uaputl sys_cfg_ssid "freedombox"
-#     post-up uaputl sys_cfg_protocol 32  # WPA2
-#     post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
-#     post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
-#     post-up uaputl bss_start
-EOF
-
+function sort-interfaces {
     # always name interfaces in same order as MAC addresses
+
     service networking restart
     MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
     COUNT=0
@@ -49,5 +47,149 @@ EOF
         /lib/udev/write_net_rules
         COUNT=$((COUNT+1))
     done
-	;;
+}
+
+function interfaces-start {
+    # creates empty network-interfaces file.
+    cat > $IFACES_FILE <<EOF
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+EOF
+}
+
+function interfaces-lo {
+    # add loopback to interfaces file.
+	cat >> $IFACES_FILE <<EOF
+# The loopback network interface
+auto lo
+    iface lo inet loopback
+
+EOF
+}
+
+function interfaces-eth0 {
+    # add eth0 to interfaces file
+	cat >> $IFACES_FILE <<EOF
+# The primary network interface
+# creates a new network.
+auto eth0
+    iface eth0 inet static
+    address 192.168.1.1
+    netmask 255.255.255.0
+    # eth0: hwaddress ether 00:00:00:00:00:01
+
+EOF
+}
+
+function interfaces-eth1 {
+    # add eth1 to interfaces file
+	cat >> $IFACES_FILE <<EOF
+# The secondary network interface
+# joins the existing network.
+auto eth1
+    iface eth1 inet dhcp
+    # eth1: hwaddress ether 00:00:00:00:00:02
+
+EOF
+}
+
+function interfaces-uap0 {
+    # add uap0 to interfaces file
+	cat >> $IFACES_FILE <<EOF
+# The wireless network interface
+# creates a new wireless network.
+auto uap0
+    iface uap0 inet static
+    address 192.168.2.1
+    netmask 255.255.255.0
+    post-up uaputl sys_cfg_ssid "freedombox"
+    post-up uaputl sys_cfg_protocol 32  # WPA2
+    post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
+    post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
+    post-up uaputl bss_start
+    # uap0: hwaddress ether 00:00:00:00:00:02
+
+EOF
+}
+
+function default-setup {
+    # normal, shared setup for all devices.
+    remove-udev
+    interfaces-start
+    interfaces-lo
+    interfaces-eth0
+    sort-interfaces
+}
+
+function two-wired-setup {
+    default-setup
+    interfaces-eth1
+    echo "Two wired-interfaces setup complete."
+}
+
+function one-wired-setup {
+    default-setup
+    echo "One wired-interfaces setup complete."
+}
+
+function zero-wired-setup {
+    echo "No wired interfaces detected.  Not configuring networking."
+}
+
+function update-null-macs {
+    # if interface's mac address is all zeroes, change it to 0:0:0:X:X:X
+
+    # iterate through all the interfaces
+    for description in `$INTERFACE_DETECT`
+    do
+        name=`echo $description | cut -d"," -f1`
+        mac=`echo $description | cut -d"," -f3`
+
+        # if it's null, swap it out in the interface file.
+        if [[ "$mac" == "00:00:00:00:00:00" ]]
+        then
+            # if macchanger gave us a new mac, use that.  or, generate dummy.
+            if [[ `macchanger -a $name` ]]
+            then
+                newMac=`$INTERFACE_DETECT | grep $name | cut -d, -f3`
+            else
+                generate_dummy_mac
+            fi
+
+            # save new mac.
+            sed -i "s/^# \$name: hwaddress ether .*$/hwaddress ether \$newMac/" \
+                $IFACES_FILE
+        fi
+    done
+}
+
+function generate_dummy_mac {
+    # set "newMac" to a random MAC address: 00:00:00:XX:XX:XX
+
+    # generate 3 sets of 2 random hex digits.
+    allSix="$(tr -dc '[:xdigit:]' < /dev/urandom | tr '[:lower:]' '[:upper:]' | head -c 6)"
+    high=`echo $allSix | cut -b1,2`
+    med=`echo $allSix | cut -b3,4`
+    low=`echo $allSix | cut -b5,6`
+
+    # generate three sets of 2 digits
+    newMac="02:00:00:$high:$med:$low"
+}
+
+echo "Setting up network configuration..."
+count-interfaces
+
+case "$WIRED_IFACES" in
+    "2")
+        two-wired-setup
+        ;;
+    "1")
+        one-wired-setup
+        ;;
+    "0")
+        zero-wired-setup
 esac
+
+update-null-macs
+
+echo "Done setting up network configuration.
