@@ -1,4 +1,4 @@
-freedombox-setup (0.0.30) UNRELEASED; urgency=low
+freedombox-setup (0.0.30) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]
   * Add ntp as dependency, to make sure the clock is correct (and not
@@ -12,7 +12,7 @@ freedombox-setup (0.0.30) UNRELEASED; urgency=low
   * Drop unused setup.d/75_projects-setup.
   * Adjust network setup to get it working on the Dreamplug.
 
- -- Petter Reinholdtsen <pere@debian.org>  Mon, 02 Dec 2013 01:32:04 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 27 Jan 2014 15:08:51 +0100
 
 freedombox-setup (0.0.29) wheezy; urgency=low
 
