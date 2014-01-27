@@ -1,9 +1,16 @@
 freedombox-setup (0.0.30) UNRELEASED; urgency=low
 
+  [ Petter Reinholdtsen ]
   * Add ntp as dependency, to make sure the clock is correct (and not
     1970, as it end up as on the Raspberry PI).
   * Drop unused pandoc from dependency list.  Thanks to Nick Daly for
     noticing, as it is currently missing in Jessie.
+
+  [ Nick Daly ]
+  * Drop setup.d/70_fetch-projects.  Those that want to look at the
+    source can fetch it themselves.
+  * Drop unused setup.d/75_projects-setup.
+  * Adjust network setup to get it working on the Dreamplug.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 02 Dec 2013 01:32:04 +0100
 
