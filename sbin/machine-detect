@@ -5,6 +5,11 @@
 # Return true if the MACHINE was detected, and false otherwise.
 #
 # Currently look in /sys/devices for indicators.
+#
+# Other possibilities:
+#
+# echo $(cat /proc/device-tree/model)
+# Globalscale Technologies Dreamplug
 
 MACHINE=""
 
