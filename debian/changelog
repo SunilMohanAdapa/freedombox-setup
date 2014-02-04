@@ -1,3 +1,11 @@
+freedombox-setup (0.0.31) UNRELEASED; urgency=low
+
+  [ Nick Daly ]
+  * Correct network setup to use bash and work better
+    on the Dreamplug.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 04 Feb 2014 23:05:01 +0100
+
 freedombox-setup (0.0.30) wheezy; urgency=low
 
   [ Petter Reinholdtsen ]
