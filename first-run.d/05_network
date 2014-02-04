@@ -1,11 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 # Configure networking for device.
 #
 # Adds entries to the network interface file.
-#
-# Assumes UNKNOWN_SETUP environment variable.  If set, run setup when
-# the machine can't be detected.
 #
 # First parameter is the path to the network interface file to
 # configure.
@@ -19,8 +16,9 @@ fi
 
 INTERFACE_DETECT="interface_detect"
 
-function count-wired-interfaces {
+function find-wired-interfaces {
     # set WIRED_IFACES to number of wired interfaces, less lo.
+
     WIRED_IFACES=`$INTERFACE_DETECT | grep "wired" \
         | grep "^[^l][^o]" | wc -l`
 }
@@ -31,6 +29,7 @@ function get-interfaces {
 
 function remove-udev {
     # removes udev rules.
+
 	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
 }
 
@@ -51,6 +50,7 @@ function sort-interfaces {
 
 function interfaces-start {
     # creates empty network-interfaces file.
+
     cat > $IFACES_FILE <<EOF
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
@@ -59,6 +59,7 @@ EOF
 
 function interfaces-lo {
     # add loopback to interfaces file.
+
 	cat >> $IFACES_FILE <<EOF
 # The loopback network interface
 auto lo
@@ -69,6 +70,7 @@ EOF
 
 function interfaces-eth0 {
     # add eth0 to interfaces file
+
 	cat >> $IFACES_FILE <<EOF
 # The primary network interface
 # creates a new network.
@@ -83,6 +85,7 @@ EOF
 
 function interfaces-eth1 {
     # add eth1 to interfaces file
+
 	cat >> $IFACES_FILE <<EOF
 # The secondary network interface
 # joins the existing network.
@@ -95,6 +98,7 @@ EOF
 
 function interfaces-uap0 {
     # add uap0 to interfaces file
+
 	cat >> $IFACES_FILE <<EOF
 # The wireless network interface
 # creates a new wireless network.
@@ -114,6 +118,7 @@ EOF
 
 function default-setup {
     # normal, shared setup for all devices.
+
     remove-udev
     interfaces-start
     interfaces-lo
@@ -140,7 +145,7 @@ function update-null-macs {
     # if interface's mac address is all zeroes, change it to 0:0:0:X:X:X
 
     # iterate through all the interfaces
-    for description in `$INTERFACE_DETECT`
+    for description in $WIRED_IFACES
     do
         name=`echo $description | cut -d"," -f1`
         mac=`echo $description | cut -d"," -f3`
@@ -157,7 +162,7 @@ function update-null-macs {
             fi
 
             # save new mac.
-            sed -i "s/^# \$name: hwaddress ether .*$/hwaddress ether \$newMac/" \
+            sed -i "s/^# $name: hwaddress ether .*$/hwaddress ether $newMac/" \
                 $IFACES_FILE
         fi
     done
@@ -173,13 +178,14 @@ function generate_dummy_mac {
     low=`echo $allSix | cut -b5,6`
 
     # generate three sets of 2 digits
-    newMac="02:00:00:$high:$med:$low"
+    newMac="00:00:00:$high:$med:$low"
 }
 
 echo "Setting up network configuration..."
-count-interfaces
+find-wired-interfaces
 
-case "$WIRED_IFACES" in
+# count wired interfaces
+case `echo $WIRED_IFACES | wc -w` in
     "2")
         two-wired-setup
         ;;
@@ -192,4 +198,4 @@ esac
 
 update-null-macs
 
-echo "Done setting up network configuration.
+echo "Done setting up network configuration."
