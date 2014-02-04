@@ -1,4 +1,4 @@
-freedombox-setup (0.0.31) UNRELEASED; urgency=low
+freedombox-setup (0.0.31) wheezy; urgency=low
 
   [ Nick Daly ]
   * Correct network setup to use bash and work better
