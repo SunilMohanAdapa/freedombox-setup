@@ -16,11 +16,11 @@ fi
 
 INTERFACE_DETECT="interface_detect"
 
-function find-wired-interfaces {
-    # set WIRED_IFACES to number of wired interfaces, less lo.
+function get-wired-interfaces {
+    # set WIRED_IFACES to list of wired interfaces, less lo.
 
     WIRED_IFACES=`$INTERFACE_DETECT | grep "wired" \
-        | grep "^[^l][^o]" | wc -l`
+        | grep "^[^l][^o]"`
 }
 
 function get-interfaces {
@@ -30,13 +30,15 @@ function get-interfaces {
 function remove-udev {
     # removes udev rules.
 
-	rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
+    rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
 }
 
 function sort-interfaces {
     # always name interfaces in same order as MAC addresses
 
-    service networking restart
+    # "service networking restart" deprecated.
+    service networking stop; service networking start
+
     MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
     COUNT=0
     for MAC in $MACS; do
@@ -60,7 +62,7 @@ EOF
 function interfaces-lo {
     # add loopback to interfaces file.
 
-	cat >> $IFACES_FILE <<EOF
+    cat >> $IFACES_FILE <<EOF
 # The loopback network interface
 auto lo
     iface lo inet loopback
@@ -71,7 +73,7 @@ EOF
 function interfaces-eth0 {
     # add eth0 to interfaces file
 
-	cat >> $IFACES_FILE <<EOF
+    cat >> $IFACES_FILE <<EOF
 # The primary network interface
 # creates a new network.
 auto eth0
@@ -86,7 +88,7 @@ EOF
 function interfaces-eth1 {
     # add eth1 to interfaces file
 
-	cat >> $IFACES_FILE <<EOF
+    cat >> $IFACES_FILE <<EOF
 # The secondary network interface
 # joins the existing network.
 auto eth1
@@ -99,7 +101,7 @@ EOF
 function interfaces-uap0 {
     # add uap0 to interfaces file
 
-	cat >> $IFACES_FILE <<EOF
+    cat >> $IFACES_FILE <<EOF
 # The wireless network interface
 # creates a new wireless network.
 auto uap0
@@ -162,7 +164,7 @@ function update-null-macs {
             fi
 
             # save new mac.
-            sed -i "s/^# $name: hwaddress ether .*$/hwaddress ether $newMac/" \
+            sed -i "s/# $name: hwaddress ether .*$/hwaddress ether $newMac/" \
                 $IFACES_FILE
         fi
     done
@@ -182,7 +184,7 @@ function generate_dummy_mac {
 }
 
 echo "Setting up network configuration..."
-find-wired-interfaces
+get-wired-interfaces
 
 # count wired interfaces
 case `echo $WIRED_IFACES | wc -w` in
