@@ -1,3 +1,14 @@
+freedombox-setup (0.0.32) UNRELEASED; urgency=low
+
+  [Nick Daly]
+  * MAC changes now apply to /etc/network/interfaces; fix docs.
+    - The sed command shouldn't've started with "^".
+    - Don't "wc -l" the wired interface list.
+    - Replace deprecated "service networking restart".
+    - Tabs to 4 spaces. (everywhere)
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 28 Feb 2014 22:48:00 +0100
+
 freedombox-setup (0.0.31) wheezy; urgency=low
 
   [ Nick Daly ]
