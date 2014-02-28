@@ -1,4 +1,4 @@
-freedombox-setup (0.0.32) UNRELEASED; urgency=low
+freedombox-setup (0.0.32) wheezy; urgency=low
 
   [Nick Daly]
   * MAC changes now apply to /etc/network/interfaces; fix docs.
@@ -6,8 +6,10 @@ freedombox-setup (0.0.32) UNRELEASED; urgency=low
     - Don't "wc -l" the wired interface list.
     - Replace deprecated "service networking restart".
     - Tabs to 4 spaces. (everywhere)
+  * Moved provide-source from 60 to 99 to make sure the source of all
+    packages are fetched for images needing source.
 
- -- Petter Reinholdtsen <pere@debian.org>  Fri, 28 Feb 2014 22:48:00 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 28 Feb 2014 22:52:54 +0100
 
 freedombox-setup (0.0.31) wheezy; urgency=low
 
