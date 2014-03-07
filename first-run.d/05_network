@@ -171,7 +171,7 @@ function update-null-macs {
 }
 
 function generate_dummy_mac {
-    # set "newMac" to a random MAC address: 00:00:00:XX:XX:XX
+    # set "newMac" to a GlobalScale MAC address: F0:AD:4E:XX:XX:XX
 
     # generate 3 sets of 2 random hex digits.
     allSix="$(tr -dc '[:xdigit:]' < /dev/urandom | tr '[:lower:]' '[:upper:]' | head -c 6)"
@@ -180,7 +180,7 @@ function generate_dummy_mac {
     low=`echo $allSix | cut -b5,6`
 
     # generate three sets of 2 digits
-    newMac="00:00:00:$high:$med:$low"
+    newMac="F0:AD:4E:$high:$med:$low"
 }
 
 echo "Setting up network configuration..."
