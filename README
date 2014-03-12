@@ -21,3 +21,11 @@ should be called to finish the setup.
 On the first boot, /etc/init.d/first-run is called and a reboot done
 when it finishes to make sure all services are started with the
 correct configuration.
+
+To create the deb file:
+
+    sudo apt-get install git build-essential debhelper devscripts
+    cd ~/
+    git clone https://github.com/fuzzgun/freedombox-setup.git
+    cd freedombox-setup
+    debuild

@@ -2,6 +2,9 @@ Source: freedombox-setup
 Section: misc
 Priority: optional
 Maintainer: Petter Reinholdtsen <pere@debian.org>
+Uploaders:
+ Bdale Garbee <bdale@gag.com>
+ , Nick Daly <Nick.M.Daly@gmail.com>
 Build-Depends: debhelper (>= 8)
 Standards-Version: 3.9.4
 
@@ -41,7 +44,6 @@ Depends: ${misc:Depends}
  , net-tools
  , ntp
  , openssh-server
- , pandoc
  , parted
  , plinth (>= 0.3.0.0.git.20131007.pere.2)
  , psmisc

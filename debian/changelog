@@ -1,3 +1,50 @@
+freedombox-setup (0.0.33) UNRELEASED; urgency=low
+
+  [ Nick Daly ]
+  * Generate random Globalscale MAC addresses, not Xerox ones.
+
+  [ Petter Reinholdtsen ]
+  * Add Bdale Garbee and Nick Daly as uploaders.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 10 Mar 2014 00:48:13 +0100
+
+freedombox-setup (0.0.32) wheezy; urgency=low
+
+  [Nick Daly]
+  * MAC changes now apply to /etc/network/interfaces; fix docs.
+    - The sed command shouldn't've started with "^".
+    - Don't "wc -l" the wired interface list.
+    - Replace deprecated "service networking restart".
+    - Tabs to 4 spaces. (everywhere)
+  * Moved provide-source from 60 to 99 to make sure the source of all
+    packages are fetched for images needing source.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 28 Feb 2014 22:52:54 +0100
+
+freedombox-setup (0.0.31) wheezy; urgency=low
+
+  [ Nick Daly ]
+  * Correct network setup to use bash and work better
+    on the Dreamplug.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 04 Feb 2014 23:05:01 +0100
+
+freedombox-setup (0.0.30) wheezy; urgency=low
+
+  [ Petter Reinholdtsen ]
+  * Add ntp as dependency, to make sure the clock is correct (and not
+    1970, as it end up as on the Raspberry PI).
+  * Drop unused pandoc from dependency list.  Thanks to Nick Daly for
+    noticing, as it is currently missing in Jessie.
+
+  [ Nick Daly ]
+  * Drop setup.d/70_fetch-projects.  Those that want to look at the
+    source can fetch it themselves.
+  * Drop unused setup.d/75_projects-setup.
+  * Adjust network setup to get it working on the Dreamplug.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 27 Jan 2014 15:08:51 +0100
+
 freedombox-setup (0.0.29) wheezy; urgency=low
 
   [ James Valleroy ]
