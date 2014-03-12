@@ -16,7 +16,7 @@ EOF
 cat > /etc/dnsmasq.d/freedombox-upstream-dns <<EOF
 # Upstream DNS server
 # FIXME this should be updated on boot.
-server=192.168.0.1@eth1
+server=192.168.0.1@eth0
 EOF
 
 cat > /etc/dnsmasq.d/freedombox-dhcp-server <<EOF
