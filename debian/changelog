@@ -1,4 +1,4 @@
-freedombox-setup (0.0.33) UNRELEASED; urgency=low
+freedombox-setup (0.0.33) wheezy; urgency=low
 
   [ Nick Daly ]
   * Generate random Globalscale MAC addresses, not Xerox ones.
@@ -6,7 +6,7 @@ freedombox-setup (0.0.33) UNRELEASED; urgency=low
   [ Petter Reinholdtsen ]
   * Add Bdale Garbee and Nick Daly as uploaders.
 
- -- Petter Reinholdtsen <pere@debian.org>  Mon, 10 Mar 2014 00:48:13 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 13 Mar 2014 18:34:45 +0100
 
 freedombox-setup (0.0.32) wheezy; urgency=low
 
