@@ -77,9 +77,7 @@ function interfaces-eth0 {
 # The primary network interface
 # creates a new network.
 auto eth0
-    iface eth0 inet static
-    address 192.168.1.1
-    netmask 255.255.255.0
+    iface eth0 inet dhcp
     # eth0: hwaddress ether 00:00:00:00:00:01
 
 EOF
@@ -92,7 +90,9 @@ function interfaces-eth1 {
 # The secondary network interface
 # joins the existing network.
 auto eth1
-    iface eth1 inet dhcp
+    iface eth1 inet static
+    address 192.168.1.1
+    netmask 255.255.255.0
     # eth1: hwaddress ether 00:00:00:00:00:02
 
 EOF
