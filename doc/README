@@ -42,11 +42,11 @@ use your FreedomBox.
 Quick Start
 ------------------------------
 
-#. Plug one end of your ethernet cord into your FreedomBox's eth1_ port (the one
-   toward the end of the box), and plug the other end into your router.
+#. Plug one end of your ethernet cord into your FreedomBox's eth0_ port (the one
+   toward the middle of the box), and plug the other end into your router.
 
-#. Plug your computer into the eth0_ port (the one toward the middle of the box)
-   on the FreedomBox.
+#. Plug your computer into the eth1_ port (the one toward the end of the box) on
+   the FreedomBox.
 
 #. Plug your FreedomBox into a power outlet.
 
@@ -73,11 +73,11 @@ Browsing the Internet
 
 To browse the Internet through your FreedomBox:
 
-#. Plug one end of your ethernet cord into your FreedomBox's eth1_ port (the one
-   toward the end of the box), and plug the other end into your router.
+#. Plug one end of your ethernet cord into your FreedomBox's eth0_ port (the one
+   toward the middle of the box), and plug the other end into your router.
 
-#. Plug your computer into the eth0_ port (the one toward the middle of the box)
-   on the FreedomBox.
+#. Plug your computer into the eth1_ port (the one toward the end of the box) on
+   the FreedomBox.
 
 #. Start enjoying the Internet.
 
