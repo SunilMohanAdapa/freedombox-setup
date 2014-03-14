@@ -29,7 +29,7 @@ apt-setup apt-setup/local0/key     string  http://www.reinholdtsen.name/freedomb
 tasksel tasksel/first   multiselect     ssh-server
 
 # list extra packages to install here
-d-i     pkgsel/include string freedombox-setup freedombox-privoxy
+d-i     pkgsel/include string freedombox-setup
 
 grub-installer grub-installer/only_debian boolean true
 
