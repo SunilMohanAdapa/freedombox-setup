@@ -68,5 +68,5 @@ Recommends:
  batctl
  , rfkill
  , wireless-tools
-Description: Set up freedombox environment
- Nice package.
+Description: Package to set up freedombox environment
+ Configure the Freedombox environment before and after the first reboot.
