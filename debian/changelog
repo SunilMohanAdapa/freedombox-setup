@@ -1,3 +1,11 @@
+freedombox-setup (0.0.34) UNRELEASED; urgency=low
+
+  [ Nick Daly ]
+  * Reverse roles of eth0 and eth1 ports.  Now, eth0 is a DHCP client,
+    and eth1 (if it exist) is a DHCP server.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 14 Mar 2014 22:26:46 +0100
+
 freedombox-setup (0.0.33) wheezy; urgency=low
 
   [ Nick Daly ]
