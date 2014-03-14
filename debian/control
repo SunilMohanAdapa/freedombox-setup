@@ -7,6 +7,9 @@ Uploaders:
  , Nick Daly <Nick.M.Daly@gmail.com>
 Build-Depends: debhelper (>= 8)
 Standards-Version: 3.9.4
+Homepage: https://wiki.debian.org/FreedomBox
+Vcs-Git: git://anonscm.debian.org/freedombox/freedombox-setup.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=freedombox/freedombox-setup.git;a=summary
 
 Package: freedombox-setup
 Architecture: all

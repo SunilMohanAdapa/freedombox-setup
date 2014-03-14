@@ -1,6 +1,7 @@
 freedombox-setup (0.0.35) UNRELEASED; urgency=low
 
   * Update the package description.
+  * Add homepage and vcs links in control file.
 
  -- Petter Reinholdtsen <pere@debian.org>  Fri, 14 Mar 2014 23:10:18 +0100
 
