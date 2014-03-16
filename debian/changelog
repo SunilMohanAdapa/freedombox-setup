@@ -1,4 +1,4 @@
-freedombox-setup (0.0.35) UNRELEASED; urgency=low
+freedombox-setup (0.0.35) unstable; urgency=low
 
   * Upload to Debian unstable.
   * Update the package description.
@@ -9,7 +9,7 @@ freedombox-setup (0.0.35) UNRELEASED; urgency=low
     setup.d/45_user-doc, to make sure file only show up when setting
     up a FreedomBox.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 16 Mar 2014 18:53:37 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 16 Mar 2014 20:25:47 +0100
 
 freedombox-setup (0.0.34) wheezy; urgency=low
 
