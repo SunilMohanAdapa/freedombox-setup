@@ -1,7 +1,10 @@
 freedombox-setup (0.0.35) UNRELEASED; urgency=low
 
+  * Upload to Debian unstable.
   * Update the package description.
   * Add homepage and vcs links in control file.
+  * Depend on essential package hostname to ensure it is pulled in
+    also when using debootstrap --variant minbase.
 
  -- Petter Reinholdtsen <pere@debian.org>  Fri, 14 Mar 2014 23:10:18 +0100
 
