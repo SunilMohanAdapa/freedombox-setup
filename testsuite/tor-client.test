@@ -2,6 +2,9 @@
 
 . $(dirname $0)/testsuite-functions
 
+netstat_check 4431 tcp tor
+netstat_check 9050 tcp tor
+
 if torsocks wget -O - http://www.debian.org/ 2>/dev/null | \
     grep -q '<html'; then
     success "$0: HTTP request to www.debian.org via TOR works."
