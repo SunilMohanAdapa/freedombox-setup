@@ -1,3 +1,9 @@
+freedombox-setup (0.0.36) UNRELEASED; urgency=low
+
+  * Quiet down ldap-server testsuite test.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 16 Mar 2014 22:03:17 +0100
+
 freedombox-setup (0.0.35) unstable; urgency=low
 
   * Upload to Debian unstable.
