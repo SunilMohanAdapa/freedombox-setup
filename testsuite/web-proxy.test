@@ -3,3 +3,10 @@
 . $(dirname $0)/testsuite-functions
 
 netstat_check 8118 tcp privoxy
+
+if http_proxy=http://localhost:8118 wget -O - http://www.debian.org/ 2>/dev/null | \
+    grep -q '<html'; then
+    success "HTTP request to www.debian.org via privoxy works."
+else
+    error "HTTP request to www.debian.org via privoxy fail."
+fi
