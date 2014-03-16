@@ -3,6 +3,8 @@ freedombox-setup (0.0.36) UNRELEASED; urgency=low
   * Quiet down ldap-server testsuite test.
   * Start on TOR testsuite test.  Check if wget via tor work.
   * Add privoxy test to check if the proxy really work.
+  * Adjust plinth testsuite test to skip certificate check, as it is
+    self signed and wget fail without --no-check-certificate.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 16 Mar 2014 22:03:17 +0100
 
