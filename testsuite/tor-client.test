@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. $(dirname $0)/testsuite-functions
+
+if torsocks wget -O - http://www.debian.org/ 2>/dev/null | grep -q '<html'; then
+    success "HTTP request to www.debian.org via TOR works."
+else
+    error "HTTP request to www.debian.org via TOR fail."
+fi
