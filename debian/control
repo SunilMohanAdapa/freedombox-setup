@@ -14,6 +14,7 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=freedombox/freedombox-setup.git
 Package: freedombox-setup
 Architecture: all
 Depends: ${misc:Depends}
+ , ${python:Depends}
  , apache2 | apache2-mpm-worker
  , augeas-tools
  , bridge-utils
