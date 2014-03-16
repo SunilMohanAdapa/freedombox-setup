@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+# Put documentation in the fbx users home directory
+zcat /usr/share/doc/freedombox-setup/README.fbx-home.gz > /home/fbx/README
+chmod a+rx /home/fbx/README
+chown fbx /home/fbx/README
