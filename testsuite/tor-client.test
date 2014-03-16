@@ -4,15 +4,15 @@
 
 if torsocks wget -O - http://www.debian.org/ 2>/dev/null | \
     grep -q '<html'; then
-    success "HTTP request to www.debian.org via TOR works."
+    success "$0: HTTP request to www.debian.org via TOR works."
 else
-    error "HTTP request to www.debian.org via TOR fail."
+    error "$0: HTTP request to www.debian.org via TOR fail."
 fi
 
 if torsocks wget -O - https://check.torproject.org/ 2>/dev/null | \
     grep -q 'Congratulations. This browser is configured to use Tor.'; then
-    success 'HTTP request to check.torproject.org via TOR report that TOR is used.'
+    success "$0: HTTP request to check.torproject.org via TOR report that TOR is used."
 else
-    error 'HTTP request to check.torproject.org via TOR report that TOR is not used.'
+    error "$0: HTTP request to check.torproject.org via TOR report that TOR is not used."
 fi
 
