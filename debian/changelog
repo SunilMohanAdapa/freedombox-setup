@@ -6,6 +6,10 @@ freedombox-setup (0.0.36) UNRELEASED; urgency=low
   * Adjust plinth testsuite test to skip certificate check, as it is
     self signed and wget fail without --no-check-certificate.
 
+  [ James Valleroy ]
+  * Change setup.d/80_tor to not disable Tor socks port in the default
+    configuration of tor.
+
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 16 Mar 2014 22:03:17 +0100
 
 freedombox-setup (0.0.35) unstable; urgency=low
