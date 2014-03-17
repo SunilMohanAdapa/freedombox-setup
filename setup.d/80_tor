@@ -3,7 +3,6 @@
 apt-get install -y tor
 
 cat > /etc/tor/torrc <<EOF
-SocksPort 0
 ORPort 4431
 BridgeRelay 1
 Exitpolicy reject *:*
