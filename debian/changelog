@@ -1,4 +1,4 @@
-freedombox-setup (0.0.36) UNRELEASED; urgency=low
+freedombox-setup (0.0.36) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
   * Quiet down ldap-server testsuite test.
@@ -11,7 +11,7 @@ freedombox-setup (0.0.36) UNRELEASED; urgency=low
   * Change setup.d/80_tor to not disable Tor socks port in the default
     configuration of tor.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 16 Mar 2014 22:03:17 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Mon, 17 Mar 2014 06:48:57 +0100
 
 freedombox-setup (0.0.35) unstable; urgency=low
 
