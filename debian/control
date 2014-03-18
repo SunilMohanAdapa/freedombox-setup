@@ -18,7 +18,6 @@ Depends: ${misc:Depends}
  , apache2 | apache2-mpm-worker
  , augeas-tools
  , bridge-utils
- , build-essential
  , checkinstall
  , devio
  , dialog
@@ -26,7 +25,6 @@ Depends: ${misc:Depends}
  , dnsutils
  , dosfstools
  , etckeeper
- , git
  , haveged
  , hostname
  , htop
@@ -42,8 +40,6 @@ Depends: ${misc:Depends}
  , lsof
  , lua-sec
  , macchanger
- , make
- , mercurial
  , monkeysphere
  , net-tools
  , ntp
