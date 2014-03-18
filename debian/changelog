@@ -10,6 +10,8 @@ freedombox-setup (0.0.37) UNRELEASED; urgency=low
     longer needed to get services working.
   * Removed libpython2.7 as dependency.  As far as 'aptitude why' can
     see, depending on python-augeas is enough to pull it in.
+  * Removed python-simplejson as dependency.  As far as 'aptitude why'
+    can see, depending on plinth is enough to pull it in.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 06:36:02 +0100
 
