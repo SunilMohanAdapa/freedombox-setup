@@ -2,6 +2,8 @@ freedombox-setup (0.0.37) UNRELEASED; urgency=low
 
   [ James Valleroy ]
   * Added new jwchat testsuite check.
+  * Use correct hostname for ejabberd and jwchat, when running setup.d
+    scripts inside a chroot.
 
   [ Petter Reinholdtsen ]
   * Removed git and mercurial as dependencies.  They are no longer used
