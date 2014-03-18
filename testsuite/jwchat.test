@@ -1,0 +1,28 @@
+#!/bin/sh
+
+. $(dirname $0)/testsuite-functions
+
+
+# Check if we can access jwchat on each IP address.
+
+ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
+
+for ip in $ips
+do
+    url="http://$ip"
+    if wget -q -O /dev/null "$url" ; then
+        success "$0: HTTP access to $url worked"
+    else
+        error "$0: HTTP access to $url did not work"
+    fi
+done
+
+
+# Check if we can access jwchat using hostname.
+
+url="http://$(uname -n)"
+if wget -q -O /dev/null "$url" ; then
+        success "$0: HTTP access to $url worked"
+else
+        error "$0: HTTP access to $url did not work"
+fi
