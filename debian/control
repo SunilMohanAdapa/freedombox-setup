@@ -34,7 +34,6 @@ Depends: ${misc:Depends}
  , iputils-ping
  , isc-dhcp-client
  , libnss-myhostname
- , libpython2.7
  , locales
  , locales-all
  , lsof
