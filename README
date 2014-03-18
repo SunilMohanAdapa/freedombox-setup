@@ -26,6 +26,6 @@ To create the deb file:
 
     sudo apt-get install git build-essential debhelper devscripts
     cd ~/
-    git clone https://github.com/fuzzgun/freedombox-setup.git
+    git clone git://anonscm.debian.org/freedombox/freedombox-setup.git
     cd freedombox-setup
     debuild
