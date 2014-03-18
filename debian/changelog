@@ -1,3 +1,9 @@
+freedombox-setup (0.0.38) UNRELEASED; urgency=low
+
+  * Added ntp testsuite check.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 23:38:10 +0100
+
 freedombox-setup (0.0.37) unstable; urgency=low
 
   [ James Valleroy ]
