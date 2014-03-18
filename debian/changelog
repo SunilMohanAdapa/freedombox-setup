@@ -1,3 +1,10 @@
+freedombox-setup (0.0.37) UNRELEASED; urgency=low
+
+  [ James Valleroy ]
+  * Added new jwchat testsuite check.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 06:36:02 +0100
+
 freedombox-setup (0.0.36) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
