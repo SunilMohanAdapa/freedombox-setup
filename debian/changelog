@@ -1,4 +1,4 @@
-freedombox-setup (0.0.37) UNRELEASED; urgency=low
+freedombox-setup (0.0.37) unstable; urgency=low
 
   [ James Valleroy ]
   * Added new jwchat testsuite check.
@@ -15,7 +15,7 @@ freedombox-setup (0.0.37) UNRELEASED; urgency=low
   * Removed python-simplejson as dependency.  As far as 'aptitude why'
     can see, depending on plinth is enough to pull it in.
 
- -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 06:36:02 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 23:29:56 +0100
 
 freedombox-setup (0.0.36) unstable; urgency=low
 
