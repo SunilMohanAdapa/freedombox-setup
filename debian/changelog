@@ -5,6 +5,8 @@ freedombox-setup (0.0.38) UNRELEASED; urgency=low
   * Depend on avahi-daemon to announce available services on the local
     net and provide mdns hostname info.  Depend on avahi-utils to
     include tools to use avahi.  Depend on libnss-mdns to enable mdns.
+  * Depend on libnss-gw-name to make sure gateway.localhost always
+    map to the current default gateway.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 23:38:10 +0100
 

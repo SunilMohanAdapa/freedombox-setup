@@ -35,6 +35,7 @@ Depends: ${misc:Depends}
  , iptables
  , iputils-ping
  , isc-dhcp-client
+ , libnss-gw-name
  , libnss-mdns
  , libnss-myhostname
  , locales
