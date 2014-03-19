@@ -17,6 +17,8 @@ Depends: ${misc:Depends}
  , ${python:Depends}
  , apache2 | apache2-mpm-worker
  , augeas-tools
+ , avahi-daemon
+ , avahi-utils
  , bridge-utils
  , checkinstall
  , devio
@@ -33,6 +35,7 @@ Depends: ${misc:Depends}
  , iptables
  , iputils-ping
  , isc-dhcp-client
+ , libnss-mdns
  , libnss-myhostname
  , locales
  , locales-all
