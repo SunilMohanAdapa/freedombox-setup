@@ -1,6 +1,8 @@
 freedombox-setup (0.0.39) UNRELEASED; urgency=low
 
   * Adjust tor testsuite message to be more clear.
+  * Depend on plinth (>= 0.3.1.git.20140304-1), the version now in
+    jessie.
 
  -- Petter Reinholdtsen <pere@debian.org>  Thu, 20 Mar 2014 10:48:37 +0100
 

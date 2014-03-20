@@ -47,7 +47,7 @@ Depends: ${misc:Depends}
  , ntp
  , openssh-server
  , parted
- , plinth (>= 0.3.0.0.git.20131007.pere.2)
+ , plinth (>= 0.3.1.git.20140304-1)
  , psmisc
  , python-argparse
  , python-augeas
