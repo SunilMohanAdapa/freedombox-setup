@@ -14,8 +14,8 @@ fi
 
 if torsocks wget -O - https://check.torproject.org/ 2>/dev/null | \
     grep -q 'Congratulations. This browser is configured to use Tor.'; then
-    success "$0: HTTP request to check.torproject.org via TOR report that TOR is used."
+    success "$0: HTTP request to check.torproject.org via TOR confirm that TOR is used."
 else
-    error "$0: HTTP request to check.torproject.org via TOR report that TOR is not used."
+    error "$0: HTTP request to check.torproject.org via TOR confirm that TOR is not used."
 fi
 
