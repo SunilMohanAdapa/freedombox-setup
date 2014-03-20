@@ -4,6 +4,10 @@ freedombox-setup (0.0.39) UNRELEASED; urgency=low
   * Depend on plinth (>= 0.3.1.git.20140304-1), the version now in
     jessie.
   * Document copyright for lxc-templates/lxc-debian-freedombox.
+  * Add missing build dependency on python-support and
+    python | python-all | python-dev | python-all-dev as well as
+    raise debhelper compat version from 8 to 9 to use the python
+    rules automatically.
 
  -- Petter Reinholdtsen <pere@debian.org>  Thu, 20 Mar 2014 10:48:37 +0100
 
