@@ -7,6 +7,10 @@ freedombox-setup (0.0.38) UNRELEASED; urgency=low
     include tools to use avahi.  Depend on libnss-mdns to enable mdns.
   * Depend on libnss-gw-name to make sure gateway.localhost always
     map to the current default gateway.
+  * Remove iproute dependency.  It is a isc-dhcp-client dependency and
+    we do not need a direct dependency.
+  * Remove python-cheetah and python-cherrypy3 dependencies.  They are a
+    plinth dependency and we do not need a direct dependencies.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 23:38:10 +0100
 

@@ -31,7 +31,6 @@ Depends: ${misc:Depends}
  , hostname
  , htop
  , iftop
- , iproute
  , iptables
  , iputils-ping
  , isc-dhcp-client
@@ -54,8 +53,6 @@ Depends: ${misc:Depends}
  , python-augeas
  , python-beautifulsoup
  , python-bjsonrpc
- , python-cheetah
- , python-cherrypy3
  , python-docutils
  , python-lxml
  , resolvconf
