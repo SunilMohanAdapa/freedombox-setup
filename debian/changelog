@@ -1,4 +1,4 @@
-freedombox-setup (0.0.38) UNRELEASED; urgency=low
+freedombox-setup (0.0.38) unstable; urgency=low
 
   * Added ntp testsuite check.
   * Correct project git repository URL used in the README.
@@ -12,7 +12,7 @@ freedombox-setup (0.0.38) UNRELEASED; urgency=low
   * Remove python-cheetah and python-cherrypy3 dependencies.  They are a
     plinth dependency and we do not need a direct dependencies.
 
- -- Petter Reinholdtsen <pere@debian.org>  Tue, 18 Mar 2014 23:38:10 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 20 Mar 2014 09:10:14 +0100
 
 freedombox-setup (0.0.37) unstable; urgency=low
 
