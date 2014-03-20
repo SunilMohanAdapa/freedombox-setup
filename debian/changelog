@@ -1,4 +1,4 @@
-freedombox-setup (0.0.39) UNRELEASED; urgency=low
+freedombox-setup (0.0.39) unstable; urgency=low
 
   * Adjust tor testsuite message to be more clear.
   * Depend on plinth (>= 0.3.1.git.20140304-1), the version now in
@@ -9,7 +9,7 @@ freedombox-setup (0.0.39) UNRELEASED; urgency=low
     raise debhelper compat version from 8 to 9 to use the python
     rules automatically.
 
- -- Petter Reinholdtsen <pere@debian.org>  Thu, 20 Mar 2014 10:48:37 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 20 Mar 2014 23:14:56 +0100
 
 freedombox-setup (0.0.38) unstable; urgency=low
 
