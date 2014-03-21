@@ -1,7 +1,7 @@
 freedombox-setup (0.0.40) UNRELEASED; urgency=low
 
-  * Add Avahi service definitions for domain(53), sftp-ssh(22) and xmpp-
-    server(5269) to announce the services we provide.
+  * Add Avahi service definitions for domain(53), ssh(22), sftp-ssh(22)
+    and xmpp-server(5269) to announce the services we provide.
 
  -- Petter Reinholdtsen <pere@debian.org>  Fri, 21 Mar 2014 14:26:38 +0100
 
