@@ -7,3 +7,4 @@ sbin/copy2dream usr/sbin
 sbin/machine-detect usr/sbin
 sbin/interface_detect usr/sbin
 lxc-templates/lxc-debian-freedombox usr/share/lxc/templates
+avahi-services etc/avahi/services
