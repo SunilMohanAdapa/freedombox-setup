@@ -5,7 +5,8 @@
 echo "Configuring WIFI..."
 
 # If users have selected non-free packages, install firmware-libertas.
-if [ -z /sbin/machine-detect ]
+. machine-detect
+if [ "$MACHINE" = "dreamplug" ]
 then
     if [ -n `grep nonfree /etc/apt/sources.list` ]
     then
