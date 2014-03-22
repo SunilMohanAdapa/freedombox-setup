@@ -1,4 +1,4 @@
-freedombox-setup (0.0.40) UNRELEASED; urgency=low
+freedombox-setup (0.0.40) unstable; urgency=low
 
   [ James Valleroy ]
   * For wifi AP setup, source machine-detect and check if $MACHINE is
@@ -8,7 +8,7 @@ freedombox-setup (0.0.40) UNRELEASED; urgency=low
   * Add Avahi service definitions for domain(53), ssh(22), sftp-ssh(22)
     and xmpp-server(5269) to announce the services we provide.
 
- -- Petter Reinholdtsen <pere@debian.org>  Fri, 21 Mar 2014 14:26:38 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 22 Mar 2014 14:20:41 +0100
 
 freedombox-setup (0.0.39) unstable; urgency=low
 
