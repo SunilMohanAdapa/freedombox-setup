@@ -1,5 +1,10 @@
 freedombox-setup (0.0.40) UNRELEASED; urgency=low
 
+  [ James Valleroy ]
+  * For wifi AP setup, source machine-detect and check if $MACHINE is
+    dreamplug.
+
+  [ Petter Reinholdtsen ]
   * Add Avahi service definitions for domain(53), ssh(22), sftp-ssh(22)
     and xmpp-server(5269) to announce the services we provide.
 
