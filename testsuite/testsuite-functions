@@ -22,3 +22,18 @@ netstat_check() {
         false
     fi
 }
+
+# Check if something is listening on the given socket and protocol
+netstat_check_socket() {
+    socket=$1
+    proto=$2
+    service="$3"
+
+    if netstat -a --numeric-hosts 2>&1 | grep "$socket " | grep -q "^$proto" ; then
+        success "$0: $service service is listening on $socket/$proto."
+        true
+    else
+	error "$0: $service service is not listening on $socket/$proto."
+        false
+    fi
+}

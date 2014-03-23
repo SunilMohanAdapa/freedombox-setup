@@ -1,9 +1,12 @@
 #!/bin/sh
 
-apt-get install -y tor
+apt-get install -y tor obfsproxy
 
 cat > /etc/tor/torrc <<EOF
-ORPort 4431
+SocksPort 127.0.0.1:9050
+ORPort auto
+ControlPort 9051
 BridgeRelay 1
 Exitpolicy reject *:*
+ServerTransportPlugin obfs3 exec /usr/bin/obfsproxy managed
 EOF
