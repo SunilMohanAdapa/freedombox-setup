@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Add a SocksPort on each configured network interface.
+ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
+for ip in $ips
+do
+    echo "SocksPort $ip:9050" >> /etc/tor/torrc
+done

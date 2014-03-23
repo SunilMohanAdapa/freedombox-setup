@@ -3,6 +3,7 @@
 apt-get install -y tor
 
 cat > /etc/tor/torrc <<EOF
+SocksPort 127.0.0.1:9050
 ORPort auto
 ControlPort 9051
 BridgeRelay 1
