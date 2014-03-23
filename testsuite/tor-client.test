@@ -2,8 +2,19 @@
 
 . $(dirname $0)/testsuite-functions
 
-netstat_check 4431 tcp tor
+netstat_check `tor-get-orport` tcp tor
 netstat_check 9050 tcp tor
+
+# Check that Tor control socket only listens on localhost.
+ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
+for ip in $ips
+do
+    if `echo QUIT | nc $ip 9051 2>&1 | grep -q "Connection refused"` ; then
+        success "$0: Tor control socket is not listening on $ip."
+    else
+        error "$0: Tor control socket is listening on $ip."
+    fi
+done
 
 if torsocks wget -O - http://www.debian.org/ 2>/dev/null | \
     grep -q '<html'; then
