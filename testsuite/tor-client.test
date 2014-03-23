@@ -19,6 +19,20 @@ do
     netstat_check_socket $ip:9050 tcp tor
 done
 
+# Check obfsproxy transports
+register_logs=`grep "Registered server transport" /var/log/tor/log`
+transports="obfs3 scramblesuit"
+for transport in $transports
+do
+    transport_logs=`echo $register_logs | grep $transport`
+    if [ -n "$transport_logs" ] ; then
+        port=`echo $transport_logs | awk -F'[ :'\'']*' '// { print $13 }'`
+        netstat_check $port tcp obfsproxy
+    else
+        error "$0: $transport transport is not registered."
+    fi
+done
+
 if torsocks wget -O - http://www.debian.org/ 2>/dev/null | \
     grep -q '<html'; then
     success "$0: HTTP request to www.debian.org via TOR works."
