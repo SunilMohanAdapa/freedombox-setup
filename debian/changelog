@@ -1,3 +1,10 @@
+freedombox-setup (0.0.41) UNRELEASED; urgency=low
+
+  [ James Valleroy ]
+  * Change Tor config based on feedback from the Tor community.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 23 Mar 2014 23:00:50 +0100
+
 freedombox-setup (0.0.40) unstable; urgency=low
 
   [ James Valleroy ]
