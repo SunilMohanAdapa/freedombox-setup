@@ -10,3 +10,14 @@ if http_proxy=http://localhost:8118 wget -O - http://www.debian.org/ 2>/dev/null
 else
     error "$0: HTTP request to www.debian.org via privoxy fail."
 fi
+
+ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
+for ip in $ips
+do
+    if http_proxy=http://$ip:8118 wget -O - http://www.debian.org/ 2>/dev/null | \
+        grep -q '<html'; then
+        success "$0: HTTP request to www.debian.org via privoxy on $ip:8118 works."
+    else
+        error "$0: HTTP request to www.debian.org via privoxy on $ip:8118 fail."
+    fi
+done
