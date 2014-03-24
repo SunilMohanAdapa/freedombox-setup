@@ -13,9 +13,9 @@ set -e
 
 . /lib/lsb/init-functions
 
-INTIF1="eth0"
+INTIF1="eth1"
 INTIF2="uap0"
-EXTIF="eth1"
+EXTIF="eth0"
 EXTIP="`/sbin/ifconfig $EXTIF | grep 'inet addr' | awk '{print $2}' | sed -e 's/.*://'`"
 
 loadModules() {
