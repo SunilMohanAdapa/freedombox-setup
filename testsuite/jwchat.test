@@ -21,8 +21,13 @@ done
 # Check if we can access jwchat using hostname.
 
 url="http://$(uname -n)"
-if wget -q -O /dev/null "$url" ; then
-        success "$0: HTTP access to $url worked"
+if wget -4 -q -O /dev/null "$url" ; then
+        success "$0: HTTP access to $url worked using IPv4"
 else
-        error "$0: HTTP access to $url did not work"
+        error "$0: HTTP access to $url did not work using IPv4"
+fi
+if wget -6 -q -O /dev/null "$url" ; then
+        success "$0: HTTP access to $url worked using IPv6"
+else
+        error "$0: HTTP access to $url did not work using IPv6"
 fi

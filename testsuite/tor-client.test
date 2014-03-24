@@ -3,7 +3,9 @@
 . $(dirname $0)/testsuite-functions
 
 netstat_check `tor-get-orport` tcp tor
+netstat_check `tor-get-orport` tcp6 tor
 netstat_check 9050 tcp tor
+netstat_check 9050 tcp6 tor
 
 ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
 for ip in $ips
@@ -33,17 +35,28 @@ do
     fi
 done
 
-if torsocks wget -O - http://www.debian.org/ 2>/dev/null | \
+if torsocks wget -4 -O - http://www.debian.org/ 2>/dev/null | \
     grep -q '<html'; then
-    success "$0: HTTP request to www.debian.org via TOR works."
+    success "$0: HTTP request to www.debian.org via TOR on IPv4 works."
 else
-    error "$0: HTTP request to www.debian.org via TOR fail."
+    error "$0: HTTP request to www.debian.org via TOR on IPv4 fail."
+fi
+if torsocks wget -6 -O - http://www.debian.org/ 2>/dev/null | \
+    grep -q '<html'; then
+    success "$0: HTTP request to www.debian.org via TOR on IPv6 works."
+else
+    error "$0: HTTP request to www.debian.org via TOR on IPv6 fail."
 fi
 
-if torsocks wget -O - https://check.torproject.org/ 2>/dev/null | \
+if torsocks wget -4 -O - https://check.torproject.org/ 2>/dev/null | \
     grep -q 'Congratulations. This browser is configured to use Tor.'; then
-    success "$0: HTTP request to check.torproject.org via TOR confirm that TOR is used."
+    success "$0: HTTP request to check.torproject.org via TOR on IPv4 confirm that TOR is used."
 else
-    error "$0: HTTP request to check.torproject.org via TOR confirm that TOR is not used."
+    error "$0: HTTP request to check.torproject.org via TOR on IPv4 confirm that TOR is not used."
 fi
-
+if torsocks wget -6 -O - https://check.torproject.org/ 2>/dev/null | \
+    grep -q 'Congratulations. This browser is configured to use Tor.'; then
+    success "$0: HTTP request to check.torproject.org via TOR on IPv6 confirm that TOR is used."
+else
+    error "$0: HTTP request to check.torproject.org via TOR on IPv6 confirm that TOR is not used."
+fi
