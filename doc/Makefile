@@ -9,13 +9,19 @@ XMLTOHTMLOPTS=
 
 XMLLINTOPTS = --nonet --noout  --xinclude --postvalid
 
-all: manual-jessie.pdf manual-jessie.html
+all: manual-jessie.pdf manual-jessie.html manual-jessie.txt manual-jessie.epub
 
 manual-jessie.pdf: manual-jessie.xml
 	xmlto $(XMLTOPDFOPTS) $(XMLTOOPTS) pdf $^
 
 manual-jessie.html: manual-jessie.xml
 	xmlto $(XMLTOHTMLOPTS) $(XMLTOOPTS) html-nochunks $^
+
+manual-jessie.txt: manual-jessie.xml
+	LC_ALL=C xmlto txt $^
+
+manual-jessie.epub: manual-jessie.xml
+	LC_ALL=C xmlto epub $^
 
 manual-jessie.xml:
 	GET -H "User-Agent: make" '$(DBURL)' | \
@@ -34,6 +40,6 @@ lint: manual-jessie.xml
 	xmllint $(XMLLINTOPTS) $^
 
 clean:
-	$(RM) manual-jessie.pdf manual-jessie.html manual-jessie.proc
+	$(RM) manual-jessie.txt manual-jessie.pdf manual-jessie.html manual-jessie.epub manual-jessie.proc
 distclean: clean
 	$(RM) manual-jessie.xml
