@@ -8,6 +8,10 @@ freedombox-setup (0.0.41) UNRELEASED; urgency=low
   * Add IPv6 tests.
   * Make Tor control socket tests a little more robust.
 
+  [ Petter Reinholdtsen ]
+  * Add draft rules in doc/ to generate the documentation from the
+    wiki using docbook transformations.
+
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 23 Mar 2014 23:00:50 +0100
 
 freedombox-setup (0.0.40) unstable; urgency=low
