@@ -9,7 +9,7 @@ XMLTOHTMLOPTS=
 
 XMLLINTOPTS = --nonet --noout  --xinclude --postvalid
 
-all: manual-jessie.pdf manual-jessie.html manual-jessie.txt manual-jessie.epub
+all: lint manual-jessie.pdf manual-jessie.html manual-jessie.txt manual-jessie.epub
 
 manual-jessie.pdf: manual-jessie.xml
 	xmlto $(XMLTOPDFOPTS) $(XMLTOOPTS) pdf $^
