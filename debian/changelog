@@ -1,4 +1,4 @@
-freedombox-setup (0.0.41) UNRELEASED; urgency=low
+freedombox-setup (0.0.41) unstable; urgency=low
 
   [ James Valleroy ]
   * Change Tor config based on feedback from the Tor community.
@@ -14,7 +14,7 @@ freedombox-setup (0.0.41) UNRELEASED; urgency=low
     wiki using docbook transformations.
   * Recommend the pagekite package currently in NEW.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 23 Mar 2014 23:00:50 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Thu, 27 Mar 2014 08:35:38 +0100
 
 freedombox-setup (0.0.40) unstable; urgency=low
 
