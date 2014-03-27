@@ -12,6 +12,7 @@ freedombox-setup (0.0.41) UNRELEASED; urgency=low
   [ Petter Reinholdtsen ]
   * Add draft rules in doc/ to generate the documentation from the
     wiki using docbook transformations.
+  * Recommend the pagekite package currently in NEW.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 23 Mar 2014 23:00:50 +0100
 

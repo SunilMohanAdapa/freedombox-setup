@@ -69,5 +69,6 @@ Recommends:
  batctl
  , rfkill
  , wireless-tools
+ , pagekite
 Description: Package to set up freedombox environment
  Configure the Freedombox environment before and after the first reboot.
