@@ -34,12 +34,12 @@ register_logs=`grep "Registered server transport" /var/log/tor/log`
 transports="obfs3 scramblesuit"
 for transport in $transports
 do
-    transport_logs=`echo $register_logs | grep $transport`
-    if [ -n "$transport_logs" ] ; then
-        port=`echo $transport_logs | awk -F'[ :'\'']*' '// { print $13 }'`
-        netstat_check $port tcp obfsproxy
-    else
+    port=`grep $transport /var/lib/tor/state | awk -F'[: ]*' '{print $4}'`
+    if [ -z "$port" ] ; then
         error "$0: $transport transport is not registered."
+    else
+        success "$0: $transport transport is registered on port $port."
+        netstat_check $port tcp obfsproxy
     fi
 done
 
