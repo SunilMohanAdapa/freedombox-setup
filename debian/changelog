@@ -7,6 +7,7 @@ freedombox-setup (0.0.41) UNRELEASED; urgency=low
   * Make privoxy listen on all interfaces.
   * Add IPv6 tests.
   * Make Tor control socket tests a little more robust.
+  * Rewrite Tor obfsproxy test to avoid relying on log file.
 
   [ Petter Reinholdtsen ]
   * Add draft rules in doc/ to generate the documentation from the
