@@ -30,7 +30,6 @@ do
 done
 
 # Check obfsproxy transports
-register_logs=`grep "Registered server transport" /var/log/tor/log`
 transports="obfs3 scramblesuit"
 for transport in $transports
 do
