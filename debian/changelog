@@ -2,7 +2,9 @@ freedombox-setup (0.0.42) UNRELEASED; urgency=low
 
   * Drop the README.fbx-home file, and generate it from
     <URL: https://wiki.debian.org/FreedomBox/Manual/Jessie >.
-    Store the docbook version of the manual in the source tarball.  
+    Store the docbook version of the manual in the source tarball.
+  * Build-depend on libxml2-utils, xmlto and libwww-perl to build
+    the documentation.
 
  -- Petter Reinholdtsen <pere@debian.org>  Fri, 28 Mar 2014 09:00:39 +0100
 

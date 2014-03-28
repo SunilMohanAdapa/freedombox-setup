@@ -8,6 +8,9 @@ Uploaders:
 Build-Depends: debhelper (>= 9)
  , python-support
  , python | python-all | python-dev | python-all-dev
+ , libxml2-utils
+ , xmlto
+ , libwww-perl
 Standards-Version: 3.9.4
 Homepage: https://wiki.debian.org/FreedomBox
 Vcs-Git: git://anonscm.debian.org/freedombox/freedombox-setup.git
