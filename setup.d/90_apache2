@@ -13,6 +13,11 @@ a2enmod ssl
 # disable default site
 a2dissite 000-default
 
+# disable plinth, if plinth-ssl is enabled
+if [ -e /etc/apache2/sites-enabled/plinth-ssl.conf ] ; then
+    a2dissite plinth
+fi
+
 # setup freedombox site
 cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
 <VirtualHost *:80>
