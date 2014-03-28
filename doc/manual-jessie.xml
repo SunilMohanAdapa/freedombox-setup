@@ -1,0 +1,414 @@
+<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.docbook.org/xml/4.4/docbookx.dtd"><article><articleinfo>
+<title>FreedomBox/Manual/Jessie
+</title><revhistory><revision><revnumber>18</revnumber><date>2014-03-28 01:50:47</date><authorinitials>NickDaly</authorinitials><revremark>split lines correctly in "Building your own" code examples</revremark></revision><revision><revnumber>17</revnumber><date>2014-03-28 01:49:16</date><authorinitials>NickDaly</authorinitials><revremark>MoinWiki doesn't support non-sequential ordered lists, worked around non-sequential numbering.</revremark></revision><revision><revnumber>16</revnumber><date>2014-03-28 01:39:30</date><authorinitials>NickDaly</authorinitials><revremark>Fixed diagram numbering.</revremark></revision><revision><revnumber>15</revnumber><date>2014-03-26 22:57:42</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Visit freedombox/plinth/ to get startet.</revremark></revision><revision><revnumber>14</revnumber><date>2014-03-26 22:50:11</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Plinth got a new upstream now.</revremark></revision><revision><revnumber>13</revnumber><date>2014-03-26 22:04:20</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct typos.</revremark></revision><revision><revnumber>12</revnumber><date>2014-03-26 22:00:10</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct more formatting.</revremark></revision><revision><revnumber>11</revnumber><date>2014-03-26 21:26:14</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>More formatting fixes.</revremark></revision><revision><revnumber>10</revnumber><date>2014-03-26 21:15:40</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix more links.</revremark></revision><revision><revnumber>9</revnumber><date>2014-03-26 13:11:12</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Avoid some unwanted links.</revremark></revision><revision><revnumber>8</revnumber><date>2014-03-26 13:06:20</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct heading levels.</revremark></revision><revision><revnumber>7</revnumber><date>2014-03-26 12:19:50</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix formatting.</revremark></revision><revision><revnumber>6</revnumber><date>2014-03-24 14:04:11</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix some links.</revremark></revision><revision><revnumber>5</revnumber><date>2014-03-24 14:01:01</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Mistake.</revremark></revision><revision><revnumber>4</revnumber><date>2014-03-24 13:59:53</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Typo.</revremark></revision><revision><revnumber>3</revnumber><date>2014-03-24 13:51:07</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Second translformation try, using pandoc to html, and then "html2wiki --dialect=MoinMoin" to convert from HTML to moinmoin.</revremark></revision><revision><revnumber>2</revnumber><date>2014-03-24 13:41:46</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Transform some mediawiki notation to moinmoin.</revremark></revision><revision><revnumber>1</revnumber><date>2014-03-24 13:35:03</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Converted freedombox-setup/doc/README.fbx-home to wiki format using "pandoc doc/README.fbx-home -f rst -t mediawiki".</revremark></revision></revhistory></articleinfo>
+
+<section>
+<title>Welcome to your FreedomBox!
+</title>
+<para><anchor id='gettinghelp'/> 
+</para>
+
+<section>
+<title>Getting Help
+</title>
+<para>This document is intended to give you all the information you need to get started with your FreedomBox. However, if you have any questions after reading this document, you can get help by: 
+</para>
+<itemizedlist>
+<listitem>
+<para>Emailing <ulink url='mailto:freedombox-discuss@lists.alioth.debian.org'>freedombox-discuss@lists.alioth.debian.org</ulink>. You can also <ulink url='http://lists.alioth.debian.org/mailman/listinfo/freedombox-discuss'>sign up</ulink> to receive copies of every discussion that happens on the mailing list and <ulink url='http://lists.alioth.debian.org/mailman/listinfo/freedombox-discuss'>read the archives</ulink>. 
+</para></listitem>
+<listitem>
+<para>Chatting at <ulink url='irc://irc.oftc.net:6667/%23freedombox'>#freedombox@irc.oftc.net</ulink>. 
+</para></listitem>
+<listitem>
+<para>Reading the <ulink url='http://wiki.debian.org/FreedomBox'>wiki</ulink>. 
+</para></listitem>
+<listitem>
+<para>Reading the <ulink url='https://freedomboxfoundation.org/'>FreedomBox Foundation's website</ulink>. 
+</para></listitem>
+<listitem>
+<para>Reading the <ulink url='https://alioth.debian.org/projects/freedombox'>FreedomBox Project Page</ulink>. 
+</para></listitem></itemizedlist>
+</section>
+
+<section>
+<title>Using your FreedomBox
+</title>
+<para>This section describes the basic information you need to know to successfully use your FreedomBox. 
+</para>
+
+<section>
+<title>Quick Start
+</title><orderedlist numeration='arabic'>
+<listitem>
+<para>Plug one end of your ethernet cord into your FreedomBox's <link linkend='eth0'>eth0</link> port (the one toward the middle of the box), and plug the other end into your router. 
+</para></listitem>
+<listitem>
+<para>Plug your computer into the <link linkend='eth1'>eth1</link> port (the one toward the end of the box) on the FreedomBox. 
+</para></listitem>
+<listitem>
+<para>Plug your FreedomBox into a power outlet. 
+</para></listitem>
+<listitem>
+<para>Wait a few minutes while it starts itself for the first time. 
+</para></listitem>
+<listitem>
+<para>Start enjoying the Internet. 
+</para></listitem>
+<listitem>
+<para>Navigate to your FreedomBox by browsing to: <ulink url='http://freedombox/plinth'/> 
+</para></listitem>
+<listitem>
+<para>Bask in your own awesomeness <inlinemediaobject><imageobject><imagedata width='16' fileref='https://wiki.debian.org//htdocs/debwiki/img/smile.png' depth='16'/></imageobject><textobject><phrase>:)</phrase></textobject></inlinemediaobject> 
+</para></listitem></orderedlist>
+<para>Now, you can try: 
+</para>
+<itemizedlist>
+<listitem>
+<para><link linkend='browsing'>Browsing the Internet</link> 
+</para></listitem>
+<listitem>
+<para><link linkend='wikihosting'>Hosting a Wiki</link> 
+</para></listitem>
+<listitem>
+<para><link linkend='publishing'>Publishing with your FreedomBox</link> 
+</para></listitem></itemizedlist>
+<para>Other tools are also planned, such as an IM (chat) server, a blog, and more. 
+</para>
+<para><anchor id='browsing'/> 
+</para>
+
+<section>
+<title>Browsing the Internet
+</title>
+<para>To browse the Internet through your FreedomBox: 
+</para><orderedlist numeration='arabic'>
+<listitem>
+<para>Plug one end of your ethernet cord into your FreedomBox's <link linkend='eth0'>eth0</link> port (the one toward the middle of the box), and plug the other end into your router. 
+</para></listitem>
+<listitem>
+<para>Plug your computer into the <link linkend='eth1'>eth1</link> port (the one toward the end of the box) on the FreedomBox. 
+</para></listitem>
+<listitem>
+<para>Start enjoying the Internet. 
+</para></listitem></orderedlist>
+<para><anchor id='wikihosting'/> 
+</para>
+</section>
+
+<section>
+<title>Hosting a Wiki
+</title><orderedlist numeration='arabic'>
+<listitem>
+<para><link linkend='connectingto'>Connect to your FreedomBox</link>, as root, because we're going to modify the system by installing some new packages. 
+</para></listitem>
+<listitem>
+<para>Install the ikiwiki package:
+</para><screen><![CDATA[$ apt-get install ikiwiki]]></screen>
+<para> Say "yes" when it asks you about installing new packages.
+</para></listitem>
+<listitem>
+<para>Follow the <ulink url='http://ikiwiki.info/setup/'>ikiwiki setup instructions</ulink>, or use the <link linkend='additionalprojects'>additional projects</link> to automatically configure ikiwiki. 
+</para></listitem></orderedlist>
+<para><anchor id='publishing'/> 
+</para>
+</section>
+
+<section>
+<title>Publishing with your FreedomBox
+</title>
+<para>Now that you've put a wiki together, you might as well publish it to the Internet. To publish material to the Internet, you need two things: 
+</para><orderedlist numeration='arabic'>
+<listitem>
+<para>A place to host it. 
+</para></listitem>
+<listitem>
+<para>A name, so you can be found. 
+</para></listitem></orderedlist>
+<para>You already have the place to host data, it's this FreedomBox. Now, you just need a name. 
+</para>
+<para>While it's possible to buy your own domain name, it's a rather tedious and complicated process. Many folks have had good luck with "reverse proxies," things like <link linkend='pagekite'>PageKite</link>. Other <ulink url='http://alternativeto.net/software/pagekite/'>reverse proxy services</ulink> are also available. 
+</para>
+<para><anchor id='pagekite'/> 
+</para>
+
+<section>
+<title>Publishing with PageKite
+</title>
+<para>Getting started with PageKite is pretty straightforward. After you've <link linkend='connectingto'>connected to your FreedomBox</link> you'll need to download and start PageKite. 
+</para><orderedlist numeration='arabic'>
+<listitem>
+<para>Download PageKite: 
+</para><screen><![CDATA[$ curl -s https://pagekite.net/pk/ |sudo bash]]></screen></listitem>
+<listitem>
+<para>Start PageKite, replacing <code>yourname</code> with your site's name:
+</para><screen><![CDATA[$ pagekite.py 80 yourname.pagekite.me]]></screen></listitem></orderedlist>
+<para>Now, you can access <ulink url='http://yourname.pagekite.me/'/> from anywhere! 
+</para>
+</section>
+</section>
+</section>
+
+<section>
+<title>Common Tasks
+</title>
+<para>Some tasks require a bit of command line magic. We've reproduced that magic here, so it's easy to refer to, when you need it. 
+</para>
+
+<section>
+<title>Logging in to your FreedomBox
+</title>
+<para>When your FreedomBox first starts, it has two accounts: a root account for system maintenance, and a normal user who doesn't have the power to mess with how the system works. The default passwords for each of those users are: 
+</para><informaltable><tgroup cols='2'><colspec colname='col_0'/><colspec colname='col_1'/><tbody><row rowsep='1'><entry colsep='1' rowsep='1'>
+<para> root
+</para></entry><entry colsep='1' rowsep='1'>
+<para> freedom 
+</para></entry></row><row rowsep='1'><entry colsep='1' rowsep='1'>
+<para> fbx 
+</para></entry><entry colsep='1' rowsep='1'>
+<para> frdm 
+</para></entry></row></tbody></tgroup></informaltable>
+<para>You'll need this information if you want to log in, as explained in the next section. Also, after you log in, you should probably <link linkend='changingpassword'>change the default passwords</link>. Otherwise, anybody else who reads this document could log into your box, too. 
+</para>
+<para><anchor id='connectingto'/> 
+</para>
+</section>
+
+<section>
+<title>Connecting to your FreedomBox
+</title>
+<para>These instructions will teach you how to log in, via ssh, to your FreedomBox. 
+</para><orderedlist numeration='arabic'>
+<listitem>
+<para>Run an ethernet cord from your computer to your FreedomBox's eth0 port (the one toward the middle). 
+</para></listitem>
+<listitem>
+<para>Wait a bit, or until your computer says that it's successfully connected. 
+</para></listitem>
+<listitem>
+<para>Run the following command to log in as the administrative, everyday, user:
+</para><screen><![CDATA[$ ssh fbx@freedombox]]></screen>
+<para>To log in as the root user instead, in case you want to perform some serious system maintenance:
+</para><screen><![CDATA[$ ssh root@freedombox]]></screen></listitem></orderedlist>
+<para>Make a habit of logging in as root <emphasis>only when you need to</emphasis>. If you aren't logged in as root, you can't accidentally break everything. Even if everything does break though, don't worry, it can still be fixed, it'll just take a couple hours. See the <link linkend='gettinghelp'>Getting Help</link> section for more details. 
+</para>
+<para><anchor id='changingpassword'/> 
+</para>
+</section>
+
+<section>
+<title>Changing your Password
+</title>
+<para>To change your password, log in to your FreedomBox as the user whose password you want to change. Then, run the following command: 
+</para><screen><![CDATA[$ passwd]]></screen>
+<para>That'll ask you for your current password before giving you the opportunity to put in a new one. 
+</para>
+</section>
+
+<section>
+<title>Updating your FreedomBox
+</title>
+<para>These instructions will teach you how to keep your FreedomBox up to date with the latest software releases. 
+</para><orderedlist numeration='arabic'>
+<listitem>
+<para>Ask the box to update itself:
+</para><screen><![CDATA[$ apt-get update; apt-get upgrade]]></screen></listitem></orderedlist>
+<para>Chances are good the "upgrade" command will ask you if it's alright to install some packages and use some disk space. Say "yes", because that's what you want it to do. 
+</para>
+<para>If those commands complete successfully, then congratulations, you've just updated your FreedomBox! If they don't complete successfully ask for help, as described in the <link linkend='gettinghelp'>Getting Help</link> section. 
+</para>
+<para><anchor id='eth0'/> <anchor id='eth1'/> 
+</para>
+</section>
+
+<section>
+<title>Diagram
+</title>
+<para>Ever wonder what all those holes and fiddly bits were called? 
+</para><screen><![CDATA[  1   2      3  4    5
+  :   :      :  :    :
+     ________________________
+    |    |   || .  |__|      |
+----\____|___||___O___O__O___/
+      `                     `
+      :      :    :   :  :
+      6      7    8   9  10]]></screen>
+<itemizedlist>
+<listitem>
+<para>1. Power Cord 
+</para></listitem>
+<listitem>
+<para>2. AC Adapter 
+</para></listitem>
+<listitem>
+<para>3. UART 
+</para></listitem>
+<listitem>
+<para>4. Reset Hole 
+</para></listitem>
+<listitem>
+<para>5. JTAG 
+</para></listitem>
+<listitem>
+<para>6. Foot 
+</para></listitem>
+<listitem>
+<para>7. USB 
+</para></listitem>
+<listitem>
+<para>8. Optical Out 
+</para></listitem>
+<listitem>
+<para>9. eth0 
+</para></listitem>
+<listitem>
+<para>10. eth1 
+</para></listitem></itemizedlist><screen><![CDATA[        11  12  13         2    1
+          ::    :          :    :
+     ________________________
+    |     .. |___|     |     |
+    \______------__||__|_____/----
+     `                     `
+     :       :     :
+     6       14    7]]></screen>
+<itemizedlist>
+<listitem>
+<para>1. Power Cord 
+</para></listitem>
+<listitem>
+<para>2. AC Adapter 
+</para></listitem>
+<listitem>
+<para>6. Foot 
+</para></listitem>
+<listitem>
+<para>7. USB 
+</para></listitem>
+<listitem>
+<para>11. Microphone In 
+</para></listitem>
+<listitem>
+<para>12. Headphone Out 
+</para></listitem>
+<listitem>
+<para>13. eSATA 
+</para></listitem>
+<listitem>
+<para>14. SD 
+</para></listitem></itemizedlist>
+</section>
+</section>
+
+<section>
+<title>Warnings
+</title>
+<itemizedlist>
+<listitem>
+<para>If you need to open the box, open it from the side that's not the AC Adapter side. Be very careful here: the box's two halves are held together, on the adapter side, by a couple of fragile wires. 
+</para></listitem></itemizedlist>
+</section>
+</section>
+
+<section>
+<title>Hacking on your FreedomBox
+</title>
+<para>Your FreedomBox includes several projects you can check out: 
+</para>
+<itemizedlist>
+<listitem>
+<para>Freedom Maker 
+</para></listitem>
+<listitem>
+<para>Plinth 
+</para></listitem>
+<listitem>
+<para>Privoxy 
+</para></listitem></itemizedlist>
+<para>To start using these projects, navigate to the relevant folder in the <code>/home/fbx</code> directory and examine their README files. 
+</para>
+
+<section>
+<title>Projects
+</title>
+
+<section>
+<title>Freedom Maker
+</title>
+<para>Freedom Maker is the tool used to create a running FreedomBox system. It creates the bootable system image that lives on the DreamPlug's microSD card. 
+</para>
+<para><ulink url='http://anonscm.debian.org/gitweb/?p=freedombox/freedom-maker.git;a=summary'/> 
+</para>
+</section>
+
+<section>
+<title>Plinth
+</title>
+<para>Plinth is the FreedomBox's administration UI. It's not done yet, but it will be included in future FreedomBox updates when it's finished. 
+</para>
+<para><ulink url='https://github.com/NickDaly/Plinth'/> 
+</para>
+</section>
+
+<section>
+<title>Privoxy
+</title>
+<para>Privoxy is the FreedomBox's privacy-preserving web-proxy. 
+</para>
+<para><ulink url='https://github.com/jvasile/freedombox-privoxy'/> 
+</para>
+</section>
+</section>
+
+<section>
+<title>Building your own FreedomBox
+</title>
+
+<section>
+<title>Updating DreamPlug's U-Boot
+</title>
+<para>You can also review these instructions online: 
+</para>
+<para><ulink url='http://wiki.debian.org/FreedomBox/Firmware'/> 
+</para>
+<para>These instructions are from Ian Campbell, using uboot version 2012.04.01-2, which is the current version in Debian's Wheezy release. 
+</para>
+<para>Prepare your system: 
+</para><screen><![CDATA[# wget http://http.debian.net/debian/pool/main/u/u-boot/u-boot_2012.04.01-2_armel.deb
+# dpkg-deb -x u-boot_2012.04.01-2_armel.deb u-boot_2012.04.01-2_armel
+# cp -r u-boot_2012.04.01-2_armel/usr/lib/u-boot/dreamplug /mnt]]></screen>
+<para>Move the USB drive to your DreamPlug, and connect to your system via JTAG. Connect the UART DreamPlug port to the JTAG Board's UART port or connect the JTAG DreamPlug port to the JTAG Board's JTAG port. Next, plug the USB cord into your main system and access the serial port with: 
+</para><screen><![CDATA[# screen /dev/ttyUSB0 115200]]></screen>
+<para>Now, interrupt the boot process so you can flash it from within the bootloader, before the GNU/Linux system takes over: 
+</para><screen><![CDATA[> usb start
+> fatload usb 2 0x6400000 dreamplug/u-boot.kwb
+> sf probe 0
+> sf erase 0x0 0x80000
+> sf write 0x6400000 0x0 0x${filesize}]]></screen>
+<para>You must, of course, fill in the size of the file you're loading in hex. At this point, you should be able to reset the DreamPlug and have it boot to a serial console prompt. If that fails, you'll need real JTAG magic to try again. 
+</para>
+<para>Note that freedom-maker now includes DreamPlug firmware in the FAT partition on USB stick targets. To use a freedom-maker USB stick to update your u-boot, ignore the instructions above about how to wget and extract the firmware, and just connect to the DreamPlug and follow the bootloader instructions. 
+</para>
+</section>
+
+<section>
+<title>Building your own File-system Image
+</title>
+<para>On another system, download the Freedom-Maker repoistory and follow the README to build your own image that you can plug into your DreamPlug: 
+</para><screen><![CDATA[$ git clone git://anonscm.debian.org/freedombox/freedom-maker.git ~/freedom-maker]]></screen>
+<para><anchor id='additionalprojects'/> 
+</para>
+</section>
+
+<section>
+<title>Adding Additional Projects
+</title>
+<para>There are a number of incomplete projects that you might find useful, for setting up a wiki, an IM server, and so forth. To check these out, download the repository: 
+</para><screen><![CDATA[$ hg clone https://bitbucket.org/nickdaly/plugserver ~/plugserver]]></screen>
+<para>Then, read the README. It's pretty detailed. A word of warning, though: the FreedomBox Foundation folks think that using PHP-based services, like the blog service included in that plugserver repository, is a generally poor idea. Just use the wiki instead. 
+</para>
+<para>Also, if you can, it may be best to wait until these tools are fully integrated into the FreedomBox image. Otherwise, migrating from these custom tools to the officially supported FreedomBox tools may be difficult. Ultimately, that decision is up to you. 
+</para>
+</section>
+</section>
+</section>
+</section></article>

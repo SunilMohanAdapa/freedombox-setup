@@ -1,3 +1,10 @@
+freedombox-setup (0.0.42) UNRELEASED; urgency=low
+
+  * Drop the README.fbx-home file, and generate it from the wiki manual.
+    Store the docbook version of the manual in the source tarball.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 28 Mar 2014 09:00:39 +0100
+
 freedombox-setup (0.0.41) unstable; urgency=low
 
   [ James Valleroy ]

@@ -19,6 +19,7 @@ manual-jessie.html: manual-jessie.xml
 
 manual-jessie.txt: manual-jessie.xml
 	LC_ALL=C xmlto txt $^
+	cp $^ README.fbx-home
 
 manual-jessie.epub: manual-jessie.xml
 	LC_ALL=C xmlto epub $^
@@ -42,4 +43,4 @@ lint: manual-jessie.xml
 clean:
 	$(RM) manual-jessie.txt manual-jessie.pdf manual-jessie.html manual-jessie.epub manual-jessie.proc
 distclean: clean
-	$(RM) manual-jessie.xml
+	$(RM) README.fbx-home
