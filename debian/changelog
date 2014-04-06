@@ -1,3 +1,9 @@
+freedombox-setup (0.0.43) UNRELEASED; urgency=low
+
+  * Add Sunil Mohan Adapa as uploader.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 06 Apr 2014 23:04:21 +0200
+
 freedombox-setup (0.0.42) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
