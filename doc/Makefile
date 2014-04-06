@@ -19,7 +19,7 @@ manual-jessie.html: manual-jessie.xml
 
 manual-jessie.txt: manual-jessie.xml
 	LC_ALL=C xmlto txt $^
-	cp $^ README.fbx-home
+	cp $@ README.fbx-home
 
 manual-jessie.epub: manual-jessie.xml
 	LC_ALL=C xmlto epub $^
