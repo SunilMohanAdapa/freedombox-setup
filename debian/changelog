@@ -1,10 +1,10 @@
-freedombox-setup (0.0.43) UNRELEASED; urgency=low
+freedombox-setup (0.0.43) unstable; urgency=low
 
   * Add Sunil Mohan Adapa as uploader.
   * Correct copyright info for lxc-templates/lxc-debian-freedombox, it
     is LGPL 2.1+, not GPL2+.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 06 Apr 2014 23:04:21 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 15 Apr 2014 14:21:48 +0200
 
 freedombox-setup (0.0.42) unstable; urgency=low
 
