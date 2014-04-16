@@ -1,3 +1,9 @@
+freedombox-setup (0.0.44) UNRELEASED; urgency=low
+
+  * Update Standards-Version from 3.9.4 to 3.9.5.  No changes needed.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
+
 freedombox-setup (0.0.43) unstable; urgency=low
 
   * Add Sunil Mohan Adapa as uploader.

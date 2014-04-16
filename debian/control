@@ -12,7 +12,7 @@ Build-Depends: debhelper (>= 9)
  , libxml2-utils
  , xmlto
  , libwww-perl
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Homepage: https://wiki.debian.org/FreedomBox
 Vcs-Git: git://anonscm.debian.org/freedombox/freedombox-setup.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=freedombox/freedombox-setup.git;a=summary
