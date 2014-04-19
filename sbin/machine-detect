@@ -22,6 +22,26 @@ case $(dpkg --print-architecture) in
 	    if find /sys/devices -name 'dreamplug:*' | grep -q dreamplug: ; then
             MACHINE=dreamplug
 	    fi
+
+	    # Matches these:
+	    # /sys/devices/leds.7/leds/beaglebone:green:heartbeat
+	    # /sys/devices/leds.7/leds/beaglebone:green:mmc0
+	    # /sys/devices/leds.7/leds/beaglebone:green:usr2
+	    # /sys/devices/leds.7/leds/beaglebone:green:usr3
+	    if find /sys/devices -name 'beaglebone:*' | grep -q beaglebone: ; then
+            MACHINE=beaglebone
+	    fi
+	    ;;
+
+    armhf)
+	    # Matches these:
+	    # /sys/devices/leds.7/leds/beaglebone:green:heartbeat
+	    # /sys/devices/leds.7/leds/beaglebone:green:mmc0
+	    # /sys/devices/leds.7/leds/beaglebone:green:usr2
+	    # /sys/devices/leds.7/leds/beaglebone:green:usr3
+	    if find /sys/devices -name 'beaglebone:*' | grep -q beaglebone: ; then
+            MACHINE=beaglebone
+	    fi
 	    ;;
 esac
 
