@@ -76,8 +76,8 @@ raspberry_setup_boot() {
 
 # Install patched u-boot and kernel needed to boot on the Beaglebone.
 beaglebone_setup_boot() {
-    wget -O /boot/MLO https://rcn-ee.net/deb/tools/am335x_evm/MLO-am335x_evm-v2013.07-r0
-    wget -O /boot/u-boot.img https://rcn-ee.net/deb/tools/am335x_evm/u-boot-am335x_evm-v2013.07-r0.img
+    cp /usr/lib/u-boot/am335x_boneblack/MLO /boot/MLO
+    cp /usr/lib/u-boot/am335x_boneblack/u-boot.img /boot/u-boot.img
 
     # uEnv.txt for Beaglebone
     # based on https://github.com/beagleboard/image-builder/blob/master/target/boot/beagleboard.org.txt
