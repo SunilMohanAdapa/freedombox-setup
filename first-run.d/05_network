@@ -14,7 +14,7 @@ else
     IFACES_FILE=/etc/network/interfaces
 fi
 
-INTERFACE_DETECT="interface_detect"
+INTERFACE_DETECT="interface-detect"
 
 function get-wired-interfaces {
     # set WIRED_IFACES to list of wired interfaces, less lo.

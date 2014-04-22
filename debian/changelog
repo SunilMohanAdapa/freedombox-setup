@@ -11,6 +11,8 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
   * Adjust freedombox-first-run boot dependencies to run after
     firewalld, tor, haveged, lxc and pagekite, in case those are
     needed to set up the system.
+  * Rename interface_detect to interface-detect, for more consistent
+    naming with the other sbin tools in this package.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
 
