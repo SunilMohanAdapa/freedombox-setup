@@ -46,7 +46,6 @@ Depends: ${misc:Depends}
  , locales
  , locales-all
  , lsof
- , lua-sec
  , macchanger
  , monkeysphere
  , net-tools

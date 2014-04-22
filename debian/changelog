@@ -17,6 +17,9 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
     its current task.
   * Drop checkinstall from dependencies.  It is not used, as far as I
     can tell.
+  * Drop lua-sec from dependencies.  It is not used, as far as I can
+    tell, and is a library that should be pulled in by packages that
+    need it.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
 
