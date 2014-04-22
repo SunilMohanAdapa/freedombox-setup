@@ -5,6 +5,12 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
     upgrades.
   * Depend on firewalld to block all access by default, and require
     active involvement to open a port.
+  * Rename init.d scripts first-run to freedombox-first-run and proxy to
+    freedombox-client-proxy, to make it easier to see in /etc/init.d/
+    which scripts belong to the freedombox setup.
+  * Adjust freedombox-first-run boot dependencies to run after
+    firewalld, tor, haveged, lxc and pagekite, in case those are
+    needed to set up the system.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
 

@@ -1,14 +1,14 @@
 #!/bin/sh
-#
-# Script to complete the post-install process on first FBX boot.
-
 ### BEGIN INIT INFO
-# Provides:          first-run
+# Provides:          freedombox-first-run
 # Default-Start:     2 3 4 5
 # Default-Stop:
 # Required-Start:    $network $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
-# Short-Description: Finish FBX install on DreamPlug
+# Should-Start:      firewalld tor haveged lxc pagekite
+# Short-Description: Finish Freedombox install after first boot
+# Description:
+#   Script to complete the post-install process on first FBX boot.
 ### END INIT INFO
 
 RUNONCE=/var/lib/freedombox/first-run-enable
