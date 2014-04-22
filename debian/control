@@ -26,7 +26,6 @@ Depends: ${misc:Depends}
  , avahi-daemon
  , avahi-utils
  , bridge-utils
- , checkinstall
  , devio
  , dialog
  , dnsmasq
