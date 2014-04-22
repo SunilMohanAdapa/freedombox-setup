@@ -1,4 +1,4 @@
-freedombox-setup (0.0.44) UNRELEASED; urgency=low
+freedombox-setup (0.0.44) unstable; urgency=low
 
   * Update Standards-Version from 3.9.4 to 3.9.5.  No changes needed.
   * Add dependency on unattended-upgrades to make it easier to handle
@@ -26,7 +26,7 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
     documentation setup to get the package building automatically
     (Closes: #745539).
 
- -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 22 Apr 2014 20:56:00 +0200
 
 freedombox-setup (0.0.43) unstable; urgency=low
 
