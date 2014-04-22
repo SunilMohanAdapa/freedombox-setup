@@ -54,11 +54,6 @@ Depends: ${misc:Depends}
  , parted
  , plinth (>= 0.3.1.git.20140304-1)
  , psmisc
- , python-augeas
- , python-beautifulsoup
- , python-bjsonrpc
- , python-docutils
- , python-lxml
  , resolvconf
  , ssl-cert
  , sudo

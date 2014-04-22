@@ -17,9 +17,11 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
     its current task.
   * Drop checkinstall from dependencies.  It is not used, as far as I
     can tell.
-  * Drop lua-sec from dependencies.  It is not used, as far as I can
-    tell, and is a library that should be pulled in by packages that
-    need it.
+  * Drop lua-sec, python-augeas, python-beautifulsoup,
+    python-bjsonrpc, python-docutils and python-lxml from
+    dependencies.  None of them are used, as far as I can tell, and
+    they are libraries that should be pulled in by packages that need
+    them.
   * Drop python-argparse from dependencies, it is now a virtal package
     provided by libpython2.7-stdlib.
 
