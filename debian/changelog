@@ -3,8 +3,6 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
   * Update Standards-Version from 3.9.4 to 3.9.5.  No changes needed.
   * Add dependency on unattended-upgrades to make it easier to handle
     upgrades.
-  * Depend on firewalld to block all access by default, and require
-    active involvement to open a port.
   * Rename init.d scripts first-run to freedombox-first-run and proxy to
     freedombox-client-proxy, to make it easier to see in /etc/init.d/
     which scripts belong to the freedombox setup.
