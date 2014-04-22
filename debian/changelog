@@ -24,6 +24,9 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
     them.
   * Drop python-argparse from dependencies, it is now a virtal package
     provided by libpython2.7-stdlib.
+  * Add dblatex, w3m and zip as build dependencies for the new
+    documentation setup to get the package building automatically
+    (Closes: #745539).
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
 
