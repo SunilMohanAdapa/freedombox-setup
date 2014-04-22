@@ -3,6 +3,8 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
   * Update Standards-Version from 3.9.4 to 3.9.5.  No changes needed.
   * Add dependency on unattended-upgrades to make it easier to handle
     upgrades.
+  * Depend on firewalld to block all access by default, and require
+    active involvement to open a port.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
 

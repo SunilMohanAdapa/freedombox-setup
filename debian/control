@@ -33,6 +33,7 @@ Depends: ${misc:Depends}
  , dnsutils
  , dosfstools
  , etckeeper
+ , firewalld
  , haveged
  , hostname
  , htop
