@@ -1,3 +1,11 @@
+freedombox-setup (0.0.45) UNRELEASED; urgency=low
+
+  * Depend on firewalld to block all access by default, and require
+    active involvement to open a port.  This require an updated plinth
+    package.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 22 Apr 2014 21:02:14 +0200
+
 freedombox-setup (0.0.44) unstable; urgency=low
 
   * Update Standards-Version from 3.9.4 to 3.9.5.  No changes needed.
