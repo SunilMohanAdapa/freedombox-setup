@@ -38,6 +38,7 @@ Depends: ${misc:Depends}
  , firewalld
  , haveged
  , hostname
+ , how-can-i-help
  , htop
  , iftop
  , iptables
