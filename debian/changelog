@@ -20,6 +20,8 @@ freedombox-setup (0.0.44) UNRELEASED; urgency=low
   * Drop lua-sec from dependencies.  It is not used, as far as I can
     tell, and is a library that should be pulled in by packages that
     need it.
+  * Drop python-argparse from dependencies, it is now a virtal package
+    provided by libpython2.7-stdlib.
 
  -- Petter Reinholdtsen <pere@debian.org>  Wed, 16 Apr 2014 18:49:32 +0200
 
