@@ -13,7 +13,7 @@ else
 fi
 if http_proxy=http://localhost:8118 wget -6 -O - http://www.debian.org/ 2>/dev/null | \
     grep -q '<html'; then
-    success "$0: HTTP request to www.debian.org via privoxy using IPv4 works."
+    success "$0: HTTP request to www.debian.org via privoxy using IPv6 works."
 else
     error "$0: HTTP request to www.debian.org via privoxy using IPv6 fail."
 fi
