@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# TODO: Randomly choose a obfs proxy ports, set them explictly in
+# configuration and enable firewall for them.
+
 apt-get install -y tor obfsproxy
 
 cat > /etc/tor/torrc <<EOF
