@@ -1,10 +1,24 @@
 freedombox-setup (0.0.45) UNRELEASED; urgency=low
 
+  [ Petter Reinholdtsen ]
   * Depend on firewalld to block all access by default, and require
     active involvement to open a port.  This require an updated plinth
     package.
   * Depend on how-can-i-help to let every user of apt know about
     problems with 'our' packages.
+
+  [ James Valleroy ]
+  * Add IPv6 support to network interfaces, privoxy, ejabberd.
+  * Add apache conf for jwchat, separate from fbx site conf.
+  * Add initial support for the Beagle Bone.
+
+  [ Sunil Mohan Adapa ]
+  * Remove freedombox-client-proxy script, as all the iptables rules
+    are now handled by the plinth package.
+
+  [ Petter Reinholdtsen ]
+  * Disable downloading of non-Debian packages for the Beagle Bone.  We
+    want to use Debian packages for this.
   * Remove now obsolete init.d scripts /etc/init.d/proxy and
     /etc/init.d/freedombox-client-proxy on upgrades.
 
