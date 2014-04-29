@@ -1,2 +1,3 @@
 mv_conffile /etc/init.d/first-run /etc/init.d/freedombox-first-run 0.0.43
-mv_conffile /etc/init.d/proxy /etc/init.d/freedombox-client-proxy 0.0.43
+rm_conffile /etc/init.d/proxy 0.0.43
+rm_conffile /etc/init.d/freedombox-client-proxy 0.0.44

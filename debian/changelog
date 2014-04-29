@@ -5,6 +5,8 @@ freedombox-setup (0.0.45) UNRELEASED; urgency=low
     package.
   * Depend on how-can-i-help to let every user of apt know about
     problems with 'our' packages.
+  * Remove now obsolete init.d scripts /etc/init.d/proxy and
+    /etc/init.d/freedombox-client-proxy on upgrades.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 22 Apr 2014 21:02:14 +0200
 
