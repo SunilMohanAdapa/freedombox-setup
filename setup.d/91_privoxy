@@ -3,4 +3,4 @@
 apt-get install -y privoxy
 
 # Listen on all interfaces
-sed -i 's/listen-address  localhost:8118/listen-address  *:8118/' /etc/privoxy/config
+sed -i 's/listen-address  localhost:8118/listen-address  [::]:8118/' /etc/privoxy/config

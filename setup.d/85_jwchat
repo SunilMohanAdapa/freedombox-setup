@@ -11,6 +11,16 @@ echo "jwchat jwchat/ApacheServerName string `cat /etc/hostname`" | debconf-set-s
 # An alternative XMPP server is prosody
 apt-get install -y jwchat ejabberd
 
+# Enable IPv6 for c2s, s3s, and http connections.
+if ! grep -q inet6 /etc/ejabberd/ejabberd.cfg ; then
+    sed -i '/{5222, ejabberd_c2s, \[/a \
+			inet6,' /etc/ejabberd/ejabberd.cfg
+    sed -i '/{5269, ejabberd_s2s_in, \[/a \
+                           inet6,' /etc/ejabberd/ejabberd.cfg
+    sed -i '/{5280, ejabberd_http, \[/a \
+                         inet6,' /etc/ejabberd/ejabberd.cfg
+fi
+
 # Enable BOSH module for ejabberd
 if ! grep -q mod_http_bind /etc/ejabberd/ejabberd.cfg ; then
     sed -i '/mod_last/i \

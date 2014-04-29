@@ -2,5 +2,9 @@
 
 . $(dirname $0)/testsuite-functions
 
+netstat_check xmpp-client tcp XMPP
+netstat_check xmpp-client tcp6 XMPP
 netstat_check xmpp-server tcp XMPP
 netstat_check xmpp-server tcp6 XMPP
+netstat_check 5280 tcp XMPP
+netstat_check 5280 tcp6 XMPP
