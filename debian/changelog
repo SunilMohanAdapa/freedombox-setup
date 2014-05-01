@@ -21,6 +21,8 @@ freedombox-setup (0.0.45) UNRELEASED; urgency=low
     want to use Debian packages for this.
   * Remove now obsolete init.d scripts /etc/init.d/proxy and
     /etc/init.d/freedombox-client-proxy on upgrades.
+  * Add curl as binary dependency, as rpi-update switched from wget to
+    curl a month ago. in commit dd495b8dd7f36dc411f2ed2bbdc21e4062b01a62.
 
  -- Petter Reinholdtsen <pere@debian.org>  Tue, 22 Apr 2014 21:02:14 +0200
 

@@ -66,6 +66,7 @@ Depends: ${misc:Depends}
  , unattended-upgrades
  , vim-tiny
  , wget
+ , curl
  , zile
 Recommends:
  batctl
