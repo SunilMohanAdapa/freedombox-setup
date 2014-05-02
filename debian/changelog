@@ -11,6 +11,9 @@ freedombox-setup (0.0.45) UNRELEASED; urgency=low
   * Add IPv6 support to network interfaces, privoxy, ejabberd.
   * Add apache conf for jwchat, separate from fbx site conf.
   * Add initial support for the Beagle Bone.
+  * Skip backup in rpi-update to avoid error caused by recent change
+    in rpi-update triggering error when no kernel is installed when
+    rpi-update is executed the first time.
 
   [ Sunil Mohan Adapa ]
   * Remove freedombox-client-proxy script, as all the iptables rules
