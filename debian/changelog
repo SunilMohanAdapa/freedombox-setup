@@ -17,7 +17,8 @@ freedombox-setup (0.0.45) UNRELEASED; urgency=low
 
   [ Sunil Mohan Adapa ]
   * Remove freedombox-client-proxy script, as all the iptables rules
-    are now handled by the plinth package.
+    are now handled by the plinth package.  Depend on plinth
+    (>= 0.3.2.0.git.20140504-1) to get a version with these rules.
 
   [ Petter Reinholdtsen ]
   * Disable downloading of non-Debian packages for the Beagle Bone.  We
