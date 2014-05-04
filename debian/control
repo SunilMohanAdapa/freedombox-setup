@@ -5,13 +5,17 @@ Maintainer: Petter Reinholdtsen <pere@debian.org>
 Uploaders:
  Bdale Garbee <bdale@gag.com>
  , Nick Daly <Nick.M.Daly@gmail.com>
+ , Sunil Mohan Adapa <sunil@medhas.org>
 Build-Depends: debhelper (>= 9)
  , python-support
  , python | python-all | python-dev | python-all-dev
  , libxml2-utils
  , xmlto
+ , dblatex
+ , w3m
+ , zip
  , libwww-perl
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Homepage: https://wiki.debian.org/FreedomBox
 Vcs-Git: git://anonscm.debian.org/freedombox/freedombox-setup.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=freedombox/freedombox-setup.git;a=summary
@@ -25,15 +29,16 @@ Depends: ${misc:Depends}
  , avahi-daemon
  , avahi-utils
  , bridge-utils
- , checkinstall
  , devio
  , dialog
  , dnsmasq
  , dnsutils
  , dosfstools
  , etckeeper
+ , firewalld
  , haveged
  , hostname
+ , how-can-i-help
  , htop
  , iftop
  , iptables
@@ -45,28 +50,23 @@ Depends: ${misc:Depends}
  , locales
  , locales-all
  , lsof
- , lua-sec
  , macchanger
  , monkeysphere
  , net-tools
  , ntp
  , openssh-server
  , parted
- , plinth (>= 0.3.1.git.20140304-1)
+ , plinth (>= 0.3.2.0.git.20140504-1)
  , psmisc
- , python-argparse
- , python-augeas
- , python-beautifulsoup
- , python-bjsonrpc
- , python-docutils
- , python-lxml
  , resolvconf
  , ssl-cert
  , sudo
  , tcpdump
  , uaputl
+ , unattended-upgrades
  , vim-tiny
  , wget
+ , curl
  , zile
 Recommends:
  batctl

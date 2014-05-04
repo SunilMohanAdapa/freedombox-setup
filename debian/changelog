@@ -1,3 +1,73 @@
+freedombox-setup (0.0.45) unstable; urgency=low
+
+  [ Petter Reinholdtsen ]
+  * Depend on firewalld to block all access by default, and require
+    active involvement to open a port.  This require an updated plinth
+    package.
+  * Depend on how-can-i-help to let every user of apt know about
+    problems with 'our' packages.
+
+  [ James Valleroy ]
+  * Add IPv6 support to network interfaces, privoxy, ejabberd.
+  * Add apache conf for jwchat, separate from fbx site conf.
+  * Add initial support for the Beagle Bone.
+  * Skip backup in rpi-update to avoid error caused by recent change
+    in rpi-update triggering error when no kernel is installed when
+    rpi-update is executed the first time.
+
+  [ Sunil Mohan Adapa ]
+  * Remove freedombox-client-proxy script, as all the iptables rules
+    are now handled by the plinth package.  Depend on plinth
+    (>= 0.3.2.0.git.20140504-1) to get a version with these rules.
+
+  [ Petter Reinholdtsen ]
+  * Disable downloading of non-Debian packages for the Beagle Bone.  We
+    want to use Debian packages for this.
+  * Remove now obsolete init.d scripts /etc/init.d/proxy and
+    /etc/init.d/freedombox-client-proxy on upgrades.
+  * Add curl as binary dependency, as rpi-update switched from wget to
+    curl a month ago. in commit dd495b8dd7f36dc411f2ed2bbdc21e4062b01a62.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 04 May 2014 09:59:58 +0200
+
+freedombox-setup (0.0.44) unstable; urgency=low
+
+  * Update Standards-Version from 3.9.4 to 3.9.5.  No changes needed.
+  * Add dependency on unattended-upgrades to make it easier to handle
+    upgrades.
+  * Rename init.d scripts first-run to freedombox-first-run and proxy to
+    freedombox-client-proxy, to make it easier to see in /etc/init.d/
+    which scripts belong to the freedombox setup.
+  * Adjust freedombox-first-run boot dependencies to run after
+    firewalld, tor, haveged, lxc and pagekite, in case those are
+    needed to set up the system.
+  * Rename interface_detect to interface-detect, for more consistent
+    naming with the other sbin tools in this package.
+  * Rename setup.d/10_dreamplug to setup.d/10_hardware to better reflect
+    its current task.
+  * Drop checkinstall from dependencies.  It is not used, as far as I
+    can tell.
+  * Drop lua-sec, python-augeas, python-beautifulsoup,
+    python-bjsonrpc, python-docutils and python-lxml from
+    dependencies.  None of them are used, as far as I can tell, and
+    they are libraries that should be pulled in by packages that need
+    them.
+  * Drop python-argparse from dependencies, it is now a virtal package
+    provided by libpython2.7-stdlib.
+  * Add dblatex, w3m and zip as build dependencies for the new
+    documentation setup to get the package building automatically
+    (Closes: #745539).
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 22 Apr 2014 20:56:00 +0200
+
+freedombox-setup (0.0.43) unstable; urgency=low
+
+  * Add Sunil Mohan Adapa as uploader.
+  * Correct copyright info for lxc-templates/lxc-debian-freedombox, it
+    is LGPL 2.1+, not GPL2+.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Tue, 15 Apr 2014 14:21:48 +0200
+
 freedombox-setup (0.0.42) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
