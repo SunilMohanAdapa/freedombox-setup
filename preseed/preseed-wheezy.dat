@@ -36,7 +36,7 @@ grub-installer grub-installer/only_debian boolean true
 # and set up the Freedombox.  Block init.d scripts from running using
 # policy-rc.d to make sure dnsmasq do not overwrite the resolv.conf
 # file we just inserted (and to keep services from starting in the chroot).
-d-i     preseed/late_command   string cp /etc/resolv.conf /target/etc/resolvconf/run/resolv.conf; NOSOURCE=true in-target /usr/lib/freedombox/setup
+d-i     preseed/late_command   string cp /etc/resolv.conf /target/etc/resolvconf/run/resolv.conf; SOURCE=false in-target /usr/lib/freedombox/setup
 
 # Avoid that last message about the install being complete.
 d-i finish-install/reboot_in_progress note
