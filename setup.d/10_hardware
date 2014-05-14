@@ -2,8 +2,9 @@
 
 enable_serial_console() {
     # By default, spawn a console on the serial port
+    device = "$1"
     echo "Adding a getty on the serial port"
-    echo "T0:12345:respawn:/sbin/getty -L ttyS0 115200 vt100" >> /etc/inittab
+    echo "T0:12345:respawn:/sbin/getty -L $device 115200 vt100" >> /etc/inittab
 }
 
 dreamplug_flash() {
@@ -131,13 +132,14 @@ case "$MACHINE" in
     dreamplug|guruplug)
 	dreamplug_flash
 	dreamplug_repack_kernel
-	enable_serial_console
+	enable_serial_console ttyS0
 	;;
     raspberry)
 	raspberry_setup_boot
 	;;
     beaglebone)
 	beaglebone_setup_boot
+	enable_serial_console ttyO0
 	;;
 esac
 
