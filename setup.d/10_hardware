@@ -88,19 +88,23 @@ mmcrootfstype=ext4 rootwait fixrtc
 console=ttyO0,115200n8
 
 kernel_file=zImage
+initrd_file=initrd.img
 
-loadaddr=0x82000000
-fdtaddr=0x88000000
+loadaddr=0x80200000
+initrd_addr=0x81000000
+fdtaddr=0x80F80000
 
+initrd_high=0xffffffff
 fdt_high=0xffffffff
 
 loadkernel=load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${kernel_file}
+loadinitrd=load mmc ${mmcdev}:${mmcpart} ${initrd_addr} ${initrd_file}; setenv initrd_size ${filesize}
 loadfdt=load mmc ${mmcdev}:${mmcpart} ${fdtaddr} /dtbs/${fdtfile}
 
-loadfiles=run loadkernel; run loadfdt
+loadfiles=run loadkernel; run loadinitrd; run loadfdt
 mmcargs=setenv bootargs console=tty0 console=${console} root=${mmcroot} rootfstype=${mmcrootfstype}
 
-uenvcmd=run loadfiles; run mmcargs; bootz ${loadaddr} - ${fdtaddr}
+uenvcmd=run loadfiles; run mmcargs; bootz ${loadaddr} ${initrd_addr}:${initrd_size} ${fdtaddr}
 EOF
 
     apt-get install -y linux-image-armmp
