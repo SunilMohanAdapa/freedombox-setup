@@ -2,7 +2,7 @@
 
 enable_serial_console() {
     # By default, spawn a console on the serial port
-    device = "$1"
+    device="$1"
     echo "Adding a getty on the serial port"
     echo "T0:12345:respawn:/sbin/getty -L $device 115200 vt100" >> /etc/inittab
 }
