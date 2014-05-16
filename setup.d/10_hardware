@@ -2,8 +2,9 @@
 
 enable_serial_console() {
     # By default, spawn a console on the serial port
+    device="$1"
     echo "Adding a getty on the serial port"
-    echo "T0:12345:respawn:/sbin/getty -L ttyS0 115200 vt100" >> /etc/inittab
+    echo "T0:12345:respawn:/sbin/getty -L $device 115200 vt100" >> /etc/inittab
 }
 
 dreamplug_flash() {
@@ -88,37 +89,30 @@ mmcrootfstype=ext4 rootwait fixrtc
 console=ttyO0,115200n8
 
 kernel_file=zImage
+initrd_file=initrd.img
 
-loadaddr=0x82000000
-fdtaddr=0x88000000
+loadaddr=0x80200000
+initrd_addr=0x81000000
+fdtaddr=0x80F80000
 
+initrd_high=0xffffffff
 fdt_high=0xffffffff
 
 loadkernel=load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${kernel_file}
+loadinitrd=load mmc ${mmcdev}:${mmcpart} ${initrd_addr} ${initrd_file}; setenv initrd_size ${filesize}
 loadfdt=load mmc ${mmcdev}:${mmcpart} ${fdtaddr} /dtbs/${fdtfile}
 
-loadfiles=run loadkernel; run loadfdt
+loadfiles=run loadkernel; run loadinitrd; run loadfdt
 mmcargs=setenv bootargs console=tty0 console=${console} root=${mmcroot} rootfstype=${mmcrootfstype}
 
-uenvcmd=run loadfiles; run mmcargs; bootz ${loadaddr} - ${fdtaddr}
+uenvcmd=run loadfiles; run mmcargs; bootz ${loadaddr} ${initrd_addr}:${initrd_size} ${fdtaddr}
 EOF
 
-# We want to fetch all packages from Debian, not download random binary blobs
-# from somewhere on the net.
-#    wget -O /tmp/latest-kernel https://rcn-ee.net/deb/"$SUITE"-"$ARCHITECTURE"/LATEST-omap-psp
-#    kernel_version=`cat /tmp/latest-kernel | awk -F/ '/TESTING/ { print $6 }' | cut -c 2-`
-#
-#    wget -O /tmp/index.html https://rcn-ee.net/deb/"$SUITE"-"$ARCHITECTURE"/v"$kernel_version"/
-#    kernel_filename=`cat /tmp/index.html | awk -F'[<=>"\""]*' '/linux-image/ { print $3 }'`
-#    dtbs_filename=`cat /tmp/index.html | awk -F'[<=>"\""]*' '/dtbs/ { print $3 }'`
-#
-#    wget -O /tmp/linux-image.deb https://rcn-ee.net/deb/"$SUITE"-"$ARCHITECTURE"/v"$kernel_version"/"$kernel_filename"
-#    dpkg -i /tmp/linux-image.deb
-#    cp /boot/vmlinuz-"$kernel_version" /boot/zImage
-#
-#    wget -O /tmp/dtbs.tar.gz https://rcn-ee.net/deb/"$SUITE"-"$ARCHITECTURE"/v"$kernel_version"/"$dtbs_filename"
-#    mkdir -p /boot/dtbs
-#    tar xfvo /tmp/dtbs.tar.gz -C /boot/dtbs
+    apt-get install -y linux-image-armmp
+    cp /boot/vmlinuz-* /boot/zImage
+    cp /boot/initrd.img-* /boot/initrd.img
+    mkdir -p /boot/dtbs
+    cp /usr/lib/linux-image-*-armmp/* /boot/dtbs
 }
 
 tmp_on_tmpfs() {
@@ -138,13 +132,14 @@ case "$MACHINE" in
     dreamplug|guruplug)
 	dreamplug_flash
 	dreamplug_repack_kernel
-	enable_serial_console
+	enable_serial_console ttyS0
 	;;
     raspberry)
 	raspberry_setup_boot
 	;;
     beaglebone)
 	beaglebone_setup_boot
+	enable_serial_console ttyO0
 	;;
 esac
 
