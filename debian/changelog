@@ -1,3 +1,12 @@
+freedombox-setup (0.0.46) UNRELEASED; urgency=low
+
+  [ James Valleroy ]
+  * Add support for Beaglebone using the linux-image-armmp kernel
+    in Debian.
+  * Adjust serial port setup to handle both Dreamplug and Beaglebone.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 16 May 2014 22:19:03 +0200
+
 freedombox-setup (0.0.45) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
