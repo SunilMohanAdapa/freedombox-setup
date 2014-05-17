@@ -1,3 +1,11 @@
+freedombox-setup (0.0.47) UNRELEASED; urgency=low
+
+  [ Nick Daly ]
+  * Tee rpi-update output to the build log.
+  * Rename NOSOURCE variable to SOURCE.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 17 May 2014 22:51:13 +0200
+
 freedombox-setup (0.0.46) unstable; urgency=medium
 
   [ James Valleroy ]
