@@ -71,7 +71,7 @@ raspberry_setup_boot() {
     chmod a+x /usr/bin/rpi-update
     mkdir -p /lib/modules
     touch /boot/start.elf
-    SKIP_BACKUP=1 rpi-update > /root/rpi-update.log
+    SKIP_BACKUP=1 rpi-update | tee /root/rpi-update.log
 
 }
 
