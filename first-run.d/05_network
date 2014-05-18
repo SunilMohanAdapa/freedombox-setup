@@ -96,7 +96,7 @@ auto eth1
     netmask 255.255.255.0
     #iface eth1 inet6 static
     #address 2002:c0a8:0101::1
-    netmask 64
+    #netmask 64
     # eth1: hwaddress ether 00:00:00:00:00:02
 
 EOF
