@@ -78,8 +78,7 @@ function interfaces-eth0 {
 # creates a new network.
 auto eth0
     iface eth0 inet dhcp
-
-    iface eth0 inet6 auto
+    #iface eth0 inet6 auto
     # eth0: hwaddress ether 00:00:00:00:00:01
 
 EOF
@@ -95,9 +94,8 @@ auto eth1
     iface eth1 inet static
     address 192.168.1.1
     netmask 255.255.255.0
-
-    iface eth1 inet6 static
-    address 2002:c0a8:0101::1
+    #iface eth1 inet6 static
+    #address 2002:c0a8:0101::1
     netmask 64
     # eth1: hwaddress ether 00:00:00:00:00:02
 
