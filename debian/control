@@ -47,6 +47,8 @@ Depends: ${misc:Depends}
  , libnss-gw-name
  , libnss-mdns
  , libnss-myhostname
+ , libpam-tmpdir
+ , libpam-abl
  , locales
  , locales-all
  , lsof
