@@ -3,6 +3,7 @@ freedombox-setup (0.0.48) UNRELEASED; urgency=low
   * Depend on libpam-tmpdir to separate user temporary files by default.
   * Depend on libpam-abl to make brute force login attacks harder
     by default.
+  * Update documentation from wiki.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Jun 2014 16:01:34 +0200
 
