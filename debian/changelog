@@ -1,4 +1,4 @@
-freedombox-setup (0.0.47) UNRELEASED; urgency=low
+freedombox-setup (0.0.47) unstable; urgency=low
 
   [ Nick Daly ]
   * Tee rpi-update output to the build log.
@@ -6,7 +6,7 @@ freedombox-setup (0.0.47) UNRELEASED; urgency=low
   * Remove IPv6 configuration from networking auto-config, as network
     setup seem to choke on it.
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 17 May 2014 22:51:13 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Jun 2014 08:08:34 +0200
 
 freedombox-setup (0.0.46) unstable; urgency=medium
 
