@@ -3,6 +3,8 @@ freedombox-setup (0.0.47) UNRELEASED; urgency=low
   [ Nick Daly ]
   * Tee rpi-update output to the build log.
   * Rename NOSOURCE variable to SOURCE.
+  * Remove IPv6 configuration from networking auto-config, as network
+    setup seem to choke on it.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 17 May 2014 22:51:13 +0200
 
