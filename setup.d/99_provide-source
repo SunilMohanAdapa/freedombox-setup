@@ -9,6 +9,8 @@ if [ 'false' = "$SOURCE" ] || [ 'true' = '$NOSOURCE' ] ; then
 
     echo "Not adding source packages to filesystem (SOURCE=false)"
     exit 0
+else
+    echo 'Adding source packages to file system"
 fi
 
 targetdir=/usr/src/packages

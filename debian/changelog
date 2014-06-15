@@ -4,6 +4,8 @@ freedombox-setup (0.0.48) UNRELEASED; urgency=low
   * Depend on libpam-abl to make brute force login attacks harder
     by default.
   * Update documentation from wiki.
+  * Explain in setup.d/99_provide-source that source is added when it is
+    done.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Jun 2014 16:01:34 +0200
 
