@@ -75,21 +75,27 @@ raspberry_setup_boot() {
 
 }
 
-# Install patched u-boot and kernel needed to boot on the Beaglebone.
 beaglebone_setup_boot() {
+    # copy u-boot to the boot partition
     cp /usr/lib/u-boot/am335x_boneblack/MLO /boot/MLO
     cp /usr/lib/u-boot/am335x_boneblack/u-boot.img /boot/u-boot.img
 
+    # Setup uEnv.txt
+    kernelVersion=$(ls /usr/lib/*/am335x-boneblack.dtb | head -1 | cut -d/ -f4)
+    version=$(echo $kernelVersion | sed 's/linux-image-\(.*\)/\1/')
+    initRd=initrd.img-$version
+    vmlinuz=vmlinuz-$version
+
     # uEnv.txt for Beaglebone
     # based on https://github.com/beagleboard/image-builder/blob/master/target/boot/beagleboard.org.txt
-    cat >> /boot/uEnv.txt <<"EOF"
+    cat >> /boot/uEnv.txt <<EOF
 mmcroot=/dev/mmcblk0p2 ro
 mmcrootfstype=ext4 rootwait fixrtc
 
 console=ttyO0,115200n8
 
-kernel_file=zImage
-initrd_file=initrd.img
+kernel_file=$vmlinuz
+initrd_file=$initRd
 
 loadaddr=0x80200000
 initrd_addr=0x81000000
@@ -98,21 +104,30 @@ fdtaddr=0x80F80000
 initrd_high=0xffffffff
 fdt_high=0xffffffff
 
-loadkernel=load mmc ${mmcdev}:${mmcpart} ${loadaddr} ${kernel_file}
-loadinitrd=load mmc ${mmcdev}:${mmcpart} ${initrd_addr} ${initrd_file}; setenv initrd_size ${filesize}
-loadfdt=load mmc ${mmcdev}:${mmcpart} ${fdtaddr} /dtbs/${fdtfile}
+loadkernel=load mmc \${mmcdev}:\${mmcpart} \${loadaddr} \${kernel_file}
+loadinitrd=load mmc \${mmcdev}:\${mmcpart} \${initrd_addr} \${initrd_file}; setenv initrd_size \${filesize}
+loadfdt=load mmc \${mmcdev}:\${mmcpart} \${fdtaddr} /dtbs/\${fdtfile}
 
 loadfiles=run loadkernel; run loadinitrd; run loadfdt
-mmcargs=setenv bootargs console=tty0 console=${console} root=${mmcroot} rootfstype=${mmcrootfstype}
+mmcargs=setenv bootargs console=tty0 console=\${console} root=\${mmcroot} rootfstype=\${mmcrootfstype}
 
-uenvcmd=run loadfiles; run mmcargs; bootz ${loadaddr} ${initrd_addr}:${initrd_size} ${fdtaddr}
+uenvcmd=run loadfiles; run mmcargs; bootz \${loadaddr} \${initrd_addr}:\${initrd_size} \${fdtaddr}
 EOF
 
-    apt-get install -y linux-image-armmp
-    cp /boot/vmlinuz-* /boot/zImage
-    cp /boot/initrd.img-* /boot/initrd.img
     mkdir -p /boot/dtbs
     cp /usr/lib/linux-image-*-armmp/* /boot/dtbs
+}
+
+beaglebone_flash() {
+    # allow flash-kernel to work without valid /proc contents
+    export FK_MACHINE="TI AM335x BeagleBone"
+
+    # Installing flash-kernel here, as installing it using debootstrap
+    # causes all kernel related postinst scripts to stop working when
+    # installed in a chroot.
+    apt-get install -y flash-kernel
+
+    # flash-kernel will be run on first boot.
 }
 
 tmp_on_tmpfs() {
@@ -139,6 +154,7 @@ case "$MACHINE" in
 	;;
     beaglebone)
 	beaglebone_setup_boot
+	beaglebone_flash
 	enable_serial_console ttyO0
 	;;
 esac
