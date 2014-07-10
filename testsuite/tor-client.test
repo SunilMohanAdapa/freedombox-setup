@@ -6,6 +6,10 @@ netstat_check `tor-get-orport` tcp tor
 netstat_check `tor-get-orport` tcp6 tor
 netstat_check 9050 tcp tor
 netstat_check 9050 tcp6 tor
+netstat_check 9040 tcp tor
+netstat_check 9040 tcp6 tor
+netstat_check_socket 127.0.0.1:domain udp tor
+netstat_check_socket 127.0.0.1:domain udp6 tor
 
 # Tor control socket
 ip="127.0.0.1"
