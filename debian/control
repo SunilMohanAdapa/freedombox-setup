@@ -54,7 +54,6 @@ Depends: ${misc:Depends}
  , locales-all
  , lsof
  , macchanger
- , monkeysphere
  , net-tools
  , ntp
  , openssh-server
@@ -76,5 +75,7 @@ Recommends:
  , rfkill
  , wireless-tools
  , pagekite
+Suggests:
+ monkeysphere
 Description: Package to set up freedombox environment
  Configure the Freedombox environment before and after the first reboot.
