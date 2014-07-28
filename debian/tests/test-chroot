@@ -1,0 +1,62 @@
+#!/bin/sh
+
+set -e
+
+set -x
+
+at_exit() {
+    for m in $umount ; do
+	echo info: umounting "$m"
+	umount "$m"
+    done
+}
+
+trap at_exit INT TERM EXIT
+
+chroot_test() {
+    cd $ADTTMP
+
+    target=test-chroot
+    suite=testing
+
+    debootstrap --include freedombox-setup testing $target
+
+    printf "#!/bin/sh\nexit 101\n" > $target/usr/sbin/policy-rc.d
+    chmod a+rx $target/usr/sbin/policy-rc.d
+
+    # Workaround for resolvconf not working in chroot without /run
+    # mounted.
+    rm $target/etc/resolv.conf
+    cp /etc/resolv.conf $target/etc/resolv.conf
+
+    mount -t proc proc $target/proc
+    umount="$target/proc"
+    mount -t sysfs sysfs $target/sys
+    umount="$target/proc $target/sys"
+
+    # Workaround for something mounting /sys/fs/cgroup
+    umount="$target/sys/fs/cgroup $umount"
+
+    chroot $target /usr/lib/freedombox/setup
+
+    # List packages with problems in Debian
+    chroot $target how-can-i-help --old
+
+    # Workaround for something mounting /sys/fs/cgroup
+    umount $target/sys/fs/cgroup
+
+    umount $target/proc
+    umount="$target/sys"
+    umount $target/sys
+    umount=""
+    rm -rf $target
+}
+
+# Use predictable language setting.
+# FIXME should try several to check language specific setup
+LC_ALL=C
+export LC_ALL
+
+chroot_test
+
+exit 0

@@ -6,6 +6,7 @@ freedombox-setup (0.0.48) UNRELEASED; urgency=low
   * Update documentation from wiki.
   * Explain in setup.d/99_provide-source that source is added when it is
     done.
+  * Add autopkgtest check running the setup script.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 14 Jun 2014 16:01:34 +0200
 

@@ -1,0 +1,3 @@
+Tests: test-chroot
+Depends: debootstrap
+Restrictions: needs-root
