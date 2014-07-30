@@ -1,3 +1,11 @@
+freedombox-setup (0.0.49) UNRELEASED; urgency=low
+
+  [ James Valleroy ]
+  * Clean up beaglebone related code.
+  * Adjust Tor setup to enable it as a transparent proxy.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Jul 2014 09:14:36 +0200
+
 freedombox-setup (0.0.48) unstable; urgency=medium
 
   * Depend on libpam-tmpdir to separate user temporary files by default.
