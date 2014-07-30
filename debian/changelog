@@ -1,6 +1,7 @@
 freedombox-setup (0.0.49) UNRELEASED; urgency=low
 
   [ James Valleroy ]
+  * Fix wrong quote character in setup.d/99_provide-source.
   * Clean up beaglebone related code.
   * Adjust Tor setup to enable it as a transparent proxy.
 
