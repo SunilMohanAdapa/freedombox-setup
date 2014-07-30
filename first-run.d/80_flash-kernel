@@ -14,13 +14,18 @@ then
     log_warning_msg "Skipped Flashing Kernel."
     return
 else
-    kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-kirkwood | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
+    . machine-detect
+    if [ "$MACHINE" = "dreamplug" ]; then
+        kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-kirkwood | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
+    else
+        if [ "$MACHINE" = "beaglebone" ]; then
+            kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-armmp | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
+        fi
+    fi
 
     log_action_begin_msg "Flashing Kernel version $kernel_version "
 
-    if mount -t proc proc /proc &&
-        flash-kernel $kernel_version &&
-        umount /proc ; then
+    if flash-kernel $kernel_version ; then
 	log_action_end_msg 0
     else
 	log_action_end_msg 1
