@@ -6,10 +6,20 @@
 apt-get install -y tor obfsproxy
 
 cat > /etc/tor/torrc <<EOF
+# run as non-exit bridge relay
 SocksPort 127.0.0.1:9050
 ORPort auto
 ControlPort 9051
 BridgeRelay 1
 Exitpolicy reject *:*
+
+# enable obfsproxy
 ServerTransportPlugin obfs3 exec /usr/bin/obfsproxy managed
+
+# enable transparent proxy
+VirtualAddrNetworkIPv4 10.192.0.0/10
+AutomapHostsOnResolve 1
+TransPort 127.0.0.1:9040
+DNSPort 127.0.0.1:53
+
 EOF

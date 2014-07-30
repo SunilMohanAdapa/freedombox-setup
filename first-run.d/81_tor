@@ -1,10 +1,16 @@
 #!/bin/sh
 
-# Add a SocksPort on each configured network interface.
+# Enable SOCKS and transparent proxy on each configured network interface.
 ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
 for ip in $ips
 do
     if ! grep -q "SocksPort $ip:9050" /etc/tor/torrc ; then
         echo "SocksPort $ip:9050" >> /etc/tor/torrc
+    fi
+    if ! grep -q "TransPort $ip:9040" /etc/tor/torrc ; then
+        echo "TransPort $ip:9040" >> /etc/tor/torrc
+    fi
+    if ! grep -q "DNSPort $ip:53" /etc/tor/torrc ; then
+        echo "DNSPort $ip:53" >> /etc/tor/torrc
     fi
 done
