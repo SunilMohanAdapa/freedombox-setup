@@ -1,4 +1,4 @@
-freedombox-setup (0.0.49) UNRELEASED; urgency=low
+freedombox-setup (0.0.49) unstable; urgency=medium
 
   [ James Valleroy ]
   * Fix wrong quote character in setup.d/99_provide-source (Closes: #756529).
@@ -11,7 +11,7 @@ freedombox-setup (0.0.49) UNRELEASED; urgency=low
   * Adjust test-chroot to use DEBIAN_FRONTEND=Noninteractive, as no tty
     is available when testing.
 
- -- Petter Reinholdtsen <pere@debian.org>  Wed, 30 Jul 2014 09:14:36 +0200
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 03 Aug 2014 11:46:38 +0200
 
 freedombox-setup (0.0.48) unstable; urgency=medium
 
