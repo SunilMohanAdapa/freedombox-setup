@@ -19,6 +19,10 @@ chroot_test() {
     target=test-chroot
     suite=testing
 
+
+    DEBIAN_FRONTEND=Noninteractive
+    export DEBIAN_FRONTEND
+
     debootstrap --include freedombox-setup testing $target
 
     printf "#!/bin/sh\nexit 101\n" > $target/usr/sbin/policy-rc.d
