@@ -57,6 +57,7 @@ chroot_test() {
 LC_ALL=C
 export LC_ALL
 
-chroot_test
+# Run test without downloading all the source
+SOURCE=false chroot_test
 
 exit 0
