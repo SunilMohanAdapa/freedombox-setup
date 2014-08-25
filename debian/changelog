@@ -7,6 +7,8 @@ freedombox-setup (0.0.50) UNRELEASED; urgency=low
   [ Petter Reinholdtsen ]
   * Correct DEBIAN_FRONTEND setting in testsuite to only use lower case
     letters in value.
+  * Only insert /home/fbx/README in setup.d/45_user-doc if /home/fbx
+    exist.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 25 Aug 2014 08:02:29 +0200
 
