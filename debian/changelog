@@ -10,6 +10,7 @@ freedombox-setup (0.0.50) UNRELEASED; urgency=low
   * Only insert /home/fbx/README in setup.d/45_user-doc if /home/fbx
     exist.
   * Make sure /etc/hostname exist in testsuite chroot.
+  * Disable shell tracing in testsuite script now that it is working.
 
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 25 Aug 2014 08:02:29 +0200
 

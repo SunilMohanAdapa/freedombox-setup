@@ -2,7 +2,8 @@
 
 set -e
 
-set -x
+# Enable when debugging
+#set -x
 
 at_exit() {
     for m in $umount ; do
