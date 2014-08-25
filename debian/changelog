@@ -4,6 +4,10 @@ freedombox-setup (0.0.50) UNRELEASED; urgency=low
   * Fix typos in first-run.d and setup.d scripts.  Remove unused
     function.
 
+  [ Petter Reinholdtsen ]
+  * Correct DEBIAN_FRONTEND setting in testsuite to only use lower case
+    letters in value.
+
  -- Petter Reinholdtsen <pere@debian.org>  Mon, 25 Aug 2014 08:02:29 +0200
 
 freedombox-setup (0.0.49) unstable; urgency=medium

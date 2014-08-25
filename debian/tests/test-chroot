@@ -20,7 +20,7 @@ chroot_test() {
     suite=testing
 
 
-    DEBIAN_FRONTEND=Noninteractive
+    DEBIAN_FRONTEND=noninteractive
     export DEBIAN_FRONTEND
 
     debootstrap --include freedombox-setup testing $target
