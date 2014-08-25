@@ -33,6 +33,9 @@ chroot_test() {
     rm $target/etc/resolv.conf
     cp /etc/resolv.conf $target/etc/resolv.conf
 
+    # Make sure chroot have some kind of hostname set in /etc/
+    cp /etc/hostname $target/etc/hostname
+
     mount -t proc proc $target/proc
     umount="$target/proc"
     mount -t sysfs sysfs $target/sys
