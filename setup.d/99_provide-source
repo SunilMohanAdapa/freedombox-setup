@@ -4,8 +4,8 @@
 # source to be available, by providing the source of every package
 # used.
 
-# TODO Remove on 1/1/15: " || [ 'true' = '$NOSOURCE' ]"
-if [ 'false' = "$SOURCE" ] || [ 'true' = '$NOSOURCE' ] ; then
+# TODO Remove on 1/1/15: " || [ 'true' = "$NOSOURCE" ]"
+if [ 'false' = "$SOURCE" ] || [ 'true' = "$NOSOURCE" ] ; then
 
     echo "Not adding source packages to filesystem (SOURCE=false)"
     exit 0

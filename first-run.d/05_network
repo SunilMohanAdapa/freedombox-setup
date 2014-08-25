@@ -23,10 +23,6 @@ function get-wired-interfaces {
         | grep "^[^l][^o]"`
 }
 
-function get-interfaces {
-    ALL_IFACES=`$INTERFACE_DETECT | grep "^[^l][^o]" | cut -d"," -f1"`
-}
-
 function remove-udev {
     # removes udev rules.
 
