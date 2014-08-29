@@ -1,11 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?><!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN" "http://www.docbook.org/xml/4.4/docbookx.dtd"><article><articleinfo>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article
+  PUBLIC '-//OASIS//DTD DocBook XML V4.4//EN'
+  'http://www.docbook.org/xml/4.4/docbookx.dtd'>
+<article><articleinfo>
 <title>FreedomBox/Manual/Jessie
-</title><revhistory><revision><revnumber>20</revnumber><date>2014-06-14 20:29:03</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Pagekite is now set up using Plinth.  Update documentation.</revremark></revision><revision><revnumber>19</revnumber><date>2014-03-28 08:33:04</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Mention where the authorative source for the document is.</revremark></revision><revision><revnumber>18</revnumber><date>2014-03-28 01:50:47</date><authorinitials>NickDaly</authorinitials><revremark>split lines correctly in "Building your own" code examples</revremark></revision><revision><revnumber>17</revnumber><date>2014-03-28 01:49:16</date><authorinitials>NickDaly</authorinitials><revremark>MoinWiki doesn't support non-sequential ordered lists, worked around non-sequential numbering.</revremark></revision><revision><revnumber>16</revnumber><date>2014-03-28 01:39:30</date><authorinitials>NickDaly</authorinitials><revremark>Fixed diagram numbering.</revremark></revision><revision><revnumber>15</revnumber><date>2014-03-26 22:57:42</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Visit freedombox/plinth/ to get startet.</revremark></revision><revision><revnumber>14</revnumber><date>2014-03-26 22:50:11</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Plinth got a new upstream now.</revremark></revision><revision><revnumber>13</revnumber><date>2014-03-26 22:04:20</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct typos.</revremark></revision><revision><revnumber>12</revnumber><date>2014-03-26 22:00:10</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct more formatting.</revremark></revision><revision><revnumber>11</revnumber><date>2014-03-26 21:26:14</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>More formatting fixes.</revremark></revision><revision><revnumber>10</revnumber><date>2014-03-26 21:15:40</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix more links.</revremark></revision><revision><revnumber>9</revnumber><date>2014-03-26 13:11:12</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Avoid some unwanted links.</revremark></revision><revision><revnumber>8</revnumber><date>2014-03-26 13:06:20</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct heading levels.</revremark></revision><revision><revnumber>7</revnumber><date>2014-03-26 12:19:50</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix formatting.</revremark></revision><revision><revnumber>6</revnumber><date>2014-03-24 14:04:11</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix some links.</revremark></revision><revision><revnumber>5</revnumber><date>2014-03-24 14:01:01</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Mistake.</revremark></revision><revision><revnumber>4</revnumber><date>2014-03-24 13:59:53</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Typo.</revremark></revision><revision><revnumber>3</revnumber><date>2014-03-24 13:51:07</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Second translformation try, using pandoc to html, and then "html2wiki --dialect=MoinMoin" to convert from HTML to moinmoin.</revremark></revision><revision><revnumber>2</revnumber><date>2014-03-24 13:41:46</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Transform some mediawiki notation to moinmoin.</revremark></revision><revision><revnumber>1</revnumber><date>2014-03-24 13:35:03</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Converted freedombox-setup/doc/README.fbx-home to wiki format using "pandoc doc/README.fbx-home -f rst -t mediawiki".</revremark></revision></revhistory></articleinfo>
+</title><revhistory><revision><revnumber>20</revnumber><date>2014-06-14 20:29:03</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Pagekite is now set up using Plinth.  Update documentation.</revremark></revision><revision><revnumber>19</revnumber><date>2014-03-28 08:33:04</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Mention where the authorative source for the document is.</revremark></revision><revision><revnumber>18</revnumber><date>2014-03-28 01:50:47</date><authorinitials>NickDaly</authorinitials><revremark>split lines correctly in &quot;Building your own&quot; code examples</revremark></revision><revision><revnumber>17</revnumber><date>2014-03-28 01:49:16</date><authorinitials>NickDaly</authorinitials><revremark>MoinWiki doesn't support non-sequential ordered lists, worked around non-sequential numbering.</revremark></revision><revision><revnumber>16</revnumber><date>2014-03-28 01:39:30</date><authorinitials>NickDaly</authorinitials><revremark>Fixed diagram numbering.</revremark></revision><revision><revnumber>15</revnumber><date>2014-03-26 22:57:42</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Visit freedombox/plinth/ to get startet.</revremark></revision><revision><revnumber>14</revnumber><date>2014-03-26 22:50:11</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Plinth got a new upstream now.</revremark></revision><revision><revnumber>13</revnumber><date>2014-03-26 22:04:20</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct typos.</revremark></revision><revision><revnumber>12</revnumber><date>2014-03-26 22:00:10</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct more formatting.</revremark></revision><revision><revnumber>11</revnumber><date>2014-03-26 21:26:14</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>More formatting fixes.</revremark></revision><revision><revnumber>10</revnumber><date>2014-03-26 21:15:40</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix more links.</revremark></revision><revision><revnumber>9</revnumber><date>2014-03-26 13:11:12</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Avoid some unwanted links.</revremark></revision><revision><revnumber>8</revnumber><date>2014-03-26 13:06:20</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Correct heading levels.</revremark></revision><revision><revnumber>7</revnumber><date>2014-03-26 12:19:50</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix formatting.</revremark></revision><revision><revnumber>6</revnumber><date>2014-03-24 14:04:11</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Fix some links.</revremark></revision><revision><revnumber>5</revnumber><date>2014-03-24 14:01:01</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Mistake.</revremark></revision><revision><revnumber>4</revnumber><date>2014-03-24 13:59:53</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Typo.</revremark></revision><revision><revnumber>3</revnumber><date>2014-03-24 13:51:07</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Second translformation try, using pandoc to html, and then &quot;html2wiki --dialect=MoinMoin&quot; to convert from HTML to moinmoin.</revremark></revision><revision><revnumber>2</revnumber><date>2014-03-24 13:41:46</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Transform some mediawiki notation to moinmoin.</revremark></revision><revision><revnumber>1</revnumber><date>2014-03-24 13:35:03</date><authorinitials>PetterReinholdtsen</authorinitials><revremark>Converted freedombox-setup/doc/README.fbx-home to wiki format using &quot;pandoc doc/README.fbx-home -f rst -t mediawiki&quot;.</revremark></revision></revhistory></articleinfo>
 
 <section>
 <title>Welcome to your FreedomBox!
 </title>
-<para><anchor id='gettinghelp'/> 
+<para><anchor id="gettinghelp"/> 
 </para>
 
 <section>
@@ -15,19 +19,19 @@
 </para>
 <itemizedlist>
 <listitem>
-<para>Emailing <ulink url='mailto:freedombox-discuss@lists.alioth.debian.org'>freedombox-discuss@lists.alioth.debian.org</ulink>. You can also <ulink url='http://lists.alioth.debian.org/mailman/listinfo/freedombox-discuss'>sign up</ulink> to receive copies of every discussion that happens on the mailing list and <ulink url='http://lists.alioth.debian.org/mailman/listinfo/freedombox-discuss'>read the archives</ulink>. 
+<para>Emailing <ulink url="mailto:freedombox-discuss@lists.alioth.debian.org">freedombox-discuss@lists.alioth.debian.org</ulink>. You can also <ulink url="http://lists.alioth.debian.org/mailman/listinfo/freedombox-discuss">sign up</ulink> to receive copies of every discussion that happens on the mailing list and <ulink url="http://lists.alioth.debian.org/mailman/listinfo/freedombox-discuss">read the archives</ulink>. 
 </para></listitem>
 <listitem>
-<para>Chatting at <ulink url='irc://irc.oftc.net:6667/%23freedombox'>#freedombox@irc.oftc.net</ulink>. 
+<para>Chatting at <ulink url="irc://irc.oftc.net:6667/%23freedombox">#freedombox@irc.oftc.net</ulink>. 
 </para></listitem>
 <listitem>
-<para>Reading the <ulink url='http://wiki.debian.org/FreedomBox'>wiki</ulink>. 
+<para>Reading the <ulink url="http://wiki.debian.org/FreedomBox">wiki</ulink>. 
 </para></listitem>
 <listitem>
-<para>Reading the <ulink url='https://freedomboxfoundation.org/'>FreedomBox Foundation's website</ulink>. 
+<para>Reading the <ulink url="https://freedomboxfoundation.org/">FreedomBox Foundation's website</ulink>. 
 </para></listitem>
 <listitem>
-<para>Reading the <ulink url='https://alioth.debian.org/projects/freedombox'>FreedomBox Project Page</ulink>. 
+<para>Reading the <ulink url="https://alioth.debian.org/projects/freedombox">FreedomBox Project Page</ulink>. 
 </para></listitem></itemizedlist>
 </section>
 
@@ -39,12 +43,12 @@
 
 <section>
 <title>Quick Start
-</title><orderedlist numeration='arabic'>
+</title><orderedlist numeration="arabic">
 <listitem>
-<para>Plug one end of your ethernet cord into your FreedomBox's <link linkend='eth0'>eth0</link> port (the one toward the middle of the box), and plug the other end into your router. 
+<para>Plug one end of your ethernet cord into your FreedomBox's <link linkend="eth0">eth0</link> port (the one toward the middle of the box), and plug the other end into your router. 
 </para></listitem>
 <listitem>
-<para>Plug your computer into the <link linkend='eth1'>eth1</link> port (the one toward the end of the box) on the FreedomBox. 
+<para>Plug your computer into the <link linkend="eth1">eth1</link> port (the one toward the end of the box) on the FreedomBox. 
 </para></listitem>
 <listitem>
 <para>Plug your FreedomBox into a power outlet. 
@@ -56,61 +60,61 @@
 <para>Start enjoying the Internet. 
 </para></listitem>
 <listitem>
-<para>Navigate to your FreedomBox by browsing to: <ulink url='http://freedombox/plinth'/> 
+<para>Navigate to your FreedomBox by browsing to: <ulink url="http://freedombox/plinth"/> 
 </para></listitem>
 <listitem>
-<para>Bask in your own awesomeness <inlinemediaobject><imageobject><imagedata width='16' fileref='https://wiki.debian.org//htdocs/debwiki/img/smile.png' depth='16'/></imageobject><textobject><phrase>:)</phrase></textobject></inlinemediaobject> 
+<para>Bask in your own awesomeness <inlinemediaobject><imageobject><imagedata depth="16" fileref="https://wiki.debian.org//htdocs/debwiki/img/smile.png" width="16"/></imageobject><textobject><phrase>:)</phrase></textobject></inlinemediaobject> 
 </para></listitem></orderedlist>
 <para>Now, you can try: 
 </para>
 <itemizedlist>
 <listitem>
-<para><link linkend='browsing'>Browsing the Internet</link> 
+<para><link linkend="browsing">Browsing the Internet</link> 
 </para></listitem>
 <listitem>
-<para><link linkend='wikihosting'>Hosting a Wiki</link> 
+<para><link linkend="wikihosting">Hosting a Wiki</link> 
 </para></listitem>
 <listitem>
-<para><link linkend='publishing'>Publishing with your FreedomBox</link> 
+<para><link linkend="publishing">Publishing with your FreedomBox</link> 
 </para></listitem></itemizedlist>
 <para>Other tools are also planned, such as an IM (chat) server, a blog, and more. 
 </para>
-<para><anchor id='browsing'/> 
+<para><anchor id="browsing"/> 
 </para>
 
 <section>
 <title>Browsing the Internet
 </title>
 <para>To browse the Internet through your FreedomBox: 
-</para><orderedlist numeration='arabic'>
+</para><orderedlist numeration="arabic">
 <listitem>
-<para>Plug one end of your ethernet cord into your FreedomBox's <link linkend='eth0'>eth0</link> port (the one toward the middle of the box), and plug the other end into your router. 
+<para>Plug one end of your ethernet cord into your FreedomBox's <link linkend="eth0">eth0</link> port (the one toward the middle of the box), and plug the other end into your router. 
 </para></listitem>
 <listitem>
-<para>Plug your computer into the <link linkend='eth1'>eth1</link> port (the one toward the end of the box) on the FreedomBox. 
+<para>Plug your computer into the <link linkend="eth1">eth1</link> port (the one toward the end of the box) on the FreedomBox. 
 </para></listitem>
 <listitem>
 <para>Start enjoying the Internet. 
 </para></listitem></orderedlist>
-<para><anchor id='wikihosting'/> 
+<para><anchor id="wikihosting"/> 
 </para>
 </section>
 
 <section>
 <title>Hosting a Wiki
-</title><orderedlist numeration='arabic'>
+</title><orderedlist numeration="arabic">
 <listitem>
-<para><link linkend='connectingto'>Connect to your FreedomBox</link>, as root, because we're going to modify the system by installing some new packages. 
+<para><link linkend="connectingto">Connect to your FreedomBox</link>, as root, because we're going to modify the system by installing some new packages. 
 </para></listitem>
 <listitem>
 <para>Install the ikiwiki package:
 </para><screen><![CDATA[$ apt-get install ikiwiki]]></screen>
-<para> Say "yes" when it asks you about installing new packages.
+<para> Say &quot;yes&quot; when it asks you about installing new packages.
 </para></listitem>
 <listitem>
-<para>Follow the <ulink url='http://ikiwiki.info/setup/'>ikiwiki setup instructions</ulink>, or use the <link linkend='additionalprojects'>additional projects</link> to automatically configure ikiwiki. 
+<para>Follow the <ulink url="http://ikiwiki.info/setup/">ikiwiki setup instructions</ulink>, or use the <link linkend="additionalprojects">additional projects</link> to automatically configure ikiwiki. 
 </para></listitem></orderedlist>
-<para><anchor id='publishing'/> 
+<para><anchor id="publishing"/> 
 </para>
 </section>
 
@@ -118,7 +122,7 @@
 <title>Publishing with your FreedomBox
 </title>
 <para>Now that you've put a wiki together, you might as well publish it to the Internet. To publish material to the Internet, you need two things: 
-</para><orderedlist numeration='arabic'>
+</para><orderedlist numeration="arabic">
 <listitem>
 <para>A place to host it. 
 </para></listitem>
@@ -127,15 +131,15 @@
 </para></listitem></orderedlist>
 <para>You already have the place to host data, it's this FreedomBox. Now, you just need a name. 
 </para>
-<para>While it's possible to buy your own domain name, it's a rather tedious and complicated process. Many folks have had good luck with "reverse proxies," things like <link linkend='pagekite'>PageKite</link>. Other <ulink url='http://alternativeto.net/software/pagekite/'>reverse proxy services</ulink> are also available. 
+<para>While it's possible to buy your own domain name, it's a rather tedious and complicated process. Many folks have had good luck with &quot;reverse proxies,&quot; things like <link linkend="pagekite">PageKite</link>. Other <ulink url="http://alternativeto.net/software/pagekite/">reverse proxy services</ulink> are also available. 
 </para>
-<para><anchor id='pagekite'/> 
+<para><anchor id="pagekite"/> 
 </para>
 
 <section>
 <title>Publishing with PageKite
 </title>
-<para>Getting started with PageKite is pretty straightforward. After you've <link linkend='connectingto'>connected to your FreedomBox</link> you can configure it using the Plinth web interface in the Router->General Setup->Public Visibility (PageKite) menu.  Enable PageKite, fill in your site name and kite secret, check the http service and now, you can access <ulink url='http://yourname.pagekite.me/'/> from anywhere! 
+<para>Getting started with PageKite is pretty straightforward. After you've <link linkend="connectingto">connected to your FreedomBox</link> you can configure it using the Plinth web interface in the Router-&gt;General Setup-&gt;Public Visibility (PageKite) menu.  Enable PageKite, fill in your site name and kite secret, check the http service and now, you can access <ulink url="http://yourname.pagekite.me/"/> from anywhere! 
 </para>
 </section>
 </section>
@@ -151,18 +155,18 @@
 <title>Logging in to your FreedomBox
 </title>
 <para>When your FreedomBox first starts, it has two accounts: a root account for system maintenance, and a normal user who doesn't have the power to mess with how the system works. The default passwords for each of those users are: 
-</para><informaltable><tgroup cols='2'><colspec colname='col_0'/><colspec colname='col_1'/><tbody><row rowsep='1'><entry colsep='1' rowsep='1'>
+</para><informaltable><tgroup cols="2"><colspec colname="col_0"/><colspec colname="col_1"/><tbody><row rowsep="1"><entry colsep="1" rowsep="1">
 <para> root
-</para></entry><entry colsep='1' rowsep='1'>
+</para></entry><entry colsep="1" rowsep="1">
 <para> freedom 
-</para></entry></row><row rowsep='1'><entry colsep='1' rowsep='1'>
+</para></entry></row><row rowsep="1"><entry colsep="1" rowsep="1">
 <para> fbx 
-</para></entry><entry colsep='1' rowsep='1'>
+</para></entry><entry colsep="1" rowsep="1">
 <para> frdm 
 </para></entry></row></tbody></tgroup></informaltable>
-<para>You'll need this information if you want to log in, as explained in the next section. Also, after you log in, you should probably <link linkend='changingpassword'>change the default passwords</link>. Otherwise, anybody else who reads this document could log into your box, too. 
+<para>You'll need this information if you want to log in, as explained in the next section. Also, after you log in, you should probably <link linkend="changingpassword">change the default passwords</link>. Otherwise, anybody else who reads this document could log into your box, too. 
 </para>
-<para><anchor id='connectingto'/> 
+<para><anchor id="connectingto"/> 
 </para>
 </section>
 
@@ -170,7 +174,7 @@
 <title>Connecting to your FreedomBox
 </title>
 <para>These instructions will teach you how to log in, via ssh, to your FreedomBox. 
-</para><orderedlist numeration='arabic'>
+</para><orderedlist numeration="arabic">
 <listitem>
 <para>Run an ethernet cord from your computer to your FreedomBox's eth0 port (the one toward the middle). 
 </para></listitem>
@@ -182,9 +186,9 @@
 </para><screen><![CDATA[$ ssh fbx@freedombox]]></screen>
 <para>To log in as the root user instead, in case you want to perform some serious system maintenance:
 </para><screen><![CDATA[$ ssh root@freedombox]]></screen></listitem></orderedlist>
-<para>Make a habit of logging in as root <emphasis>only when you need to</emphasis>. If you aren't logged in as root, you can't accidentally break everything. Even if everything does break though, don't worry, it can still be fixed, it'll just take a couple hours. See the <link linkend='gettinghelp'>Getting Help</link> section for more details. 
+<para>Make a habit of logging in as root <emphasis>only when you need to</emphasis>. If you aren't logged in as root, you can't accidentally break everything. Even if everything does break though, don't worry, it can still be fixed, it'll just take a couple hours. See the <link linkend="gettinghelp">Getting Help</link> section for more details. 
 </para>
-<para><anchor id='changingpassword'/> 
+<para><anchor id="changingpassword"/> 
 </para>
 </section>
 
@@ -201,15 +205,15 @@
 <title>Updating your FreedomBox
 </title>
 <para>These instructions will teach you how to keep your FreedomBox up to date with the latest software releases. 
-</para><orderedlist numeration='arabic'>
+</para><orderedlist numeration="arabic">
 <listitem>
 <para>Ask the box to update itself:
 </para><screen><![CDATA[$ apt-get update; apt-get upgrade]]></screen></listitem></orderedlist>
-<para>Chances are good the "upgrade" command will ask you if it's alright to install some packages and use some disk space. Say "yes", because that's what you want it to do. 
+<para>Chances are good the &quot;upgrade&quot; command will ask you if it's alright to install some packages and use some disk space. Say &quot;yes&quot;, because that's what you want it to do. 
 </para>
-<para>If those commands complete successfully, then congratulations, you've just updated your FreedomBox! If they don't complete successfully ask for help, as described in the <link linkend='gettinghelp'>Getting Help</link> section. 
+<para>If those commands complete successfully, then congratulations, you've just updated your FreedomBox! If they don't complete successfully ask for help, as described in the <link linkend="gettinghelp">Getting Help</link> section. 
 </para>
-<para><anchor id='eth0'/> <anchor id='eth1'/> 
+<para><anchor id="eth0"/> <anchor id="eth1"/> 
 </para>
 </section>
 
@@ -328,7 +332,7 @@
 </title>
 <para>Freedom Maker is the tool used to create a running FreedomBox system. It creates the bootable system image that lives on the DreamPlug's microSD card. 
 </para>
-<para><ulink url='http://anonscm.debian.org/gitweb/?p=freedombox/freedom-maker.git;a=summary'/> 
+<para><ulink url="http://anonscm.debian.org/gitweb/?p=freedombox/freedom-maker.git;a=summary"/> 
 </para>
 </section>
 
@@ -337,7 +341,7 @@
 </title>
 <para>Plinth is the FreedomBox's administration UI. It's not done yet, but it will be included in future FreedomBox updates when it's finished. 
 </para>
-<para><ulink url='https://github.com/NickDaly/Plinth'/> 
+<para><ulink url="https://github.com/NickDaly/Plinth"/> 
 </para>
 </section>
 
@@ -346,7 +350,7 @@
 </title>
 <para>Privoxy is the FreedomBox's privacy-preserving web-proxy. 
 </para>
-<para><ulink url='https://github.com/jvasile/freedombox-privoxy'/> 
+<para><ulink url="https://github.com/jvasile/freedombox-privoxy"/> 
 </para>
 </section>
 </section>
@@ -360,7 +364,7 @@
 </title>
 <para>You can also review these instructions online: 
 </para>
-<para><ulink url='http://wiki.debian.org/FreedomBox/Firmware'/> 
+<para><ulink url="http://wiki.debian.org/FreedomBox/Firmware"/> 
 </para>
 <para>These instructions are from Ian Campbell, using uboot version 2012.04.01-2, which is the current version in Debian's Wheezy release. 
 </para>
@@ -387,7 +391,7 @@
 </title>
 <para>On another system, download the Freedom-Maker repoistory and follow the README to build your own image that you can plug into your DreamPlug: 
 </para><screen><![CDATA[$ git clone git://anonscm.debian.org/freedombox/freedom-maker.git ~/freedom-maker]]></screen>
-<para><anchor id='additionalprojects'/> 
+<para><anchor id="additionalprojects"/> 
 </para>
 </section>
 
@@ -407,7 +411,7 @@
 <section>
 <title>Updating the documentation
 </title>
-<para>This manual is maintained on a Wiki, allowing every registered user to update it.  If you find something that could be written better, please update it on <ulink url='https://wiki.debian.org/FreedomBox/Manual/Jessie'/> . 
+<para>This manual is maintained on a Wiki, allowing every registered user to update it.  If you find something that could be written better, please update it on <ulink url="https://wiki.debian.org/FreedomBox/Manual/Jessie"/> . 
 </para>
 </section>
 </section></article>
