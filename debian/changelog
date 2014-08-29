@@ -1,3 +1,12 @@
+freedombox-setup (0.2) unstable; urgency=low
+
+  * Updated documentation from the wiki.
+  * Adjust test suite to use localhost as hostname if no /etc/hostname
+    exist in the test environment.
+  * Change Vcs-Browser field to the cgit interface.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri, 29 Aug 2014 23:20:48 +0200
+
 freedombox-setup (0.1) unstable; urgency=high
 
   [ James Valleroy ]
