@@ -35,7 +35,11 @@ chroot_test() {
     cp /etc/resolv.conf $target/etc/resolv.conf
 
     # Make sure chroot have some kind of hostname set in /etc/
-    cp /etc/hostname $target/etc/hostname
+    if [ -e /etc/hostname ] ; then
+        cp /etc/hostname $target/etc/hostname
+    else
+        echo localhost > $target/etc/hostname
+    fi
 
     mount -t proc proc $target/proc
     umount="$target/proc"
