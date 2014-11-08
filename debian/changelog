@@ -3,6 +3,7 @@ freedombox-setup (0.3) UNRELEASED; urgency=low
   [ Petter Reinholdtsen ]
   * Adjust debian/tests/test-chroot to build using unstable instead of
     testing.  We are focusing on unstable for now.
+  * Update Standards-Version from 3.9.5 to 3.9.6.
 
   [ James Valleroy ]
   * Remove changes to old ejabberd config file. New ejabberd package
