@@ -17,14 +17,13 @@ trap at_exit INT TERM EXIT
 chroot_test() {
     cd $ADTTMP
 
-    target=test-chroot
-    suite=testing
-
+    suite=unstable
+    target=test-chroot-$suite
 
     DEBIAN_FRONTEND=noninteractive
     export DEBIAN_FRONTEND
 
-    debootstrap --include freedombox-setup testing $target
+    debootstrap --include freedombox-setup $suite $target
 
     printf "#!/bin/sh\nexit 101\n" > $target/usr/sbin/policy-rc.d
     chmod a+rx $target/usr/sbin/policy-rc.d
