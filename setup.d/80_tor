@@ -14,7 +14,8 @@ BridgeRelay 1
 Exitpolicy reject *:*
 
 # enable obfsproxy
-ServerTransportPlugin obfs3 exec /usr/bin/obfsproxy managed
+ServerTransportPlugin obfs3,scramblesuit exec /usr/bin/obfsproxy managed
+ExtORPort auto
 
 # enable transparent proxy
 VirtualAddrNetworkIPv4 10.192.0.0/10
