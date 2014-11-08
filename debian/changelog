@@ -1,7 +1,14 @@
 freedombox-setup (0.3) UNRELEASED; urgency=low
 
+  [ Petter Reinholdtsen ]
   * Adjust debian/tests/test-chroot to build using unstable instead of
     testing.  We are focusing on unstable for now.
+
+  [ James Valleroy ]
+  * Remove changes to old ejabberd config file. New ejabberd package
+    uses yml config.
+  * Enable scramblesuit plugin for obfsproxy in tor. Enable ExtORPort
+    for local communication between tor and obfsproxy.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 08 Nov 2014 22:29:00 +0100
 
