@@ -17,6 +17,11 @@ freedombox-setup (0.3) UNRELEASED; urgency=low
     - For configured interfaces, only add SocksPort to interfaces
       with static IPs.
 
+  [ Sunil Mohan Adapa ]
+  * Cleanup Plinth's Apache configuration.  Default SSL site is no
+    longer hijacked.  Plinth supplied configuration is good enough
+    don't interfere.
+
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 08 Nov 2014 22:29:00 +0100
 
 freedombox-setup (0.2) unstable; urgency=low
