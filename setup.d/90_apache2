@@ -20,6 +20,11 @@ fi
 
 # setup freedombox site
 cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
+##
+## Enable HSTS, even for subdomains.
+##
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+
 <VirtualHost *:80>
   ServerName fbx
   AddDefaultCharset UTF-8
