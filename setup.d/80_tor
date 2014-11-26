@@ -21,6 +21,6 @@ ExtORPort auto
 VirtualAddrNetworkIPv4 10.192.0.0/10
 AutomapHostsOnResolve 1
 TransPort 127.0.0.1:9040
-DNSPort 127.0.0.1:53
+DNSPort 127.0.0.1:9053
 
 EOF

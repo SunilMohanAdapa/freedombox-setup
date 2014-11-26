@@ -8,8 +8,8 @@ netstat_check 9050 tcp tor
 netstat_check 9050 tcp6 tor
 netstat_check 9040 tcp tor
 netstat_check 9040 tcp6 tor
-netstat_check_socket 127.0.0.1:domain udp tor
-netstat_check_socket 127.0.0.1:domain udp6 tor
+netstat_check 9053 udp tor
+netstat_check 9053 udp6 tor
 
 # Tor control socket
 ip="127.0.0.1"
@@ -28,9 +28,13 @@ do
     else
         success "$0: Tor control socket is not listening on $ip."
     fi
+done
 
-    # Check that Tor Socks listens on every interface.
-    netstat_check_socket $ip:9050 tcp tor
+# Check that Tor Socks listens on every interface with a static IP.
+static_ips=$(awk '/ address/ {print $2}' /etc/network/interfaces)
+for static_ip in $static_ips
+do
+    netstat_check_socket $static_ip:9050 tcp tor
 done
 
 # Check obfsproxy transports
