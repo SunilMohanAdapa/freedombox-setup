@@ -54,6 +54,7 @@ Depends: ${misc:Depends}
  , locales-all
  , lsof
  , macchanger
+ , netcat
  , net-tools
  , ntp
  , openssh-server
