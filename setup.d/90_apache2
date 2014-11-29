@@ -13,11 +13,6 @@ a2enmod ssl
 # disable default site
 a2dissite 000-default
 
-# disable plinth, if plinth-ssl is enabled
-if [ -e /etc/apache2/sites-enabled/plinth-ssl.conf ] ; then
-    a2dissite plinth
-fi
-
 # setup freedombox site
 cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
 ##
@@ -41,15 +36,10 @@ Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=H
   <Proxy *>
     Allow from all
   </Proxy>
-
-  ## Send plinth to HTTPS port handled by plinth.conf.
-  RewriteEngine on
-  ReWriteCond %{REQUEST_URI} ^/plinth
-  ReWriteCond %{SERVER_PORT} !^443$
-  RewriteRule ^/(.*) https://%{HTTP_HOST}/$1 [NC,R,L]
 </VirtualHost>
 EOF
 
 a2ensite fbx
+a2ensite default-ssl
 
 echo "Done configuring Apache."
