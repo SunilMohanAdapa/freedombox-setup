@@ -10,6 +10,12 @@ freedombox-setup (0.3) UNRELEASED; urgency=low
     uses yml config.
   * Enable scramblesuit plugin for obfsproxy in tor. Enable ExtORPort
     for local communication between tor and obfsproxy.
+  * Fix typo in Dreamplug wifi setup script.
+  * Add netcat dependency for tor-get-orport.
+  * Fixes to Tor configuration:
+    - Move DNSPort to 9053 so it does not interfere with dnsmasq.
+    - For configured interfaces, only add SocksPort to interfaces
+      with static IPs.
 
  -- Petter Reinholdtsen <pere@debian.org>  Sat, 08 Nov 2014 22:29:00 +0100
 
