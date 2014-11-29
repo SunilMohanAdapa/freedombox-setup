@@ -81,6 +81,11 @@ beaglebone_setup_boot() {
     cp /usr/lib/u-boot/am335x_boneblack/u-boot.img /boot/u-boot.img
 
     # Setup uEnv.txt
+    if grep -q btrfs /etc/fstab ; then
+	fstype=btrfs
+    else
+	fstype=ext4
+    fi
     kernelVersion=$(ls /usr/lib/*/am335x-boneblack.dtb | head -1 | cut -d/ -f4)
     version=$(echo $kernelVersion | sed 's/linux-image-\(.*\)/\1/')
     initRd=initrd.img-$version
@@ -90,7 +95,8 @@ beaglebone_setup_boot() {
     # based on https://github.com/beagleboard/image-builder/blob/master/target/boot/beagleboard.org.txt
     cat >> /boot/uEnv.txt <<EOF
 mmcroot=/dev/mmcblk0p2 ro
-mmcrootfstype=ext4 rootwait fixrtc
+mmcrootfstype=$fstype rootwait fixrtc
+mmcrootflags=subvol=@
 
 console=ttyO0,115200n8
 
@@ -109,7 +115,7 @@ loadinitrd=load mmc \${mmcdev}:\${mmcpart} \${initrd_addr} \${initrd_file}; sete
 loadfdt=load mmc \${mmcdev}:\${mmcpart} \${fdtaddr} /dtbs/\${fdtfile}
 
 loadfiles=run loadkernel; run loadinitrd; run loadfdt
-mmcargs=setenv bootargs console=tty0 console=\${console} root=\${mmcroot} rootfstype=\${mmcrootfstype}
+mmcargs=setenv bootargs console=tty0 console=\${console} root=\${mmcroot} rootfstype=\${mmcrootfstype} rootfsflags=\${mmcrootflags}
 
 uenvcmd=run loadfiles; run mmcargs; bootz \${loadaddr} \${initrd_addr}:\${initrd_size} \${fdtaddr}
 EOF
