@@ -1,16 +1,10 @@
 #!/bin/sh
 
-# Enable SOCKS and transparent proxy on each configured network interface.
-ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4}')
-for ip in $ips
+# Enable SOCKS on network interfaces with static IPs.
+static_ips=$(awk '/ address/ {print $2}' /etc/network/interfaces)
+for static_ip in $static_ips
 do
-    if ! grep -q "SocksPort $ip:9050" /etc/tor/torrc ; then
-        echo "SocksPort $ip:9050" >> /etc/tor/torrc
-    fi
-    if ! grep -q "TransPort $ip:9040" /etc/tor/torrc ; then
-        echo "TransPort $ip:9040" >> /etc/tor/torrc
-    fi
-    if ! grep -q "DNSPort $ip:53" /etc/tor/torrc ; then
-        echo "DNSPort $ip:53" >> /etc/tor/torrc
+    if ! grep -q "SocksPort $static_ip:9050" /etc/tor/torrc ; then
+        echo "SocksPort $static_ip:9050" >> /etc/tor/torrc
     fi
 done
