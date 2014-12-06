@@ -16,6 +16,7 @@ freedombox-setup (0.3) UNRELEASED; urgency=low
     - Move DNSPort to 9053 so it does not interfere with dnsmasq.
     - For configured interfaces, only add SocksPort to interfaces
       with static IPs.
+  * Fix beaglebone setup to handle btrfs.
 
   [ Sunil Mohan Adapa ]
   * Cleanup Plinth's Apache configuration.  Default SSL site is no
