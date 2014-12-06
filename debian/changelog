@@ -1,4 +1,4 @@
-freedombox-setup (0.3) UNRELEASED; urgency=low
+freedombox-setup (0.3) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
   * Adjust debian/tests/test-chroot to build using unstable instead of
@@ -23,7 +23,7 @@ freedombox-setup (0.3) UNRELEASED; urgency=low
     longer hijacked.  Plinth supplied configuration is good enough
     don't interfere (Closes: #769878).
 
- -- Petter Reinholdtsen <pere@debian.org>  Sat, 08 Nov 2014 22:29:00 +0100
+ -- Petter Reinholdtsen <pere@debian.org>  Sat, 06 Dec 2014 10:56:59 +0100
 
 freedombox-setup (0.2) unstable; urgency=low
 
