@@ -9,7 +9,7 @@ ips=$(ip -4 -o addr | awk '!/^[0-9]*: ?lo|link\/ether/ {gsub("/", " "); print $4
 
 for ip in $ips
 do
-    url="http://$ip"
+    url="http://$ip/jwchat"
     if wget -q -O /dev/null "$url" ; then
         success "$0: HTTP access to $url worked"
     else
@@ -20,7 +20,7 @@ done
 
 # Check if we can access jwchat using hostname.
 
-url="http://$(uname -n)"
+url="http://$(uname -n)/jwchat"
 if wget -4 -q -O /dev/null "$url" ; then
         success "$0: HTTP access to $url worked using IPv4"
 else
