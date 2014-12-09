@@ -209,6 +209,9 @@ case "$MACHINE" in
 	;;
 esac
 
+echo "info: prevent macchanger from running automatically"
+sed -i 's/ENABLE_ON_POST_DOWN=yes/ENABLE_ON_POST_DOWN=no/' /etc/default/macchanger
+
 echo "info: rewriting /etc/hosts, leave host specific info to libnss-myhostname."
 cat > /etc/hosts <<EOF
 # Only generic entries in /etc/hosts, host specific information is
