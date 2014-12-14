@@ -1,3 +1,17 @@
+freedombox-setup (0.4) UNRELEASED; urgency=low
+
+  [ James Valleroy ]
+  * Stop ejabberd service before removing it's cert file during
+    first-run.
+  * Configure macchanger so it doesn't run automatically when the
+    interface is brought up. We will run it manually if an interface
+    has a null MAC during first-run.
+  * Update dnsmasq upstream to eth0, since that is the upstream
+    interface now.
+  * Update jwchat test to check /jwchat URL.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 14 Dec 2014 20:26:25 +0100
+
 freedombox-setup (0.3) unstable; urgency=low
 
   [ Petter Reinholdtsen ]
