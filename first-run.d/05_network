@@ -98,30 +98,6 @@ auto eth1
 EOF
 }
 
-function interfaces-uap0 {
-    # add uap0 to interfaces file
-
-    cat >> $IFACES_FILE <<EOF
-# The wireless network interface
-# creates a new wireless network.
-auto uap0
-    iface uap0 inet static
-    address 192.168.2.1
-    netmask 255.255.255.0
-    post-up uaputl sys_cfg_ssid "freedombox"
-    post-up uaputl sys_cfg_protocol 32  # WPA2
-    post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
-    post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
-    post-up uaputl bss_start
-
-    iface uap0 inet6 static
-    address 2002:c0a8:0201::1
-    netmask 64
-    # uap0: hwaddress ether 00:00:00:00:00:02
-
-EOF
-}
-
 function default-setup {
     # normal, shared setup for all devices.
 
