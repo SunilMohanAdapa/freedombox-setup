@@ -45,6 +45,7 @@ Depends: ${misc:Depends}
  , iptables
  , iputils-ping
  , isc-dhcp-client
+ , iw
  , libnss-gw-name
  , libnss-mdns
  , libnss-myhostname

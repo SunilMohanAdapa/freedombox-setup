@@ -1,0 +1,43 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          freedombox-create-uap0
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Required-Start:    $network $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Short-Description: Create uap0 interface when needed
+# Description:
+#   Script to create uap0 network interface when needed for mwifiex.
+### END INIT INFO
+
+LOGFILE=/var/log/freedombox-create-uap0.log
+
+. /lib/lsb/init-functions
+
+exec > $LOGFILE 2>&1
+
+case "$1" in
+    start)
+        if ifconfig -a | grep -q mlan0 ; then
+            if ifconfig -a | grep -q uap0 ; then
+		log_success_msg "Interface uap0 already exists."
+            else
+                log_action_begin_msg "Creating uap0 interface"
+                iw phy phy0 interface add uap0 type __ap
+                log_action_end_msg 0
+            fi
+            log_action_end_msg "Bringing up uap0 interface"
+            ifup uap0
+            log_action_end_msg 0
+        else
+            log_success_msg "Interface mlan0 doesn't exist. Skip adding uap0."
+        fi
+	;;
+    stop|restart|force-reload)
+        # Do nothing
+        ;;
+    *)
+        log_success_msg "Usage: /etc/init.d/freedombox-create-uap0 {start}"
+        exit 1
+        ;;
+esac
