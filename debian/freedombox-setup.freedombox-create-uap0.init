@@ -5,6 +5,7 @@
 # Default-Stop:
 # Required-Start:    $network $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
+# X-Start-Before:    $tor
 # Short-Description: Create uap0 interface when needed
 # Description:
 #   Script to create uap0 network interface when needed for mwifiex.
