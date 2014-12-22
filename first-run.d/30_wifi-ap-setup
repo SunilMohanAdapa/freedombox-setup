@@ -12,6 +12,62 @@ then
     then
         echo "Installing non-free WIFI package: firmware-libertas..."
         apt-get install firmware-libertas
+
+	echo "Reloading wifi driver..."
+	modprobe -r mwifiex_sdio
+	modprobe mwifiex_sdio
+
+        echo "Adding uap0 to interfaces file."
+        cat >> /etc/network/interfaces <<EOF
+# The wireless network interface
+# creates a new wireless network.
+auto uap0
+    iface uap0 inet static
+    address 192.168.2.1
+    netmask 255.255.255.0
+    hostapd /etc/hostapd/fbx-uap0.conf
+
+    # using hostapd instead of uaputl to configure AP
+    #post-up uaputl sys_cfg_ssid "freedombox"
+    #post-up uaputl sys_cfg_protocol 32  # WPA2
+    #post-up uaputl sys_cfg_wpa_passphrase "freedombox123"
+    #post-up uaputl sys_cfg_cipher 8 8   # AES CCMP
+    #post-up uaputl bss_start
+
+    #iface uap0 inet6 static
+    #address 2002:c0a8:0201::1
+    #netmask 64
+    # uap0: hwaddress ether 00:00:00:00:00:02
+
+EOF
+
+    echo "Creating hostapd settings for wifi AP."
+    cat > /etc/hostapd/fbx-uap0.conf <<EOF
+interface=uap0
+driver=nl80211
+ssid=freedombox
+hw_mode=g
+channel=1
+
+# accept any MAC not in deny list
+macaddr_acl=0
+
+# enable ssid broadcast
+ignore_broadcast_ssid=0
+
+# wpa2
+wpa=2
+wpa_passphrase=freedombox123
+wpa_key_mgmt=WPA-PSK
+rsn_pairwise=CCMP
+EOF
+
+    echo "Creating uap0 interface..."
+    iw phy phy0 interface add uap0 type __ap
+
+    echo "Bringing up uap0 interface..."
+    ifup uap0
+
     else
         echo "Non-free packages disabled.  Skipping DreamPlug WIFI config."
     fi

@@ -30,5 +30,5 @@ dhcp-authoritative
 # New clients will receive an IP from the WLAN range.
 
 dhcp-range=set:lan,192.168.1.10,192.168.1.100,255.255.255.0,2h
-# dhcp-range=set:wlan,192.168.2.10,192.168.2.100,255.255.255.0,2h
+dhcp-range=set:wlan,192.168.2.10,192.168.2.100,255.255.255.0,2h
 EOF

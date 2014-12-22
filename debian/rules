@@ -5,3 +5,4 @@
 override_dh_installinit:
 	dh_installinit --no-start --name=freedombox-first-run -u"start 20 2 3 4 5 ."
 	dh_installinit --no-start --name=freedombox-client-proxy -u"start 20 2 3 4 5 ."
+	dh_installinit --no-start --name=freedombox-create-uap0 -u"start 20 2 3 4 5 ."

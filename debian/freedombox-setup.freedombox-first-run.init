@@ -25,7 +25,7 @@ exec > $LOGFILE 2>&1
 
 etckeeper_commit() {
     if type etckeeper > /dev/null 2>&1 ; then
-	etckeeper commit -m "$1"
+	HOME=/root etckeeper commit -m "$1"
     fi
 }
 
