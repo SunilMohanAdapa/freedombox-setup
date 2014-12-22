@@ -13,6 +13,10 @@ then
         echo "Installing non-free WIFI package: firmware-libertas..."
         apt-get install firmware-libertas
 
+	echo "Reloading wifi driver..."
+	modprobe -r mwifiex_sdio
+	modprobe mwifiex_sdio
+
         echo "Adding uap0 to interfaces file."
         cat >> /etc/network/interfaces <<EOF
 # The wireless network interface
@@ -57,6 +61,13 @@ wpa_passphrase=freedombox123
 wpa_key_mgmt=WPA-PSK
 rsn_pairwise=CCMP
 EOF
+
+    echo "Creating uap0 interface..."
+    iw phy phy0 interface add uap0 type __ap
+
+    echo "Bringing up uap0 interface..."
+    ifup uap0
+
     else
         echo "Non-free packages disabled.  Skipping DreamPlug WIFI config."
     fi
