@@ -76,10 +76,6 @@ raspberry_setup_boot() {
 }
 
 beaglebone_setup_boot() {
-    # copy u-boot to the boot partition
-    cp /usr/lib/u-boot/am335x_boneblack/MLO /boot/MLO
-    cp /usr/lib/u-boot/am335x_boneblack/u-boot.img /boot/u-boot.img
-
     # Setup uEnv.txt
     if grep -q btrfs /etc/fstab ; then
 	fstype=btrfs
