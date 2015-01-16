@@ -198,8 +198,7 @@ case "$MACHINE" in
 	;;
     beaglebone)
 	beaglebone_setup_boot
-	# flash-kernel will overwrite our uEnv.txt, so don't include it for now.
-	#beaglebone_flash
+	beaglebone_flash
 	beaglebone_repack_kernel
 	enable_serial_console ttyO0
 	;;
