@@ -212,7 +212,7 @@ setenv initrd_high 0xffffffff
 setenv fdt_high 0xffffffff
 
 setenv loadkernel load mmc \${mmcdev}:\${mmcpart} \${loadaddr} \${kernel_file}
-setenv loadinitrd load mmc \${mmcdev}:\${mmcpart} \${initrd_addr} \${initrd_file}\\; setenv initrd_size \\${filesize}
+setenv loadinitrd load mmc \${mmcdev}:\${mmcpart} \${initrd_addr} \${initrd_file}\\; setenv initrd_size \\\${filesize}
 setenv loadfdt load mmc \${mmcdev}:\${mmcpart} \${fdtaddr} /dtbs/\${fdtfile}
 
 setenv loadfiles run loadkernel\\; run loadinitrd\\; run loadfdt
