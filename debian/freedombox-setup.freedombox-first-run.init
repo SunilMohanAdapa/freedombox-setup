@@ -5,7 +5,7 @@
 # Default-Stop:
 # Required-Start:    $network $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
-# Should-Start:      firewalld tor haveged lxc pagekite
+# Should-Start:      firewalld tor haveged lxc
 # Short-Description: Finish Freedombox install after first boot
 # Description:
 #   Script to complete the post-install process on first FBX boot.

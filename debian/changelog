@@ -10,6 +10,10 @@ freedombox-setup (0.4) UNRELEASED; urgency=low
     interface now.
   * Update jwchat test to check /jwchat URL.
 
+  [ Sunil Mohan Adapa ]
+  * Remove pagekite recommendation as Plinth now takes care of its
+    installation and setup.
+
  -- Petter Reinholdtsen <pere@debian.org>  Sun, 14 Dec 2014 20:26:25 +0100
 
 freedombox-setup (0.3) unstable; urgency=low

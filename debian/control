@@ -77,7 +77,6 @@ Recommends:
  batctl
  , rfkill
  , wireless-tools
- , pagekite
 Suggests:
  monkeysphere
 Description: Package to set up freedombox environment
