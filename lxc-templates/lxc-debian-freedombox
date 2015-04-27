@@ -26,7 +26,7 @@
 # ==============================================================
 
 SUITE=${SUITE:-squeeze}
-MIRROR=${MIRROR:-http://cdn.debian.net/debian}
+MIRROR=${MIRROR:-http://http.debian.net/debian}
 
 configure_debian()
 {
