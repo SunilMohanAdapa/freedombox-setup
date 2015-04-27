@@ -9,12 +9,29 @@ freedombox-setup (0.4) UNRELEASED; urgency=low
   * Update dnsmasq upstream to eth0, since that is the upstream
     interface now.
   * Update jwchat test to check /jwchat URL.
+  * Setup uap0 interface on dreamplug, using hostapd to configure wifi AP.
+  * Enable dhcp on wlan network.
+  * Create uap0 interface before starting tor.
+  * Bring up uap0 during first-run. This allows interface-detect to see it.
+  * Set HOME in first-run initscript so etckeeper can find the git config.
+  * Beaglebone: Don't need to copy u-boot files to boot partition.
+    freedom-maker will install it in front of boot partition.
+  * Don't skip flash-kernel on beaglebone (reverts previous change). It
+    doesn't cause issues now since we are using ext2 for boot parition.
+
+  [ peacekeeper ]
+  * Add initial support for cubietruck.
+  * Add rtc_sunxi as boot module.
 
   [ Sunil Mohan Adapa ]
   * Remove pagekite recommendation as Plinth now takes care of its
-    installation and setup.
+    installation and setup (Closes: #778310).
 
- -- Petter Reinholdtsen <pere@debian.org>  Sun, 14 Dec 2014 20:26:25 +0100
+  [ James Valleroy ]
+  * Replace cdn.debian.net with http.debian.net in LXC template
+    (Closes: #774479).
+
+ -- James Valleroy <jvalleroy@mailbox.org>  Mon, 27 Apr 2015 19:55:22 -0400
 
 freedombox-setup (0.3) unstable; urgency=low
 
