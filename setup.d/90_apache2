@@ -10,8 +10,11 @@ a2enmod rewrite
 # enable SSL
 a2enmod ssl
 
-# disable default site
-a2dissite 000-default
+# enable mod_alias for RedirectMatch
+a2enmod alias
+
+# enable mod_headers for HSTS
+a2enmod headers
 
 # setup freedombox site
 cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
@@ -20,26 +23,16 @@ cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
 ##
 Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
 
-<VirtualHost *:80>
-  ServerName fbx
-  AddDefaultCharset UTF-8
-
-  ## jwchat
-  DocumentRoot /usr/share/jwchat/www
-  <Directory /usr/share/jwchat/www>
-    Options  +Indexes +Multiviews +FollowSymLinks
-  </Directory>
-
-  ## Proxy for BOSH server (for jwchat).
-  ProxyPass /http-bind/ http://localhost:5280/http-bind/
-  ProxyPassReverse /http-bind/ http://localhost:5280/http-bind/
-  <Proxy *>
-    Allow from all
-  </Proxy>
-</VirtualHost>
+##
+## Redirect traffic on home to /plinth as part of turning the machine
+## into FreedomBox server.  Plinth then acts as a portal to reach all
+## other services.
+##
+RedirectMatch "^/$" "/plinth"
 EOF
 
 a2ensite fbx
+a2ensite 000-default
 a2ensite default-ssl
 
 echo "Done configuring Apache."
