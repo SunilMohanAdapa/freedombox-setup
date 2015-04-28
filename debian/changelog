@@ -26,6 +26,8 @@ freedombox-setup (0.4) UNRELEASED; urgency=low
   [ Sunil Mohan Adapa ]
   * Remove pagekite recommendation as Plinth now takes care of its
     installation and setup (Closes: #778310).
+  * Don't indiscriminately allow all proxy targets in jwchat
+    configuration.
 
   [ James Valleroy ]
   * Replace cdn.debian.net with http.debian.net in LXC template
