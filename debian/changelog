@@ -28,13 +28,14 @@ freedombox-setup (0.4) UNRELEASED; urgency=low
     installation and setup (Closes: #778310).
   * Don't indiscriminately allow all proxy targets in jwchat
     configuration.
-  * Redirect to Plinth from home page instead of showing jwchat.
+  * Redirect to Plinth from home page instead of showing jwchat
+    (Closes: #772919).
 
   [ James Valleroy ]
   * Replace cdn.debian.net with http.debian.net in LXC template
     (Closes: #774479).
 
- -- James Valleroy <jvalleroy@mailbox.org>  Mon, 27 Apr 2015 19:55:22 -0400
+ -- James Valleroy <jvalleroy@mailbox.org>  Tue, 28 Apr 2015 21:27:08 -0400
 
 freedombox-setup (0.3) unstable; urgency=low
 
