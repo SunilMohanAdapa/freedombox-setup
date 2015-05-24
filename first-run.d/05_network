@@ -2,7 +2,7 @@
 
 # Configure networking for device.
 #
-# Adds entries to the network interface file.
+# Creates a basic network interface file and network-manager connections.
 #
 # First parameter is the path to the network interface file to
 # configure.
@@ -67,35 +67,16 @@ EOF
 }
 
 function interfaces-eth0 {
-    # add eth0 to interfaces file
-
-    cat >> $IFACES_FILE <<EOF
-# The primary network interface
-# creates a new network.
-auto eth0
-    iface eth0 inet dhcp
-    #iface eth0 inet6 auto
-    # eth0: hwaddress ether 00:00:00:00:00:01
-
-EOF
+    # create n-m connection for eth0
+    nmcli con add con-name freedomboxWAN ifname eth0 type ethernet
+    nmcli con modify freedomboxWAN connection.autoconnect TRUE
 }
 
 function interfaces-eth1 {
-    # add eth1 to interfaces file
-
-    cat >> $IFACES_FILE <<EOF
-# The secondary network interface
-# joins the existing network.
-auto eth1
-    iface eth1 inet static
-    address 192.168.1.1
-    netmask 255.255.255.0
-    #iface eth1 inet6 static
-    #address 2002:c0a8:0101::1
-    #netmask 64
-    # eth1: hwaddress ether 00:00:00:00:00:02
-
-EOF
+    # create n-m connection for eth1
+    nmcli con add con-name freedomboxLAN ifname eth1 type ethernet \
+	  ip4 192.168.1.1/24
+    nmcli con modify freedomboxLAN connection.autoconnect TRUE
 }
 
 function default-setup {

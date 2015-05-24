@@ -1,6 +1,7 @@
 freedombox-setup (0.5) UNRELEASED; urgency=medium
 
   * Migrate to dh_python3 from python-support (Closes: #786164).
+  * Use nmcli to setup network connections (Closes: #786689).
 
  -- Sunil Mohan Adapa <sunil@medhas.org>  Sun, 05 Jul 2015 20:32:09 +0530
 

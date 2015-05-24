@@ -30,6 +30,7 @@ Depends: ${misc:Depends}
  , avahi-daemon
  , avahi-utils
  , bridge-utils
+ , curl
  , devio
  , dialog
  , dnsmasq
@@ -38,7 +39,6 @@ Depends: ${misc:Depends}
  , etckeeper
  , firewalld
  , haveged
- , hostapd
  , how-can-i-help
  , htop
  , iftop
@@ -56,6 +56,7 @@ Depends: ${misc:Depends}
  , lsof
  , macchanger
  , netcat
+ , network-manager
  , net-tools
  , ntp
  , openssh-server
@@ -66,16 +67,14 @@ Depends: ${misc:Depends}
  , ssl-cert
  , sudo
  , tcpdump
- , uaputl
  , unattended-upgrades
  , vim-tiny
  , wget
- , curl
+ , wireless-tools
  , zile
 Recommends:
  batctl
  , rfkill
- , wireless-tools
 Suggests:
  monkeysphere
 Description: Package to set up freedombox environment

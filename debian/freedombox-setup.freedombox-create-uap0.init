@@ -27,9 +27,6 @@ case "$1" in
                 iw phy phy0 interface add uap0 type __ap
                 log_action_end_msg 0
             fi
-            log_action_end_msg "Bringing up uap0 interface"
-            ifup uap0
-            log_action_end_msg 0
         else
             log_success_msg "Interface mlan0 doesn't exist. Skip adding uap0."
         fi
