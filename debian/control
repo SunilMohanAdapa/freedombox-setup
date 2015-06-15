@@ -39,7 +39,6 @@ Depends: ${misc:Depends}
  , firewalld
  , haveged
  , hostapd
- , hostname
  , how-can-i-help
  , htop
  , iftop

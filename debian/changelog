@@ -1,4 +1,8 @@
-freedombox-setup (0.4) UNRELEASED; urgency=low
+freedombox-setup (0.4) experimental; urgency=low
+
+  [ Nick Daly ]
+  * Uploading new release.
+  * Made lintian clean(er).
 
   [ James Valleroy ]
   * Stop ejabberd service before removing it's cert file during
@@ -35,7 +39,7 @@ freedombox-setup (0.4) UNRELEASED; urgency=low
   * Replace cdn.debian.net with http.debian.net in LXC template
     (Closes: #774479).
 
- -- James Valleroy <jvalleroy@mailbox.org>  Tue, 28 Apr 2015 21:27:08 -0400
+ -- Nick Daly <Nick.M.Daly@gmail.com>  Sun, 14 Jun 2015 20:35:03 -0500
 
 freedombox-setup (0.3) unstable; urgency=low
 
