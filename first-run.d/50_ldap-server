@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Remove LDAP admin password. Allow root to modify the users directory.
+
+cat <<EOF |ldapmodify -Y EXTERNAL -H ldapi:///
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+delete: olcRootPW
+
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth
+
+EOF

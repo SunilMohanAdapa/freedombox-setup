@@ -1,28 +1,23 @@
 #!/bin/sh
 
-DEBIAN_FRONTEND=noninteractive apt-get install -y pwgen
-pwd="$(pwgen -1)"
-
 domain=thisbox
 
 echo slapd slapd/domain string $domain   | debconf-set-selections
-echo slapd slapd/password1 password "$pwd" | debconf-set-selections
-echo slapd slapd/password2 password "$pwd" | debconf-set-selections
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y slapd ldap-utils
 
 # Make sure slapd isn't running when we use slapadd
 service slapd stop
 
-# slapcat -b cn=config
-
-#slapadd /usr/share/freedombox/ldap/root.ldif
 cat <<EOF|slapadd
 dn: ou=users,dc=$domain
 objectClass: top
 objectClass: organizationalUnit
 ou: users
 
-EOF
+dn: ou=groups,dc=$domain
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
 
-echo password: $pwd
+EOF
