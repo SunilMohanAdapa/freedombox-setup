@@ -7,8 +7,8 @@ Uploaders:
  , Nick Daly <Nick.M.Daly@gmail.com>
  , Sunil Mohan Adapa <sunil@medhas.org>
 Build-Depends: debhelper (>= 9)
- , python-support
- , python | python-all | python-dev | python-all-dev
+ , dh-python
+ , python3-all
  , libxml2-utils
  , xmlto
  , dblatex
@@ -24,7 +24,7 @@ Vcs-Browser: http://anonscm.debian.org/cgit/freedombox/freedombox-setup.git
 Package: freedombox-setup
 Architecture: all
 Depends: ${misc:Depends}
- , ${python:Depends}
+ , ${python3:Depends}
  , apache2 | apache2-mpm-worker
  , augeas-tools
  , avahi-daemon
