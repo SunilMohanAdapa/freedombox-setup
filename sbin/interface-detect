@@ -1,11 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
-import argparse
-from collections import defaultdict as DefaultDict
-import shlex
-import subprocess
-
-"""Displays information about how network interfaces connect.
+"""
+Displays information about how network interfaces connect.
 
 This script displays connection-method information about the unique
 network interfaces it detects.  It displays output in the form:
@@ -26,67 +22,54 @@ General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 """
 
+import subprocess
+import sys
+
+
 def execute(command):
-    """Return a command's output.  Don't escape the command.
+    """Execute and return a command's stdout and stderr."""
+    process = subprocess.Popen(command, stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE)
+    stdout, stderr = process.communicate()
+    return stdout.decode(), stderr.decode()
 
-    Return empty strings instead of *None* if the specified command
-    had no output or if it errored.
-
-    """
-    try:
-        process = subprocess.Popen(
-            shlex.split(command),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
-    except OSError:
-        details = (None, None)
-    else:
-        details = process.communicate()
-
-    return [(x if x else "") for x in details]
 
 def parse_interface_and_macs():
     """Associate all interfaces with their MAC addresses.
 
     Parse *ifconfig* output and record each interface's MAC address.
     Also, record the interfaces that share MAC addresses.
-
     """
-    output, error = execute("ifconfig -a")
-    interfaces, macs = dict(), DefaultDict(list)
+    output, _ = execute(['/sbin/ifconfig', '-a'])
 
+    interfaces = {}
     for line in output.splitlines():
-        if not line.split() or line.startswith(" "):
+        if not line.split() or line.startswith(' '):
             continue
-        line = line.split()
 
+        line = line.split()
         interface = line[0]
         mac = line[-1]
 
-        interfaces[interface] = mac
-        macs[mac] += interface
+        interfaces[interface] = {'id': interface, 'mac': mac, 'type': None}
 
-    return interfaces, macs
+    return interfaces
 
-def parse_connection_type(interfaces, macs):
+
+def parse_connection_type(interfaces):
     """Identify and record which interfaces are wired and wireless.
 
     *iwconfig* returns wireless interfaces in *stdout* and wired
     interfaces in *stderr*.  It's quite strange.
-
     """
-    output, error = execute("iwconfig")
-    wired, wireless = dict(), dict()
+    output, error = execute(['/sbin/iwconfig'])
+    parse_iwconfig(interfaces, 'wired', error)
+    parse_iwconfig(interfaces, 'wireless', output)
 
-    wired = parse_iwconfig(wired, macs, error)
-    wireless = parse_iwconfig(wireless, macs, output)
 
-    return wired, wireless
-
-def parse_iwconfig(interfaces, macs, details):
+def parse_iwconfig(interfaces, type_, lines):
     """Actually parse the *iwconfig* output.
 
     Each *iwconfig* line that identifies an interface starts with the
@@ -97,25 +80,28 @@ def parse_iwconfig(interfaces, macs, details):
     *iwconfig* doesn't currently appear to display interface aliases,
     so we can use its output to filter out the aliases that don't
     refer to real, physical interfaces.
-
     """
-    for line in details.splitlines():
-        if not line.split() or line.startswith(" "):
+    for line in lines.splitlines():
+        if not line.split() or line.startswith(' '):
             continue
-        line = line.split()
+
+        interface = line.split()[0]
+        interfaces[interface]['type'] = type_
 
 
-        interface = line[0]
-        interfaces[interface] = macs[interface]
+def main():
+    """Parse and print interfaces and their types."""
+    try:
+        interfaces = parse_interface_and_macs()
+        parse_connection_type(interfaces)
+    except OSError as exception:
+        print('Command not found: ifconfig or iwconfig', file=sys.stderr)
+        sys.exit(1)
 
-    return interfaces
+    for interface in interfaces.values():
+        if interface['type']:
+            print('{id},{type},{mac}'.format(**interface))
+
 
 if __name__ == "__main__":
-    interfaces, macs = parse_interface_and_macs()
-    wired, wireless = parse_connection_type(interfaces, macs)
-
-    display_items = lambda items, type_: [
-        ",".join([iface, type_, interfaces[iface]]) for iface in items]
-
-    print("\n".join(display_items(wired, "wired")))
-    print("\n".join(display_items(wireless, "wireless")))
+    main()
