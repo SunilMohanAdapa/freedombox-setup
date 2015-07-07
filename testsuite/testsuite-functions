@@ -8,6 +8,10 @@ error() {
     echo "error: $@"
 }
 
+skip() {
+    echo "skip: $@"
+}
+
 # Check if something is listening on the given port and protocol
 netstat_check() {
     port=$1

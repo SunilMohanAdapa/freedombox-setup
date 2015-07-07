@@ -1,11 +1,11 @@
 #!/bin/sh
 
-if ! which ejabberdctl ; then
-    echo "Skipping xmpp-server tests: ejabberd is not installed."
-    exit 1
-fi
-
 . $(dirname $0)/testsuite-functions
+
+if ! which ejabberdctl ; then
+    skip "$0: ejabberd is not installed."
+    exit 0
+fi
 
 netstat_check xmpp-client tcp XMPP
 netstat_check xmpp-client tcp6 XMPP
