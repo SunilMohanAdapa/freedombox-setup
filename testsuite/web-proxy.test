@@ -2,6 +2,11 @@
 
 . $(dirname $0)/testsuite-functions
 
+if ! systemctl is-enabled privoxy > /dev/null ; then
+    skip "$0: Privoxy is disabled"
+    exit 0
+fi
+
 netstat_check 8118 tcp privoxy
 netstat_check 8118 tcp6 privoxy
 
