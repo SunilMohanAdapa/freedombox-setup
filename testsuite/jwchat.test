@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ ! -e /etc/apache2/conf-enabled/jwchat.conf ] ; then
+    echo "Skipping jwchat tests: jwchat is not enabled."
+    exit 1
+fi
+
 . $(dirname $0)/testsuite-functions
 
 
