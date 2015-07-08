@@ -21,3 +21,9 @@ objectClass: organizationalUnit
 ou: groups
 
 EOF
+
+# Configure PAM for LDAP user logins
+echo nslcd nslcd/ldap-sasl-mech select EXTERNAL | debconf-set-selections
+echo libnss-ldapd libnss-ldapd/nsswitch multiselect group, passwd, shadow \
+    | debconf-set-selections
+DEBIAN_FRONTEND=noninteractive apt-get install -y nslcd libpam-ldapd libnss-ldapd
