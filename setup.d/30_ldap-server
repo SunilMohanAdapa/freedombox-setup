@@ -27,3 +27,13 @@ echo nslcd nslcd/ldap-sasl-mech select EXTERNAL | debconf-set-selections
 echo libnss-ldapd libnss-ldapd/nsswitch multiselect group, passwd, shadow \
     | debconf-set-selections
 DEBIAN_FRONTEND=noninteractive apt-get install -y nslcd libpam-ldapd libnss-ldapd
+
+# Only users in admin group can login
+if ! grep -q "auth\srequired\spam_access.so" /etc/pam.d/common-auth ; then
+    echo "auth required pam_access.so" >> /etc/pam.d/common-auth
+fi
+
+if ! grep -q "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" \
+     /etc/security/access.conf ; then
+    echo "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" >> /etc/security/access.conf
+fi
