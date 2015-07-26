@@ -9,7 +9,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y slapd ldap-utils
 # Make sure slapd isn't running when we use slapadd
 service slapd stop
 
-cat <<EOF|slapadd
+cat <<EOF |slapadd
 dn: ou=users,dc=$domain
 objectClass: top
 objectClass: organizationalUnit
@@ -33,7 +33,8 @@ if ! grep -q "auth\srequired\spam_access.so" /etc/pam.d/common-auth ; then
     echo "auth required pam_access.so" >> /etc/pam.d/common-auth
 fi
 
-if ! grep -q "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" \
+if ! grep -q -- "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" \
      /etc/security/access.conf ; then
-    echo "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" >> /etc/security/access.conf
+    printf "%s\n" "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" \
+	   >> /etc/security/access.conf
 fi
