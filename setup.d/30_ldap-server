@@ -38,3 +38,7 @@ if ! grep -q -- "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" \
     printf "%s\n" "-:ALL EXCEPT root admin:ALL EXCEPT LOCAL" \
 	   >> /etc/security/access.conf
 fi
+
+if ! grep -q "%admin ALL=(root) ALL, !/bin/su" /etc/sudoers ; then
+    echo "%admin ALL=(root) ALL, !/bin/su" >> /etc/sudoers
+fi
