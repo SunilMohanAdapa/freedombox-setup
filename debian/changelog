@@ -9,6 +9,7 @@ freedombox-setup (0.5) UNRELEASED; urgency=medium
   [ James Valleroy ]
   * Apply patch from Sunil to fix hang issue when building Raspberry Pi images.
   * Remove privoxy setup as it happens in Plinth now (Closes: #791704).
+  * Configure PAM for LDAP user logins (Close: #792233).
 
  -- James Valleroy <jvalleroy@mailbox.org>  Sat, 01 Aug 2015 20:29:03 -0400
 
