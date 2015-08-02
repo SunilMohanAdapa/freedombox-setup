@@ -31,9 +31,16 @@ echo libnss-ldapd libnss-ldapd/nsswitch multiselect group, passwd, shadow \
 DEBIAN_FRONTEND=noninteractive apt-get install -y nslcd libpam-ldapd libnss-ldapd
 
 # Only users in admin group can login
-if ! grep -q "auth\srequired\spam_access.so" /etc/pam.d/common-auth ; then
-    echo "auth required pam_access.so" >> /etc/pam.d/common-auth
-fi
+cat <<EOF > /usr/share/pam-configs/access
+Name: restrict login using access control table file
+Default: yes
+Priority: 0
+Account-Type: Additional
+Account-Final:
+ required pam_access.so
+EOF
+
+pam-auth-update --package
 
 if ! grep -q -- "^-:ALL EXCEPT root fbx (admin):ALL$" \
      /etc/security/access.conf ; then
