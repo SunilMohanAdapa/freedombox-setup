@@ -23,6 +23,8 @@ ou: groups
 EOF
 
 # Configure PAM for LDAP user logins
+echo nslcd nslcd/ldap-uris string "ldapi:///" | debconf-set-selections
+echo nslcd nslcd/ldap-base string "dc=thisbox" | debconf-set-selections
 echo nslcd nslcd/ldap-sasl-mech select EXTERNAL | debconf-set-selections
 echo libnss-ldapd libnss-ldapd/nsswitch multiselect group, passwd, shadow \
     | debconf-set-selections
