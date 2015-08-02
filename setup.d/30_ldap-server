@@ -40,6 +40,16 @@ Account-Final:
  required pam_access.so
 EOF
 
+# Create home directories for LDAP users logging in for the first time
+cat <<EOF > /usr/share/pam-configs/mkhomedir
+Name: Create home directory during login
+Default: yes
+Priority: 900
+Session-Type: Additional
+Session:
+        required        pam_mkhomedir.so umask=0022 skel=/etc/skel
+EOF
+
 pam-auth-update --package
 
 if ! grep -q -- "^-:ALL EXCEPT root fbx (admin):ALL$" \
