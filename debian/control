@@ -25,7 +25,7 @@ Package: freedombox-setup
 Architecture: all
 Depends: ${misc:Depends}
  , ${python3:Depends}
- , apache2 | apache2-mpm-worker
+ , apache2
  , augeas-tools
  , avahi-daemon
  , avahi-utils
