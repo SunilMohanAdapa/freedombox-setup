@@ -33,7 +33,7 @@ Depends: ${misc:Depends}
  , curl
  , devio
  , dialog
- , dnsmasq
+ , dnsmasq-base
  , dnsutils
  , dosfstools
  , etckeeper
@@ -44,7 +44,6 @@ Depends: ${misc:Depends}
  , iftop
  , iptables
  , iputils-ping
- , isc-dhcp-client
  , iw
  , libnss-gw-name
  , libnss-mdns

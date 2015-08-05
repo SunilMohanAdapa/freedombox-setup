@@ -31,10 +31,17 @@ function interfaces-eth0 {
 }
 
 function interfaces-eth1 {
-    # create n-m connection for eth1
-    nmcli con add con-name freedomboxLAN ifname eth1 type ethernet \
-	  ip4 192.168.1.1/24
+    # Create n-m connection for eth1
+    nmcli con add con-name freedomboxLAN ifname eth1 type ethernet
     nmcli con modify freedomboxLAN connection.autoconnect TRUE
+
+    # Configure this interface to be shared with other computers.
+    #  - Self-assign an address and network
+    #  - Start and manage DNS server (dnsmasq)
+    #  - Start and manage DHCP server (dnsmasq)
+    #  - Register address with mDNS
+    #  - Add firewall rules for NATing from this interface
+    nmcli con modify freedomboxLAN ipv4.method shared
 
     # If two interfaces are available, then change eth0 to be external.
     nmcli con modify freedomboxWAN connection.zone external

@@ -8,6 +8,7 @@ freedombox-setup (0.5) UNRELEASED; urgency=medium
   * Remove renaming of network interaces as it does not work.  Start using
     systemd's new predictable naming.  Don't alter
     /etc/network/interface anymore.  (Closes: #789441).
+  * Use network manager for configuring DNS and DHCP servers.
 
   [ James Valleroy ]
   * Apply patch from Sunil to fix hang issue when building Raspberry Pi images.
