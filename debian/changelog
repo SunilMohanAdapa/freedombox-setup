@@ -5,13 +5,16 @@ freedombox-setup (0.5) UNRELEASED; urgency=medium
   * Use nmcli to setup network connections (Closes: #786689).
   * Remove jwchat/ejabber setup as it is handle by Plinth (Closes: #787025).
   * Remove LDAP root password and create ou=groups (Closes: #787128).
+  * Remove renaming of network interaces as it does not work.  Start using
+    systemd's new predictable naming.  Don't alter
+    /etc/network/interface anymore.  (Closes: #789441).
 
   [ James Valleroy ]
   * Apply patch from Sunil to fix hang issue when building Raspberry Pi images.
   * Remove privoxy setup as it happens in Plinth now (Closes: #791704).
   * Configure PAM for LDAP user logins (Close: #792233).
 
- -- James Valleroy <jvalleroy@mailbox.org>  Sat, 01 Aug 2015 20:29:03 -0400
+ -- Sunil Mohan Adapa <sunil@medhas.org>  Wed, 05 Aug 2015 16:37:58 +0530
 
 freedombox-setup (0.4) experimental; urgency=low
 

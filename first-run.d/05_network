@@ -23,49 +23,6 @@ function get-wired-interfaces {
         | grep "^[^l][^o]"`
 }
 
-function remove-udev {
-    # removes udev rules.
-
-    rm -f /etc/udev/rules.d/75-persistent-net-generator.rules
-}
-
-function sort-interfaces {
-    # always name interfaces in same order as MAC addresses
-
-    # "service networking restart" deprecated.
-    service networking stop; service networking start
-
-    MACS=$(ifconfig | awk '/Ethernet/ { print $5 }' | sort)
-    COUNT=0
-    for MAC in $MACS; do
-        export MATCHADDR=$MAC
-        export INTERFACE=eth
-        export INTERFACE_NAME=eth$COUNT
-        /lib/udev/write_net_rules
-        COUNT=$((COUNT+1))
-    done
-}
-
-function interfaces-start {
-    # creates empty network-interfaces file.
-
-    cat > $IFACES_FILE <<EOF
-# This file describes the network interfaces available on your system
-# and how to activate them. For more information, see interfaces(5).
-EOF
-}
-
-function interfaces-lo {
-    # add loopback to interfaces file.
-
-    cat >> $IFACES_FILE <<EOF
-# The loopback network interface
-auto lo
-    iface lo inet loopback
-
-EOF
-}
-
 function interfaces-eth0 {
     # create n-m connection for eth0
     nmcli con add con-name freedomboxWAN ifname eth0 type ethernet
@@ -84,24 +41,14 @@ function interfaces-eth1 {
     nmcli con modify freedomboxLAN connection.zone internal
 }
 
-function default-setup {
-    # normal, shared setup for all devices.
-
-    remove-udev
-    interfaces-start
-    interfaces-lo
-    interfaces-eth0
-    sort-interfaces
-}
-
 function two-wired-setup {
-    default-setup
+    interfaces-eth0
     interfaces-eth1
     echo "Two wired-interfaces setup complete."
 }
 
 function one-wired-setup {
-    default-setup
+    interfaces-eth0
     echo "One wired-interfaces setup complete."
 }
 
