@@ -17,23 +17,30 @@ fi
 INTERFACE_DETECT="interface-detect"
 
 function get-wired-interfaces {
-    # set WIRED_IFACES to list of wired interfaces, less lo.
-
-    WIRED_IFACES=`$INTERFACE_DETECT | grep "wired" \
-        | grep "^[^l][^o]"`
+    # XXX: Sorting of interfaces is non-numeric
+    WIRED_IFACES=$(nmcli --terse --fields type,device device | grep "^ethernet:" | cut -d: -f2 | sort)
+    NO_OF_WIRED_IFACES=$(echo $WIRED_IFACES | wc -w)
 }
 
-function interfaces-eth0 {
-    # create n-m connection for eth0
-    nmcli con add con-name freedomboxWAN ifname eth0 type ethernet
+function configure-regular-interface {
+    interface="$1"
+    zone="$2"
+
+    # Create n-m connection for a regular interface
+    nmcli con add con-name freedomboxWAN ifname $interface type ethernet
     nmcli con modify freedomboxWAN connection.autoconnect TRUE
-    nmcli con modify freedomboxWAN connection.zone internal
+    nmcli con modify freedomboxWAN connection.zone $zone
+
+    echo "Configured interface $interface for $zone use."
 }
 
-function interfaces-eth1 {
+function configure-shared-interface {
+    interface="$1"
+
     # Create n-m connection for eth1
-    nmcli con add con-name freedomboxLAN ifname eth1 type ethernet
-    nmcli con modify freedomboxLAN connection.autoconnect TRUE
+    nmcli con add con-name freedomboxLAN$interface ifname $interface type ethernet
+    nmcli con modify freedomboxLAN$interface connection.autoconnect TRUE
+    nmcli con modify freedomboxLAN$interface connection.zone internal
 
     # Configure this interface to be shared with other computers.
     #  - Self-assign an address and network
@@ -41,26 +48,27 @@ function interfaces-eth1 {
     #  - Start and manage DHCP server (dnsmasq)
     #  - Register address with mDNS
     #  - Add firewall rules for NATing from this interface
-    nmcli con modify freedomboxLAN ipv4.method shared
+    nmcli con modify freedomboxLAN$interface ipv4.method shared
 
-    # If two interfaces are available, then change eth0 to be external.
-    nmcli con modify freedomboxWAN connection.zone external
-    nmcli con modify freedomboxLAN connection.zone internal
+    echo "Configured interface $interface for shared use."
 }
 
-function two-wired-setup {
-    interfaces-eth0
-    interfaces-eth1
-    echo "Two wired-interfaces setup complete."
+function multi-wired-setup {
+    first_interface="$1"
+    shift
+    remaining_interfaces="$@"
+
+    configure-regular-interface $first_interface external
+
+    for interface in $remaining_interfaces
+    do
+        configure-shared-interface $interface
+    done
 }
 
 function one-wired-setup {
-    interfaces-eth0
-    echo "One wired-interfaces setup complete."
-}
-
-function zero-wired-setup {
-    echo "No wired interfaces detected.  Not configuring networking."
+    interface="$1"
+    configure-regular-interface $interface internal
 }
 
 function update-null-macs {
@@ -106,16 +114,15 @@ function generate_dummy_mac {
 echo "Setting up network configuration..."
 get-wired-interfaces
 
-# count wired interfaces
-case `echo $WIRED_IFACES | wc -w` in
-    "2")
-        two-wired-setup
+case $NO_OF_WIRED_IFACES in
+    "0")
+        echo "No wired interfaces detected."
         ;;
     "1")
-        one-wired-setup
+        one-wired-setup $WIRED_IFACES
         ;;
-    "0")
-        zero-wired-setup
+    *)
+        multi-wired-setup $WIRED_IFACES
 esac
 
 update-null-macs
