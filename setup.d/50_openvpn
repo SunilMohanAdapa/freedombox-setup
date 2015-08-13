@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# Disabled as it seem to be just cruft from earlier [pere 2013-10-28]
-exit 0
-
-mkdir -p /etc/openvpn
-touch /etc/openvpn/static.key
-touch /etc/openvpn/client.conf
