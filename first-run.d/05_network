@@ -14,8 +14,6 @@ else
     IFACES_FILE=/etc/network/interfaces
 fi
 
-INTERFACE_DETECT="interface-detect"
-
 function get-wired-interfaces {
     # XXX: Sorting of interfaces is non-numeric
     WIRED_IFACES=$(nmcli --terse --fields type,device device | grep "^ethernet:" | cut -d: -f2 | sort)
@@ -71,46 +69,6 @@ function one-wired-setup {
     configure-regular-interface $interface internal
 }
 
-function update-null-macs {
-    # if interface's mac address is all zeroes, change it to 0:0:0:X:X:X
-
-    # iterate through all the interfaces
-    for description in $WIRED_IFACES
-    do
-        name=`echo $description | cut -d"," -f1`
-        mac=`echo $description | cut -d"," -f3`
-
-        # if it's null, swap it out in the interface file.
-        if [[ "$mac" == "00:00:00:00:00:00" ]]
-        then
-            # if macchanger gave us a new mac, use that.  or, generate dummy.
-            if [[ `macchanger -a $name` ]]
-            then
-                newMac=`$INTERFACE_DETECT | grep $name | cut -d, -f3`
-            else
-                generate_dummy_mac
-            fi
-
-            # save new mac.
-            sed -i "s/# $name: hwaddress ether .*$/hwaddress ether $newMac/" \
-                $IFACES_FILE
-        fi
-    done
-}
-
-function generate_dummy_mac {
-    # set "newMac" to a GlobalScale MAC address: F0:AD:4E:XX:XX:XX
-
-    # generate 3 sets of 2 random hex digits.
-    allSix="$(tr -dc '[:xdigit:]' < /dev/urandom | tr '[:lower:]' '[:upper:]' | head -c 6)"
-    high=`echo $allSix | cut -b1,2`
-    med=`echo $allSix | cut -b3,4`
-    low=`echo $allSix | cut -b5,6`
-
-    # generate three sets of 2 digits
-    newMac="F0:AD:4E:$high:$med:$low"
-}
-
 echo "Setting up network configuration..."
 get-wired-interfaces
 
@@ -124,7 +82,5 @@ case $NO_OF_WIRED_IFACES in
     *)
         multi-wired-setup $WIRED_IFACES
 esac
-
-update-null-macs
 
 echo "Done setting up network configuration."
