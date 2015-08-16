@@ -23,22 +23,24 @@ function get-wired-interfaces {
 function configure-regular-interface {
     interface="$1"
     zone="$2"
+    connection_name="FreedomBox WAN"
 
     # Create n-m connection for a regular interface
-    nmcli con add con-name freedomboxWAN ifname $interface type ethernet
-    nmcli con modify freedomboxWAN connection.autoconnect TRUE
-    nmcli con modify freedomboxWAN connection.zone $zone
+    nmcli con add con-name $connection_name ifname $interface type ethernet
+    nmcli con modify $connection_name connection.autoconnect TRUE
+    nmcli con modify $connection_name connection.zone $zone
 
-    echo "Configured interface $interface for $zone use."
+    echo "Configured interface $interface for $zone use as $connection_name."
 }
 
 function configure-shared-interface {
     interface="$1"
+    connection_name="FreedomBox LAN $interface"
 
     # Create n-m connection for eth1
-    nmcli con add con-name freedomboxLAN$interface ifname $interface type ethernet
-    nmcli con modify freedomboxLAN$interface connection.autoconnect TRUE
-    nmcli con modify freedomboxLAN$interface connection.zone internal
+    nmcli con add con-name $connection_name ifname $interface type ethernet
+    nmcli con modify $connection_name connection.autoconnect TRUE
+    nmcli con modify $connection_name connection.zone internal
 
     # Configure this interface to be shared with other computers.
     #  - Self-assign an address and network
@@ -46,9 +48,10 @@ function configure-shared-interface {
     #  - Start and manage DHCP server (dnsmasq)
     #  - Register address with mDNS
     #  - Add firewall rules for NATing from this interface
-    nmcli con modify freedomboxLAN$interface ipv4.method shared
+    nmcli con modify $connection_name ipv4.method shared
 
-    echo "Configured interface $interface for shared use."
+    echo "Configured interface $interface for shared use as $connection_name."
+
 }
 
 function multi-wired-setup {
