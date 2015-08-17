@@ -14,10 +14,12 @@ else
     IFACES_FILE=/etc/network/interfaces
 fi
 
-function get-wired-interfaces {
+function get-interfaces {
     # XXX: Sorting of interfaces is non-numeric
     WIRED_IFACES=$(nmcli --terse --fields type,device device | grep "^ethernet:" | cut -d: -f2 | sort)
     NO_OF_WIRED_IFACES=$(echo $WIRED_IFACES | wc -w)
+
+    WIRELESS_IFACES=$(nmcli --terse --fields type,device device | grep "^wifi:" | cut -d: -f2 | sort)
 }
 
 function configure-regular-interface {
@@ -51,7 +53,23 @@ function configure-shared-interface {
     nmcli con modify $connection_name ipv4.method shared
 
     echo "Configured interface $interface for shared use as $connection_name."
+}
 
+function configure-wireless-interface {
+    interface="$1"
+    connection_name="FreedomBox $interface"
+    ssid="FreedomBox$interface"
+    secret="freedombox123"
+
+    configure-shared-interface $interface
+    nmcli con add con-name "FreedomBox AP $interface" ifname $interface type wifi ssid $ssid
+    nmcli con modify $connection_name connection.autoconnect TRUE
+    nmcli con modify $connection_name connection.zone internal
+    nmcli con modify $connection_name wifi.mode ap
+    nmcli con modify $connection_name wifi-sec.key-mgmt wpa-psk
+    nmcli con modify $connection_name wifi-sec.psk $secret
+
+    echo "Configured interface $interface for shared use as $connection_name."
 }
 
 function multi-wired-setup {
@@ -72,8 +90,17 @@ function one-wired-setup {
     configure-regular-interface $interface internal
 }
 
+function wireless-setup {
+    interface="$@"
+
+    for interface in $interfaces
+    do
+        configure-wireless-interface $interface
+    done
+}
+
 echo "Setting up network configuration..."
-get-wired-interfaces
+get-interfaces
 
 case $NO_OF_WIRED_IFACES in
     "0")
@@ -85,5 +112,7 @@ case $NO_OF_WIRED_IFACES in
     *)
         multi-wired-setup $WIRED_IFACES
 esac
+
+wireless-setup $WIRELESS_IFACES
 
 echo "Done setting up network configuration."
