@@ -1,4 +1,7 @@
-freedombox-setup (0.5) UNRELEASED; urgency=medium
+freedombox-setup (0.5) unstable; urgency=medium
+
+  [ Nick Daly ]
+  * Upload 0.5 release.
 
   [ Sunil Mohan Adapa ]
   * Migrate to dh_python3 from python-support (Closes: #786164).
@@ -15,7 +18,7 @@ freedombox-setup (0.5) UNRELEASED; urgency=medium
   * Remove privoxy setup as it happens in Plinth now (Closes: #791704).
   * Configure PAM for LDAP user logins (Close: #792233).
 
- -- Sunil Mohan Adapa <sunil@medhas.org>  Wed, 05 Aug 2015 16:37:58 +0530
+ -- Nick Daly <Nick.M.Daly@gmail.com>  Thu, 06 Aug 2015 06:40:43 -0500
 
 freedombox-setup (0.4) experimental; urgency=low
 
