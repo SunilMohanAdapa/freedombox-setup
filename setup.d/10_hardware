@@ -13,11 +13,7 @@ dreamplug_flash() {
     #    that fail in an emulated environment!  We'll have to do it by
     #    hand below anyway...
     export FK_MACHINE="Globalscale Technologies Dreamplug"
-
-    # Installing flash-kernel here, as installing it using debootstrap
-    # causes all kernel related postinst scripts to stop working when
-    # installed in a chroot.
-    chroot $rootdir apt-get install -y flash-kernel
+    apt-get install -y flash-kernel
 }
 
 dreamplug_repack_kernel() {
@@ -126,10 +122,6 @@ beaglebone_flash() {
     #    that fail in an emulated environment!  We'll have to do it by
     #    hand below anyway...
     export FK_MACHINE="TI AM335x BeagleBone"
-
-    # Installing flash-kernel here, as installing it using debootstrap
-    # causes all kernel related postinst scripts to stop working when
-    # installed in a chroot.
     apt-get install -y flash-kernel
 }
 
