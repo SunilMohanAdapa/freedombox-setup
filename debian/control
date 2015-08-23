@@ -39,7 +39,6 @@ Depends: ${misc:Depends}
  , etckeeper
  , firewalld
  , haveged
- , hostapd
  , how-can-i-help
  , htop
  , iftop
