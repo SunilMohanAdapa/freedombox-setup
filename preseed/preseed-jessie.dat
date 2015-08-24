@@ -14,7 +14,7 @@ d-i     popularity-contest/participate boolean false
 choose-mirror-bin     mirror/codename string  jessie
 choose-mirror-bin     mirror/country          string  manual
 choose-mirror-bin     mirror/protocol select  http
-choose-mirror-bin     mirror/http/hostname    string  http.debian.net
+choose-mirror-bin     mirror/http/hostname    string  httpredir.debian.org
 choose-mirror-bin     mirror/http/directory   string  /debian/
 
 # Add Petters freedombox repository

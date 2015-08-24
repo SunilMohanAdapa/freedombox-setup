@@ -8,7 +8,7 @@
 create_lxc_box() {
     virtname="$1"
     pkgs="$2"
-    MIRROR=http://http.debian.net/debian \
+    MIRROR=http://httpredir.debian.org/debian \
 	SUITE=wheezy \
 	lxc-create -n "$virtname" -t debian-freedombox
     if [ "$pkgs" ] ; then
