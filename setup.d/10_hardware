@@ -68,7 +68,19 @@ raspberry_setup_boot() {
     mkdir -p /lib/modules
     touch /boot/start.elf
     SKIP_BACKUP=1 SKIP_WARNING=1 rpi-update | tee /root/rpi-update.log
+}
 
+# Install binary blob and kernel needed to boot on the Raspberry Pi 2.
+raspberry2_setup_boot() {
+    # Packages used by rpi-update to make Raspberry Pi 2 bootable
+    apt-get install -y git-core binutils ca-certificates wget kmod
+
+    wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update \
+	-O /usr/bin/rpi-update
+    chmod a+x /usr/bin/rpi-update
+    mkdir -p /lib/modules
+    touch /boot/start.elf
+    SKIP_BACKUP=1 SKIP_WARNING=1 rpi-update | tee /root/rpi-update.log
 }
 
 beaglebone_setup_boot() {
@@ -241,6 +253,9 @@ case "$MACHINE" in
 	;;
     raspberry)
 	raspberry_setup_boot
+	;;
+    raspberry2)
+	raspberry2_setup_boot
 	;;
     beaglebone)
 	beaglebone_setup_boot
