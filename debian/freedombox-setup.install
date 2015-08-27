@@ -4,5 +4,5 @@ first-run.d usr/lib/freedombox
 sysctl.d/freedombox-setup.conf etc/sysctl.d
 sbin/machine-detect usr/sbin
 lxc-templates/lxc-debian-freedombox usr/share/lxc/templates
-avahi-services etc/avahi/services
+data/etc/avahi/services/*.service etc/avahi/services
 data/etc/update-motd.d/50-freedombox etc/update-motd.d/
