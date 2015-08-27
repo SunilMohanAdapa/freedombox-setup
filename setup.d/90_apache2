@@ -23,21 +23,8 @@ a2enmod alias
 a2enmod headers
 
 # setup freedombox site
-cat > /etc/apache2/sites-available/fbx.conf <<'EOF'
-##
-## Enable HSTS, even for subdomains.
-##
-Header set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+a2enconf freedombox
 
-##
-## Redirect traffic on home to /plinth as part of turning the machine
-## into FreedomBox server.  Plinth then acts as a portal to reach all
-## other services.
-##
-RedirectMatch "^/$" "/plinth"
-EOF
-
-a2ensite fbx
 a2ensite 000-default
 a2ensite default-ssl
 
