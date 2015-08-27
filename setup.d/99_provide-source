@@ -4,11 +4,11 @@
 # source to be available, by providing the source of every package
 # used.
 
-if [ 'false' = "$SOURCE" ] ; then
+if [ 'true' = "$SOURCE" ] ; then
+    echo "Adding source packages to file system"
+else
     echo "Not adding source packages to filesystem (SOURCE=false)"
     exit 0
-else
-    echo "Adding source packages to file system"
 fi
 
 targetdir=/usr/src/packages
