@@ -3,7 +3,6 @@
 . /lib/lsb/init-functions
 
 log_action_begin_msg "Creating SSH keys"
-rm -f /etc/ssh/ssh_host_*
 if dpkg-reconfigure openssh-server ; then
     log_action_end_msg 0
 else

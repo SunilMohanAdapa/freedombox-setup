@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Make sure SSH keys are unique, and do not carry the ones generated
-# in the chroots into images.
-
-rm /etc/ssh/ssh_host_*
