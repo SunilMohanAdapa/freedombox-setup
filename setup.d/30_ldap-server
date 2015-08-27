@@ -31,25 +31,10 @@ echo libnss-ldapd libnss-ldapd/nsswitch multiselect group, passwd, shadow \
     | debconf-set-selections
 DEBIAN_FRONTEND=noninteractive apt-get install -y nslcd libpam-ldapd libnss-ldapd
 
-# Only users in admin group can login
-cat <<EOF > /usr/share/pam-configs/access
-Name: restrict login using access control table file
-Default: yes
-Priority: 0
-Account-Type: Additional
-Account-Final:
- required pam_access.so
-EOF
-
-# Create home directories for LDAP users logging in for the first time
-cat <<EOF > /usr/share/pam-configs/mkhomedir
-Name: Create home directory during login
-Default: yes
-Priority: 900
-Session-Type: Additional
-Session:
-        required        pam_mkhomedir.so umask=0022 skel=/etc/skel
-EOF
+# Allow only users in admin group to login: /usr/share/pam-configs/access
+#
+# Create home directories for LDAP users logging in for the first time:
+# /usr/share/pam-configs/mkhomedir-freedombox
 
 pam-auth-update --package
 
