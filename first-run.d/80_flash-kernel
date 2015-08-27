@@ -14,7 +14,7 @@ then
     log_warning_msg "Skipped Flashing Kernel."
     return
 else
-    . machine-detect
+    . /usr/lib/freedombox/machine-detect
     if [ "$MACHINE" = "dreamplug" ]; then
         kernel_version="$(/bin/ls $mountpoint/boot/vmlinuz-*-kirkwood | sort -rn | head -n1 | sed s#$mountpoint/boot/vmlinuz-##)"
     else
