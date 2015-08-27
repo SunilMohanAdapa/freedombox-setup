@@ -5,6 +5,7 @@ sysctl.d/freedombox-setup.conf etc/sysctl.d
 sbin/machine-detect usr/sbin
 data/etc/apache2/conf-available/freedombox.conf etc/apache2/conf-available/freedombox.conf
 data/etc/avahi/services/*.service etc/avahi/services
+data/etc/sudoers.d/freedombox etc/sudoers.d
 data/etc/sysctl.d/freedombox.conf etc/sysctl.d
 data/etc/update-motd.d/50-freedombox etc/update-motd.d/
 data/usr/share/lxc/templates/lxc-debian-freedombox usr/share/lxc/templates

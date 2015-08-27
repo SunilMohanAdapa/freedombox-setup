@@ -44,4 +44,5 @@ if ! grep -q -- "^-:ALL EXCEPT root fbx (admin):ALL$" \
 	 >> /etc/security/access.conf
 fi
 
-echo "%admin ALL=(root) ALL" > /etc/sudoers.d/freedombox
+# Allow all user of 'admin' LDAP to run commands as root:
+# /etc/sudoers.d/freedombox
