@@ -19,4 +19,16 @@ if dpkg --compare-versions "$2" le "0.0.23" &&
     rmdir /var/freedombox
 fi
 
+# Setup motd
+if [ "$1" = "configure" ] && [ -f /etc/motd ] && [ ! -L /etc/motd ] ; then
+    mkdir -p /etc/update-motd.d
+    echo '#!/bin/sh' > /etc/update-motd.d/80-motd
+    echo 'cat <<"EOF"' >> /etc/update-motd.d/80-motd
+    cat /etc/motd >> /etc/update-motd.d/80-motd
+    echo 'EOF' >> /etc/update-motd.d/80-motd
+    chmod +x /etc/update-motd.d/80-motd
+    rm /etc/motd
+    ln -s ../var/run/motd /etc/motd
+fi
+
 #DEBHELPER#
