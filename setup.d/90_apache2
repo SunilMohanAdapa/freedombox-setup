@@ -4,6 +4,10 @@
 
 echo "Configuring Apache..."
 
+# enable non-multithreaded Apache worker model as there a many PHP
+# applications.
+a2enmod mpm_prefork
+
 # enable miscellaneous modules.
 a2enmod rewrite
 
