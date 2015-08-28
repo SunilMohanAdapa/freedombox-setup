@@ -21,10 +21,5 @@ create_lxc_box() {
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y lxc bridge-utils
 
-if ! grep cgroup /etc/fstab ; then
-    echo 'cgroup /sys/fs/cgroup cgroup defaults 0 0' >> /etc/fstab
-    mount /sys/fs/cgroup
-fi
-
 # The Internet router / firewall container
 #create_lxc_box internet
