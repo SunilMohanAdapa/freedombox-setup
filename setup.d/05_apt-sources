@@ -1,6 +1,0 @@
-#!/bin/sh
-#
-# Disable all non-http sources, to make sure a cdrom is not needed to
-# fetch packages.
-
-sed -i '/deb cdrom:/d' /etc/apt/sources.list
