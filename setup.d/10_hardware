@@ -232,19 +232,6 @@ EOF
     echo "rtc_sunxi" >> /etc/initramfs-tools/modules
 }
 
-tmp_on_tmpfs() {
-    if grep -q /tmp /etc/fstab ; then
-	:
-    else
-	echo "info: adding /tmp/ as tmpfs to /etc/fstab"
-	cat >> /etc/fstab <<EOF
-tmpfs     /tmp          tmpfs   rw,nosuid,nodev 0       0
-EOF
-    fi
-}
-
-tmp_on_tmpfs
-
 case "$MACHINE" in
     dreamplug|guruplug)
 	dreamplug_flash
