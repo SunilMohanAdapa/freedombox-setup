@@ -6,3 +6,4 @@ sbin/machine-detect usr/sbin
 sbin/interface-detect usr/sbin
 lxc-templates/lxc-debian-freedombox usr/share/lxc/templates
 avahi-services etc/avahi/services
+data/etc/update-motd.d/50-freedombox etc/update-motd.d/
