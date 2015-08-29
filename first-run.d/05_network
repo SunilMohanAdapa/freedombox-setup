@@ -1,18 +1,8 @@
 #!/bin/bash
 
-# Configure networking for device.
+# Configure networking for all wired and wireless devices.
 #
-# Creates a basic network interface file and network-manager connections.
-#
-# First parameter is the path to the network interface file to
-# configure.
-
-if [ -n "$1" ]
-then
-    IFACES_FILE=$1
-else
-    IFACES_FILE=/etc/network/interfaces
-fi
+# Creates network-manager connections.
 
 function get-interfaces {
     # XXX: Sorting of interfaces is non-numeric
@@ -28,11 +18,11 @@ function configure-regular-interface {
     connection_name="FreedomBox WAN"
 
     # Create n-m connection for a regular interface
-    nmcli con add con-name $connection_name ifname $interface type ethernet
-    nmcli con modify $connection_name connection.autoconnect TRUE
-    nmcli con modify $connection_name connection.zone $zone
+    nmcli con add con-name "$connection_name" ifname "$interface" type ethernet
+    nmcli con modify "$connection_name" connection.autoconnect TRUE
+    nmcli con modify "$connection_name" connection.zone "$zone"
 
-    echo "Configured interface $interface for $zone use as $connection_name."
+    echo "Configured interface '$interface' for '$zone' use as '$connection_name'."
 }
 
 function configure-shared-interface {
@@ -40,9 +30,9 @@ function configure-shared-interface {
     connection_name="FreedomBox LAN $interface"
 
     # Create n-m connection for eth1
-    nmcli con add con-name $connection_name ifname $interface type ethernet
-    nmcli con modify $connection_name connection.autoconnect TRUE
-    nmcli con modify $connection_name connection.zone internal
+    nmcli con add con-name "$connection_name" ifname "$interface" type ethernet
+    nmcli con modify "$connection_name" connection.autoconnect TRUE
+    nmcli con modify "$connection_name" connection.zone internal
 
     # Configure this interface to be shared with other computers.
     #  - Self-assign an address and network
@@ -50,9 +40,9 @@ function configure-shared-interface {
     #  - Start and manage DHCP server (dnsmasq)
     #  - Register address with mDNS
     #  - Add firewall rules for NATing from this interface
-    nmcli con modify $connection_name ipv4.method shared
+    nmcli con modify "$connection_name" ipv4.method shared
 
-    echo "Configured interface $interface for shared use as $connection_name."
+    echo "Configured interface '$interface' for shared use as '$connection_name'."
 }
 
 function configure-wireless-interface {
@@ -61,15 +51,15 @@ function configure-wireless-interface {
     ssid="FreedomBox$interface"
     secret="freedombox123"
 
-    configure-shared-interface $interface
-    nmcli con add con-name "FreedomBox AP $interface" ifname $interface type wifi ssid $ssid
-    nmcli con modify $connection_name connection.autoconnect TRUE
-    nmcli con modify $connection_name connection.zone internal
-    nmcli con modify $connection_name wifi.mode ap
-    nmcli con modify $connection_name wifi-sec.key-mgmt wpa-psk
-    nmcli con modify $connection_name wifi-sec.psk $secret
+    configure-shared-interface "$interface"
+    nmcli con add con-name "$connection_name" ifname "$interface" type wifi ssid "$ssid"
+    nmcli con modify "$connection_name" connection.autoconnect TRUE
+    nmcli con modify "$connection_name" connection.zone internal
+    nmcli con modify "$connection_name" wifi.mode ap
+    nmcli con modify "$connection_name" wifi-sec.key-mgmt wpa-psk
+    nmcli con modify "$connection_name" wifi-sec.psk "$secret"
 
-    echo "Configured interface $interface for shared use as $connection_name."
+    echo "Configured interface '$interface' for shared use as '$connection_name'."
 }
 
 function multi-wired-setup {
@@ -77,17 +67,17 @@ function multi-wired-setup {
     shift
     remaining_interfaces="$@"
 
-    configure-regular-interface $first_interface external
+    configure-regular-interface "$first_interface" external
 
     for interface in $remaining_interfaces
     do
-        configure-shared-interface $interface
+        configure-shared-interface "$interface"
     done
 }
 
 function one-wired-setup {
     interface="$1"
-    configure-regular-interface $interface internal
+    configure-regular-interface "$interface" internal
 }
 
 function wireless-setup {
@@ -95,7 +85,7 @@ function wireless-setup {
 
     for interface in $interfaces
     do
-        configure-wireless-interface $interface
+        configure-wireless-interface "$interface"
     done
 }
 
