@@ -1,3 +1,14 @@
+freedombox-setup (0.6) UNRELEASED; urgency=medium
+
+  * Fix error preventing flash-kernel install on Dreamplug (Closes: #794825).
+  * Use httpredir.debian.org instead of http.debian.net (Closes: #795737).
+  * Remove Tor setup, now handled by Plinth (Closes: #795750).
+  * Remove diagnostic testsuite, now handled by Plinth (Closes: #795768).
+  * Remove unused and not-working code (Closes: #796860).
+  * Support Raspberry Pi 2 (Closes: #797007).
+
+ -- James Valleroy <jvalleroy@mailbox.org>  Sat, 29 Aug 2015 18:23:28 -0400
+
 freedombox-setup (0.5) unstable; urgency=medium
 
   [ Nick Daly ]
