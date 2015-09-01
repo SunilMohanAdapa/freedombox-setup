@@ -6,8 +6,12 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Remove diagnostic testsuite, now handled by Plinth (Closes: #795768).
   * Remove unused and not-working code (Closes: #796860).
   * Support Raspberry Pi 2 (Closes: #797007).
+  * Add login greeter message with location of manuals (Closes: #794826).
+  * Remove unneeded changes to fstab, hosts, and apt sources (Closes: #797377).
+  * Don't remove SSH keys; this will be done by freedom-maker for pre-built
+    images (Closes: #797376).
 
- -- James Valleroy <jvalleroy@mailbox.org>  Sat, 29 Aug 2015 18:23:28 -0400
+ -- James Valleroy <jvalleroy@mailbox.org>  Tue, 01 Sep 2015 18:32:08 -0400
 
 freedombox-setup (0.5) unstable; urgency=medium
 
