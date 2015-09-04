@@ -81,7 +81,7 @@ function one-wired-setup {
 }
 
 function wireless-setup {
-    interface="$@"
+    interfaces="$@"
 
     for interface in $interfaces
     do
