@@ -10,8 +10,17 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Remove unneeded changes to fstab, hosts, and apt sources (Closes: #797377).
   * Don't remove SSH keys; this will be done by freedom-maker for pre-built
     images (Closes: #797376).
+  * Default to not downloading sources (Closes: #795764).
+  * Remove apache2-mpm-worker from depends list (Closes: #791597).
+  * Select Apache MPM prefork by default. Disable other MPMs.
+  * Merge Wi-Fi configuration with network configuration (Closes: #797373).
+  * Install avahi service files properly (Closes: #795880).
+  * Move Apache, PAM, sudoers configurations to files.
+  * Move sysctl configuration and LXC template to new hierarchy.
+  * Move machine-detect file to /usr/lib/freedombox.
+  * Add Lintian override for Apache configuration name.
 
- -- James Valleroy <jvalleroy@mailbox.org>  Tue, 01 Sep 2015 18:32:08 -0400
+ -- James Valleroy <jvalleroy@mailbox.org>  Thu, 03 Sep 2015 21:25:19 -0400
 
 freedombox-setup (0.5) unstable; urgency=medium
 
