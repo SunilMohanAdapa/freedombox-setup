@@ -13,8 +13,9 @@ a2enmod mpm_prefork
 # enable miscellaneous modules.
 a2enmod rewrite
 
-# enable SSL
-a2enmod ssl
+# enable GnuTLS
+a2dismod ssl
+a2enmod gnutls
 
 # enable mod_alias for RedirectMatch
 a2enmod alias
@@ -26,6 +27,7 @@ a2enmod headers
 a2enconf freedombox
 
 a2ensite 000-default
-a2ensite default-ssl
+a2dissite default-ssl
+a2ensite default-tls
 
 echo "Done configuring Apache."
