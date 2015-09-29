@@ -1,6 +1,11 @@
 freedombox-setup (0.6) UNRELEASED; urgency=medium
 
+  [ James Valleroy ]
   * Fix error preventing flash-kernel install on Dreamplug (Closes: #794825).
+  * Fix some errors in flash-kernel script (Closes: #798417).
+  * Switch from mod_ssl to mod_gnutls (Closes: #798415).
+
+  [ Sunil Mohan Adapa ]
   * Use httpredir.debian.org instead of http.debian.net (Closes: #795737).
   * Remove Tor setup, now handled by Plinth (Closes: #795750).
   * Remove diagnostic testsuite, now handled by Plinth (Closes: #795768).
@@ -20,7 +25,7 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Move machine-detect file to /usr/lib/freedombox.
   * Add Lintian override for Apache configuration name.
 
- -- James Valleroy <jvalleroy@mailbox.org>  Thu, 03 Sep 2015 21:25:19 -0400
+ -- James Valleroy <jvalleroy@mailbox.org>  Mon, 28 Sep 2015 22:10:46 -0400
 
 freedombox-setup (0.5) unstable; urgency=medium
 
