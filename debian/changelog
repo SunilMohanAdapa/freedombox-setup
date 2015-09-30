@@ -4,6 +4,7 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Fix error preventing flash-kernel install on Dreamplug (Closes: #794825).
   * Fix some errors in flash-kernel script (Closes: #798417).
   * Switch from mod_ssl to mod_gnutls (Closes: #798415).
+  * Remove old manual in favor of new one present in Plinth.
 
   [ Sunil Mohan Adapa ]
   * Use httpredir.debian.org instead of http.debian.net (Closes: #795737).
