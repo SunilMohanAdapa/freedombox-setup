@@ -13,5 +13,5 @@ cat <<"EOF"
                            FreedomBox
 
 FreedomBox is a pure blend of Debian GNU/Linux.  FreedomBox manual is
-available in /usr/share/doc/freedombox-setup.
+available in /usr/share/doc/plinth.
 EOF

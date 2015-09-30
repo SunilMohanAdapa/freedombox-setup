@@ -1,11 +1,6 @@
-/doc/manual-jessie.epub
-/doc/manual-jessie.html
-/doc/manual-jessie.pdf
-/doc/manual-jessie.txt
 /debian/freedombox-setup/
 /debian/freedombox-setup.debhelper.log
 /debian/*.debhelper
 /debian/files
 /debian/freedombox-setup.substvars
 /.emacs.desktop*
-/doc/README.fbx-home
