@@ -46,6 +46,7 @@ Depends: ${misc:Depends}
  , iputils-ping
  , iw
  , libapache2-mod-gnutls
+ , libapache2-mod-php5
  , libnss-gw-name
  , libnss-mdns
  , libnss-myhostname

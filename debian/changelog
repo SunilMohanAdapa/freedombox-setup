@@ -25,6 +25,7 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Move sysctl configuration and LXC template to new hierarchy.
   * Move machine-detect file to /usr/lib/freedombox.
   * Add Lintian override for Apache configuration name.
+  * Enable PHP5 and CGI modules by default to avoid restarting Apache2 later.
 
  -- James Valleroy <jvalleroy@mailbox.org>  Mon, 28 Sep 2015 22:10:46 -0400
 
