@@ -5,6 +5,7 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Fix some errors in flash-kernel script (Closes: #798417).
   * Switch from mod_ssl to mod_gnutls (Closes: #798415).
   * Remove old manual in favor of new one present in Plinth.
+  * Bump dependency on plinth to >= 0.6.
 
   [ Sunil Mohan Adapa ]
   * Use httpredir.debian.org instead of http.debian.net (Closes: #795737).
@@ -27,7 +28,7 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Add Lintian override for Apache configuration name.
   * Enable PHP5 and CGI modules by default to avoid restarting Apache2 later.
 
- -- James Valleroy <jvalleroy@mailbox.org>  Mon, 28 Sep 2015 22:10:46 -0400
+ -- James Valleroy <jvalleroy@mailbox.org>  Sun, 11 Oct 2015 10:51:11 -0400
 
 freedombox-setup (0.5) unstable; urgency=medium
 
