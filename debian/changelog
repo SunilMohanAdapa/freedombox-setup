@@ -1,4 +1,6 @@
-freedombox-setup (0.6) UNRELEASED; urgency=medium
+freedombox-setup (0.6) unstable; urgency=medium
+  [ Nick Daly ]
+  * Upload 0.6 release.
 
   [ James Valleroy ]
   * Fix error preventing flash-kernel install on Dreamplug (Closes: #794825).
@@ -28,7 +30,7 @@ freedombox-setup (0.6) UNRELEASED; urgency=medium
   * Add Lintian override for Apache configuration name.
   * Enable PHP5 and CGI modules by default to avoid restarting Apache2 later.
 
- -- James Valleroy <jvalleroy@mailbox.org>  Sun, 11 Oct 2015 10:51:11 -0400
+ -- Nick Daly <Nick.M.Daly@gmail.com>  Fri, 16 Oct 2015 16:24:12 -0500
 
 freedombox-setup (0.5) unstable; urgency=medium
 
