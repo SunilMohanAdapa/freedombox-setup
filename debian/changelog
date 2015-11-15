@@ -1,3 +1,10 @@
+freedombox-setup (0.7) UNRELEASED; urgency=medium
+
+  [ James Valleroy ]
+  * Move hardware setup outside to freedom-maker (Closes: #803734).
+
+ -- Sunil Mohan Adapa <sunil@medhas.org>  Sun, 15 Nov 2015 23:14:05 +0530
+
 freedombox-setup (0.6) unstable; urgency=medium
   [ Nick Daly ]
   * Upload 0.6 release.
